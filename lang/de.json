@@ -13,8 +13,6 @@
 	"TIDY5E.RestS": "Kurze Rast",
 	"TIDY5E.RestL": "Lange Rast",
 
-	"TIDY5E.AttrHitPoints": "Trefferpunkte",
-
 	"TIDY5E.HitDiceHint": "bei Rast nutzen",
 
 	"TIDY5E.Journal": "Tagebuch",
@@ -58,15 +56,6 @@
 	"TIDY5E.Edit" : "editiere",
 	"TIDY5E.SkillsNotProficient" : "ungeübte",
 	"TIDY5E.TraitsEmpty" : "leere",
-
-	"TIDY5E.AbbrArmorClass" : "RK",
-
-	"TIDY5E.strAbility" : "Stä",
-	"TIDY5E.dexAbility" : "Gew",
-	"TIDY5E.conAbility" : "Kon",
-	"TIDY5E.intAbility" : "Int",
-	"TIDY5E.wisAbility" : "Wei",
-	"TIDY5E.chaAbility" : "Cha",
 
 	"TIDY5E.Abilities" : "Fähigkeiten",
 

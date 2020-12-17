@@ -13,10 +13,6 @@
 	"TIDY5E.RestS": "Short Rest",
 	"TIDY5E.RestL": "Long Rest",
 
-	"TIDY5E.AttrHitPoints": "Hit Points",
-
-	"TIDY5E.HitDiceHint": "Use on Rest",
-
 	"TIDY5E.Journal": "Journal",
 
 	"TIDY5E.SkillPassive": "Passive",
@@ -58,15 +54,6 @@
 	"TIDY5E.Edit" : "edit",
 	"TIDY5E.SkillsNotProficient" : "not proficient",
 	"TIDY5E.TraitsEmpty" : "empty traits",
-
-	"TIDY5E.AbbrArmorClass" : "AC",
-
-	"TIDY5E.strAbility" : "Str",
-	"TIDY5E.dexAbility" : "Dex",
-	"TIDY5E.conAbility" : "Con",
-	"TIDY5E.intAbility" : "Int",
-	"TIDY5E.wisAbility" : "Wis",
-	"TIDY5E.chaAbility" : "Cha",
 
 	"TIDY5E.Abilities" : "Abilities",
 

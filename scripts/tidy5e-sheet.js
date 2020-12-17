@@ -20,7 +20,6 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 			classes: ["tidy5e", "sheet", "actor", "character"],
 			blockFavTab: true,
 			width: 740,
-			// height: 720
 			height: 840
 		});
 	}
@@ -32,7 +31,8 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
     const data = super.getData();
 
     Object.keys(data.data.abilities).forEach(id => {
-      data.data.abilities[id].abbr = game.i18n.localize(`TIDY5E.${id}Ability`);
+    	let Id = id.charAt(0).toUpperCase() + id.slice(1);
+      data.data.abilities[id].abbr = game.i18n.localize(`DND5E.Ability${Id}Abbr`);
     });
 
     return data;
@@ -639,14 +639,12 @@ Actors.registerSheet("dnd5e", Tidy5eSheet, {
 });
 
 Hooks.on("renderTidy5eSheet", (app, html, data) => {
-	// migrateTraits(app, html, data);
 	addFavorites(app, html, data, position);
 	addClassList(app, html, data);
 	setSheetClasses(app, html, data);
 	toggleTraitsList(app, html, data)
 	checkDeathSaveStatus(app, html, data);
 	countInventoryItems(app,html,data);
-	// checkMagicItems(app, html, data);
 	countAttunedItems(app, html, data);
 	// console.log(data);
 	console.log("Tidy5e Sheet rendered!");

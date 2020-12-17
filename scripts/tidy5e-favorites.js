@@ -76,7 +76,6 @@ export const addFavorites = async function(app, html, data, position) {
   let spellCount = 0
   let spellPrepModeCount = 0
   let items = data.items;
-      console.log(data);
 
   let renderFavTab = false;
 
@@ -153,21 +152,15 @@ export const addFavorites = async function(app, html, data, position) {
             item.isOnCooldown = true;
             item.labels = {recharge : game.i18n.localize("DND5E.FeatureRechargeOn")+" ["+item.data.recharge.value+"+]", rechargeValue : "["+item.data.recharge.value+"+]"};
           }
+
           // adding info if item has quantity more than one
           item.isStack = false;
           if (item.data.quantity && item.data.quantity > 1) {
             item.isStack = true;
           }
+
           // adding attunement info
           item.canAttune = false;
-          item.attunementCls = '';
-          item.attunementTitle = '';
-
-            // console.log(item.attunement);
-          if(item.attunement) {
-            item.attunementCls = item.attunement.cls;
-            item.attunementTitle = item.attunement.title;
-          }
 
           if (item.data.attunement) {
             if( item.data.attunement == 1 || item.data.attunement == 2) {
@@ -175,6 +168,7 @@ export const addFavorites = async function(app, html, data, position) {
             }
           }
 
+          // check magic item
           item.isMagic = false;
           if (item.flags.magicitems && item.flags.magicitems.enabled || item.data.properties  && item.data.properties.mgc){
             item.isMagic = true;

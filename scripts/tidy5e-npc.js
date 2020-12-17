@@ -150,7 +150,8 @@ export default class Tidy5eNPC extends ActorSheet5e {
     data.labels["cr"] = cr >= 1 ? String(cr) : crLabels[cr] || 1;
     
     Object.keys(data.data.abilities).forEach(id => {
-      data.data.abilities[id].abbr = game.i18n.localize(`TIDY5E.${id}Ability`);
+      let Id = id.charAt(0).toUpperCase() + id.slice(1);
+      data.data.abilities[id].abbr = game.i18n.localize(`DND5E.Ability${Id}Abbr`);
     });
 
     return data;
@@ -409,7 +410,6 @@ export default class Tidy5eNPC extends ActorSheet5e {
           break;
       }
     });
-
 
   }
 
