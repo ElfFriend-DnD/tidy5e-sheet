@@ -1,5 +1,5 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  <div class="tidy5e-sheet tidy5e-npc">
+  <div class="tidy5e-sheet tidy5e-npc {{#if actor.flags.tidy5e-sheet.allow-edit}}allow-edit{{/if}}">
     {{!-- NPC Sheet Header --}}
     <header class="tidy5e-header">
       <section class="profile-wrap">
@@ -12,6 +12,15 @@
           {{!-- HP Overlay --}}
           <div class="hp-overlay-wrapper">
             <div class="hp-overlay" style="background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) calc(100% - ((100% / ({{data.attributes.hp.max}} + {{#if data.attributes.hp.tempmax}}{{data.attributes.hp.tempmax}}{{else}}0{{/if}} )) * ({{data.attributes.hp.value}} + {{#if data.attributes.hp.temp}}{{data.attributes.hp.temp}}{{else}}0{{/if}})) ), rgba(255,255,255,1) calc(100% - ((100% / ({{data.attributes.hp.max}} + {{#if data.attributes.hp.tempmax}}{{data.attributes.hp.tempmax}}{{else}}0{{/if}} )) * ({{data.attributes.hp.value}} + {{#if data.attributes.hp.temp}}{{data.attributes.hp.temp}}{{else}}0{{/if}})) ), rgba(255,255,255,1) 100%);">
+            </div>
+          </div>
+          {{!-- Resting --}}
+          <div class="rest-container has-note">
+            <div class="note">{{ localize 'TIDY5E.RestHint' }}</div>
+            <div class="resting">
+              <span class="resting-icon"><i class="rest-icon fas fa-bed"></i></span>
+              <a class="rest short-rest" title="{{ localize 'TIDY5E.RestS' }}"><i class="fas fa-hourglass-half"></i></a>
+              <a class="rest long-rest" title="{{ localize 'TIDY5E.RestL' }}"><i class="fas fa-hourglass-end"></i></a>
             </div>
           </div>
           
@@ -164,7 +173,7 @@
       <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
       <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
       <a class="item" data-tab="journal">{{ localize "TIDY5E.Journal" }}</a>
-      <div class="toggle-edit"><span title="Edit Inventory"><i class="fas fa-lock"></i><i class="fas fa-lock-open"></i></span></div>
+      <div class="toggle-allow-edit"><span title="Edit Inventory"><i class="fas fa-lock"></i><i class="fas fa-lock-open"></i></span></div>
     </nav>
 
     {{!-- NPC Sheet Body --}}

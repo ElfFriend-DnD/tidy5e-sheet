@@ -238,6 +238,18 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
       }
     });
 
+    // toggle item edit protection
+    html.find('.toggle-allow-edit span').click(async (event) => {
+      event.preventDefault();
+      let actor = this.actor;
+
+      if(actor.getFlag('tidy5e-sheet', 'allow-edit')){
+        await actor.unsetFlag('tidy5e-sheet', 'allow-edit');
+      } else {
+        await actor.setFlag('tidy5e-sheet', 'allow-edit', true);
+      }
+    });
+
     // open context menu
     html.find('.item-list .item').mousedown( function (event) {
 	    switch (event.which) {
@@ -411,21 +423,6 @@ async function countAttunedItems(app, html, data){
   }
 }
 
-// check magic items
-// async function checkMagicItems(app, html, data){
-
-// 	let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-
-//   html.find('.tab.inventory .item').each(function(){
-//  		let li = $(this),
-// 				item = actor.getOwnedItem(li.data("item-id")),
-// 				itemData = item.data;
-// 		if(itemData.flags.magicitems && itemData.flags.magicitems.enabled) {
-// 			li.addClass('magic-item');
-// 		}
-//   });
-// }
-
 // handle traits list display
 async function toggleTraitsList(app, html, data){
   html.find('.traits:not(.always-visible):not(.expanded) .form-group.inactive').addClass('trait-hidden').hide();
@@ -451,43 +448,37 @@ async function checkDeathSaveStatus(app, html, data){
 	}
 }
 
-// Add Character Class List
-// async function addClassList(app, html, data) { 
-// 	if (!game.settings.get("tidy5e-sheet", "hideClassList")) {
-// 		let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-// 		let classList = [];
-// 		let items = data.actor.items;
-// 		for (let item of items) {
-// 			if (item.type === "class") {
-// 				let subclass = (item.data.subclass) ? ` <div class="subclass-info has-note"><span>S</span><div class="note">${item.data.subclass}</div></div>` : ``;
-// 				classList.push(item.name + subclass);
-// 			}
-// 		}
-// 		classList = "<ul class='class-list'><li class='class-item'>" + classList.join("</li><li class='class-item'>") + "</li></ul>";
-// 		mergeObject(actor, {"data.flags.tidy5e-sheet.classlist": classList});
-// 		let classListTarget = html.find('.level-information');
-// 		classListTarget.after(classList);
+// Edit Protection - Hide empty Inventory Sections, add and delete-buttons
+async function editProtection(app, html, data) {
+  let actor = app.actor;
+  if(game.user.isGM && game.settings.get("tidy5e-sheet", "GmCanAlwaysEdit")) {
 
-// 	}
-// }
-	async function addClassList(app, html, data) { 
-		if (!game.settings.get("tidy5e-sheet", "hideClassList")) {
-			let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
-			let classList = [];
-			let items = data.actor.items;
-			for (let item of items) {
-				if (item.type === "class") {
-					let levels = (item.data.levels) ? `<span class="levels-info">${item.data.levels}</span>` : ``;
-					let subclass = (item.data.subclass) ? `<span class="subclass-info">(${item.data.subclass})</span>` : ``;
-					classList.push(item.name + levels + subclass);
-				}
+  } else if(!actor.getFlag('tidy5e-sheet', 'allow-edit')){
+    
+    html.find('.inventory-list .items-footer').hide();
+    html.find('.inventory-list .item-control.item-delete').remove();
+  }
+}
+
+// Add Character Class List
+async function addClassList(app, html, data) { 
+	if (!game.settings.get("tidy5e-sheet", "hideClassList")) {
+		let actor = game.actors.entities.find(a => a.data._id === data.actor._id);
+		let classList = [];
+		let items = data.actor.items;
+		for (let item of items) {
+			if (item.type === "class") {
+				let levels = (item.data.levels) ? `<span class="levels-info">${item.data.levels}</span>` : ``;
+				let subclass = (item.data.subclass) ? `<span class="subclass-info">(${item.data.subclass})</span>` : ``;
+				classList.push(item.name + levels + subclass);
 			}
-			classList = "<ul class='class-list'><li class='class-item'>" + classList.join("</li><li class='class-item'>") + "</li></ul>";
-			mergeObject(actor, {"data.flags.tidy5e-sheet.classlist": classList});
-			let classListTarget = html.find('.general-information');
-			classListTarget.after(classList);
 		}
+		classList = "<ul class='class-list'><li class='class-item'>" + classList.join("</li><li class='class-item'>") + "</li></ul>";
+		mergeObject(actor, {"data.flags.tidy5e-sheet.classlist": classList});
+		let classListTarget = html.find('.general-information');
+		classListTarget.after(classList);
 	}
+}
 
 // Manage Sheet Options
 async function setSheetClasses(app, html, data) {
@@ -529,6 +520,9 @@ async function setSheetClasses(app, html, data) {
 	}
 	if (!game.settings.get("tidy5e-sheet", "pcToggleTraits")) {
 		html.find('.tidy5e-sheet .traits').addClass('always-visible');
+	}
+	if(game.user.isGM){
+		html.find('.tidy5e-sheet').addClass('isGM');
 	}
 }
 
@@ -642,11 +636,12 @@ Hooks.on("renderTidy5eSheet", (app, html, data) => {
 	addFavorites(app, html, data, position);
 	addClassList(app, html, data);
 	setSheetClasses(app, html, data);
+	editProtection(app, html, data);
 	toggleTraitsList(app, html, data)
 	checkDeathSaveStatus(app, html, data);
 	countInventoryItems(app,html,data);
 	countAttunedItems(app, html, data);
-	// console.log(data);
+	console.log(game);
 	console.log("Tidy5e Sheet rendered!");
 });
 
@@ -657,6 +652,15 @@ Hooks.once("ready", () => {
 	if (window.BetterRolls) {
 	  window.BetterRolls.hooks.addActorSheet("Tidy5eSheet");
 	}
+
+  game.settings.register("tidy5e-sheet", "GmCanAlwaysEdit", {
+    name: 'Gm can always edit Player Character Sheets',
+    hint: '',
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean
+  });
 
   game.settings.register("tidy5e-sheet", "useExpandedSheet", {
     name: game.i18n.localize("TIDY5E.Settings.UseExpandedSheet.name"),

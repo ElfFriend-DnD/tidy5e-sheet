@@ -50,7 +50,7 @@
 		border-right-color: transparent;
 	}
 
-	.toggle-edit {
+	.toggle-allow-edit {
     display: flex;
     flex: 0;
     align-items: center;
@@ -65,13 +65,37 @@
 
     span {
 	    cursor: pointer;
-    	background: mediumseagreen;
+    	background: rgba(0,150,100,.6);
     	color: rgba(255,255,255,.6);
       border-radius: 3px;
       padding: 2px 6px;
+
+      &:hover {
+    		color: rgba(255,255,255,1);
+      }
+
+      i {
+      	width: 15px;
+      	text-align: center;
+      }
     }
 
     .fa-lock-open {
+    	display: none;
+    }
+  }
+}
+
+.allow-edit .tidy5e-navigation {
+	.toggle-allow-edit {
+    span {
+    	background: rgba(255,50,0,.6);
+    }
+
+    .fa-lock-open {
+    	display: inline-block;
+    }
+    .fa-lock {
     	display: none;
     }
   }

@@ -527,7 +527,8 @@
 		.context-divider {
 			margin: 1px 0;
 
-			&:first-child {
+			&:first-child,
+			&:last-child  {
 				display: none;
 			}
 		}

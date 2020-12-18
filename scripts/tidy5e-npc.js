@@ -294,15 +294,15 @@ export default class Tidy5eNPC extends ActorSheet5e {
       }
     });
 
-    // toggle item delete protection
-    html.find('.tidy5e-delete-toggle').click(async (event) => {
+    // toggle item edit protection
+    html.find('.toggle-allow-edit span').click(async (event) => {
       event.preventDefault();
       let actor = this.actor;
 
-      if(actor.getFlag('tidy5e-sheet', 'allow-delete')){
-        await actor.unsetFlag('tidy5e-sheet', 'allow-delete');
+      if(actor.getFlag('tidy5e-sheet', 'allow-edit')){
+        await actor.unsetFlag('tidy5e-sheet', 'allow-edit');
       } else {
-        await actor.setFlag('tidy5e-sheet', 'allow-delete', true);
+        await actor.setFlag('tidy5e-sheet', 'allow-edit', true);
       }
     });
 
@@ -411,6 +411,11 @@ export default class Tidy5eNPC extends ActorSheet5e {
       }
     });
 
+
+    // Short and Long Rest
+    html.find('.short-rest').click(this._onShortRest.bind(this));
+    html.find('.long-rest').click(this._onLongRest.bind(this));
+
   }
 
 
@@ -428,6 +433,32 @@ export default class Tidy5eNPC extends ActorSheet5e {
     const hp = new Roll(formula).roll().total;
     AudioHelper.play({src: CONFIG.sounds.dice});
     this.actor.update({"data.attributes.hp.value": hp, "data.attributes.hp.max": hp});
+  }
+
+    /* -------------------------------------------- */
+
+  /**
+   * Take a short rest, calling the relevant function on the Actor instance
+   * @param {Event} event   The triggering click event
+   * @private
+   */
+  async _onShortRest(event) {
+    event.preventDefault();
+    await this._onSubmit(event);
+    return this.actor.shortRest();
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Take a long rest, calling the relevant function on the Actor instance
+   * @param {Event} event   The triggering click event
+   * @private
+   */
+  async _onLongRest(event) {
+    event.preventDefault();
+    await this._onSubmit(event);
+    return this.actor.longRest();
   }
 
 }
@@ -536,25 +567,30 @@ async function hideSpellbook(app, html, data) {
   }
 }
 
-// Hide empty Inventory Sections
-async function hideEmptyInventorySections(app, html, data) {
-  html.find('.inventory-list:not(.spellbook-list) .items-header').each(function(){
-    if($(this).next('.item-list').find('li').length <= 1){
-      // $(this).addClass('hidden');
-      // $(this).next('.item-list').addClass('hidden');
-      $(this).next('.item-list').remove();
-      $(this).remove();
+// Edit Protection - Hide empty Inventory Sections, add and delete-buttons
+async function editProtection(app, html, data) {
+  let actor = app.actor;
+  if(!actor.getFlag('tidy5e-sheet', 'allow-edit')){
+    html.find('.inventory-list:not(.spellbook-list) .items-header').each(function(){
+      if($(this).next('.item-list').find('li').length <= 1){
+        $(this).next('.item-list').remove();
+        $(this).remove();
+      }
+    });
+    
+    html.find('.inventory-list .items-footer').remove();
+    html.find('.inventory-list .item-control.item-delete').remove();
+
+    let actor = app.actor,
+        legAct = actor.data.data.resources.legact.max,
+        legRes = actor.data.data.resources.legres.max,
+        lair = actor.data.data.resources.lair.value;
+
+    console.log(actor, legAct, legRes, lair);
+
+    if(!lair && legAct <= 1 && legRes <= 1) {
+      html.find('.counters').remove();
     }
-  });
-  let actor = app.actor,
-      legAct = actor.data.data.resources.legact.max,
-      legRes = actor.data.data.resources.legres.max,
-      lair = actor.data.data.resources.lair.value;
-
-  console.log(actor, legAct, legRes, lair);
-
-  if(!lair && legAct <= 1 && legRes <= 1) {
-    html.find('.counters').remove();
   }
 }
 
@@ -672,7 +708,7 @@ Hooks.on("renderTidy5eNPC", (app, html, data) => {
   restoreScrollPosition(app, html, data);
   hideSpellbook(app, html, data);
   resetTempHp(app, html, data);
-  hideEmptyInventorySections(app, html, data);
+  editProtection(app, html, data);
   npcFavorites (app, html, data);
   // console.log(data);
 });
