@@ -2,7 +2,7 @@
 .inventory-filters {
   margin: 0 14px 1rem 0;
 	flex: 0 0 19px;
-	border-bottom: 1px solid var(--default-light-color);
+	border-bottom: 1px solid var(--light-color);
 }
 
 .filter-list {
@@ -13,7 +13,7 @@
 	.filter-title {
 		font-size: 12px;
     line-height: 18px;
-    color: var(--default-secondary-color);
+    color: var(--secondary-color);
 	}
 
 	.filter-item {
@@ -22,14 +22,14 @@
 	  margin-left: 2px;
 	  flex: unset;
 	  cursor: pointer;
-	  border-bottom: 3px solid var(--default-light-color);
+	  border-bottom: 3px solid var(--light-color);
 
 	  &:hover {
-			border-bottom: 3px solid var(--default-tertiary-color);
+			border-bottom: 3px solid var(--tertiary-color);
 	  }
 
 	  &.active {
-			border-bottom: 3px solid var(--default-primary-color);
+			border-bottom: 3px solid var(--primary-color);
 	  }
 	} //.filter-item
 
@@ -39,7 +39,7 @@
     padding: 0 2px;
 
     &:hover {
-    	color: var(--default-primary-accent);
+    	color: var(--primary-accent);
     }
 	}
 } //.filter-list
@@ -49,7 +49,7 @@
   padding-top: .5rem;
   display: flex;
 	flex: 0 0 30px;
-	border-top: 1px solid var(--default-light-color);
+	border-top: 1px solid var(--light-color);
 }
 
 .attuned-items-counter {
@@ -58,13 +58,13 @@
   margin: 0 20px 0 3px;
   padding: 0 0 0 10px;
   border-radius: 5px;
-  background: var(--default-faint-color);
-  box-shadow: 0 0 5px var(--default-magic-highlight) inset;
-  border: 1px solid var(--default-magic-highlight);
+  background: var(--faint-color);
+  box-shadow: 0 0 5px var(--magic-accent) inset;
+  border: 1px solid var(--magic-accent);
 
 	&.overattuned {
-		background: var(--default-primary-accent);
-		box-shadow: 0 0 3px var(--default-primary-accent);
+		background: var(--primary-accent);
+		box-shadow: 0 0 3px var(--primary-accent);
 		animation: attention 2s infinite alternate ease-in-out;
 		color: #fff;
 	}
@@ -127,7 +127,7 @@
 	.currency-item {
 		display: flex;
 		align-items: center;
-	  background: var(--default-faint-color);
+	  background: var(--faint-color);
 	  border-radius: 5px;
 	  padding: 0 .5rem 0 0;
 	  margin-right: .5rem;
@@ -154,13 +154,13 @@
 
 		a {
 			display: block;
-			background: var(--default-tertiary-color);
-			color: var(--default-pergament-color);
+			background: var(--tertiary-color);
+			color: var(--pergament-color);
 			border-radius: 5px;
 			padding: 0 6px;
 
 			&:hover {
-			  background: var(--default-secondary-color);
+			  background: var(--secondary-color);
 			}
 		} // a
 
@@ -174,11 +174,11 @@
 // encumbrance
 .encumbrance {
 	margin-right: 14px;
-  background: var(--default-light-color);
+  background: var(--light-color);
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 0 1px var(--default-tertiary-color) inset;
+  box-shadow: 0 0 0 1px var(--tertiary-color) inset;
 
 	.encumbrance-bar {
     position: absolute;
@@ -186,8 +186,8 @@
     left: 1px;
     bottom: 1px;
     max-width: calc(100% - 2px);
-    border: 1px solid #cde4ff;
-    background: #6c8aa5;
+    border: 1px solid var(--encumbrance-outline);
+    background: var(--encumbrance-bar);
     border-radius: 4px;
 	}
 
@@ -219,12 +219,12 @@
 
 	.arrow-up {
 		bottom: 0;
-    border-bottom-color: var(--default-primary-color);
+    border-bottom-color: var(--primary-color);
 	}
 
 	.arrow-down {
 		top: 0;
-    border-top-color: var(--default-primary-color);
+    border-top-color: var(--primary-color);
 	}
 }
 
@@ -235,7 +235,7 @@
 	justify-content: space-between;
   margin: 0rem 14px 0 0;
   padding-top: .5rem;
-	border-top: 2px solid rgba(0,0,0,.3);
+	border-top: 2px solid var(--light-color);
 	align-items: center;
 
 	.spellcasting-attribute {
@@ -247,7 +247,7 @@
 	h3 {
 		margin-right: 10px;
 		font-size: 20px;
-    font-family: "Modesto Condensed", "Palatino Linotype", serif;
+    font-family: var(--modesto);
 	}
 
 	span {
@@ -258,7 +258,7 @@
 	select {
 		height: 19px;
 		font-size: 12px;
-		font-family: Signika;
+		font-family: var(--signika);
 	}
 
 } //.spellcasting-ability
@@ -302,7 +302,7 @@
 		justify-content: flex-end;
 		flex: 0;
   	font-size: 12px;
- 		color: var(--default-light-color);
+ 		color: var(--light-color);
  		text-align: center;
  		white-space: nowrap;
 
@@ -330,7 +330,7 @@
 	}//.items-header-label
 
 	.item {
-		background: var(--default-faint-color);
+		background: var(--faint-color);
 
 		.item-charges a.addCharges {
 			display: block;
@@ -342,7 +342,7 @@
 
 		.item-charges:hover a.addCharges {
 			opacity: 1;
-			color: var(--default-secondary-color);
+			color: var(--secondary-color);
 		}
 
 		.item-charges .uses-max,
@@ -370,11 +370,11 @@
 		/* Item Equipped/Prepared Highlight */
 		&.equipped,
 		&.prepared {
-			background: var(--default-prepared);
+			background: var(--prepared);
 		}
 
 		&.alwaysPrepared {
-			background: var(--default-always-prepared);
+			background: var(--always-prepared);
 		}
 
 		.item-name .item-image {
@@ -390,7 +390,7 @@
 			align-items: center;
 			
 			i {
-				color: var(--default-tertiary-color);
+				color: var(--tertiary-color);
 				display: none;
 			  text-align: center;
 			  font-size: 18px;
@@ -415,7 +415,7 @@
 		}
 
 		&:not(.context) .item-name:hover .item-image:hover i {
-			color: var(--default-primary-color);
+			color: var(--primary-color);
 		}
 
 		.item-charges {
@@ -428,7 +428,7 @@
 				text-align: right;
 				width: 50%;
 				padding: 0 4px 0 0;
-				color: var(--default-secondary-color);
+				color: var(--secondary-color);
 				line-height: 1;
 				height: 100%;
 			}
@@ -447,7 +447,7 @@
 		.item-summary {
 			flex: 0 0 100%;
 			padding: .5rem;
-			border-top: 1px solid var(--default-faint-color);
+			border-top: 1px solid var(--faint-color);
 			font-size: 12px;
 		}
 
@@ -462,13 +462,13 @@
 		display: none;
 		min-width: 70px;
 		background: url(../../../ui/parchment.jpg) repeat;
-    border: 1px solid var(--default-light-color);
+    border: 1px solid var(--light-color);
     position: absolute;
     z-index: 100;
     border-radius: 5px;
     padding: 1px 2px;
     overflow: hidden;
-    box-shadow: 0 0 5px var(--default-shadow-color);
+    box-shadow: 0 0 5px var(--tertiary-color);
 
 		a {
 			display: flex;
@@ -485,11 +485,11 @@
 			}
 
 			&:last-child {
-				border-radius: 3px;
+				border-radius: 0 0 3px 3px;
 			}
 
 			&.active {
-				background: rgba(50,205,50,.4);
+				background: var(--prepared);
 			}
 
 			.icon-on,
@@ -503,7 +503,7 @@
 			}
 
 			&:hover {
-				background: rgba(255,255,255,.4);
+				box-shadow: 0 0 2px var(--tertiary-color), 0 0 0 1px var(--tertiary-color) inset;
 			}
 
 			i {
@@ -513,24 +513,67 @@
 			}
 
 			&.warning {
-				background: rgba(255,0,0,.6);
+				background: var(--warning-accent);
 				color: rgba(255,255,255,.6);
 
 				&:hover {
-					background: rgba(255,0,0,.6);
+					background: var(--warning-accent);
 					color: rgba(255,255,255,.8);			
 				}
 			}//&item-delete
 		}//a
 
 		.context-divider {
-			margin: 1px 0;
+			margin: 2px 0 0 0;
+
+			+ .context-divider {
+				display: none;
+			}
 
 			&:first-child,
 			&:last-child  {
 				display: none;
 			}
 		}
+
+		.item-buttons {
+
+			button {
+				border: none;
+				border-radius: 0;
+				background: var(--tertiary-color);
+				color: var(--pergament-color);
+				display: flex;
+		    align-items: center;
+		    padding: 4px 8px 4px 6px;
+		    margin: 1px 0;
+		    white-space: nowrap;
+		    line-height: 1;
+		    font-weight: 400;
+		    font-size: 12px;
+
+				&:hover {
+					background: var(--secondary-color);
+				}
+
+				i {
+					margin-right: 4px;
+			    width: 16px;
+			    text-align: center;
+				}
+
+			}//button
+
+			&>button:first-child {
+				border-radius: 3px 3px 0 0;				
+			}
+
+			.rollGroup {
+				display: flex;
+				gap: 1px;
+			}
+
+		}//.item-buttons
 
 	}//.item-controls
 
@@ -549,7 +592,7 @@
 		display: flex;
     flex: 0 0 1px;
     align-items: center;
-    color: rgba(0,0,0,0.6);
+    color: var(--secondary-color);
     border-radius: 5px;
     padding: 0 5px;
 
@@ -568,7 +611,7 @@
 
 		.slot-max-override {
 			margin: 1px 0 0 4px;
-			color: var(--default-tertiary-color);
+			color: var(--tertiary-color);
 		}
 	}//.items-header .spell-detail.spell-slots
 
@@ -584,10 +627,10 @@
     line-height: 16px;
     text-align: center;
     margin-right: 4px;
-    color: var(--default-secondary-color);
+    color: var(--secondary-color);
 
     &.not-attuned {
-    	color: #CD5C5C;
+    	color: var(--attunement-required);
     }
 	}
 
@@ -609,11 +652,11 @@
 		margin: 2px 0;
 
 		&.magic-item {
-			box-shadow: 0 0 0 1px rgba(255,255,0,.6) inset;
+			box-shadow: 0 0 0 1px var(--faint-magic-accent) inset;
 		}
 
 		&.context {
-			box-shadow: 0 0 3px 1px var(--default-primary-accent) inset;
+			box-shadow: 0 0 3px 1px var(--primary-accent) inset;
 		}
 
 		i {
@@ -651,7 +694,7 @@
 		display: flex;
 		justify-content: flex-end;
 		flex: 1;
-		background: rgba(0,0,0,.03);
+		background: var(--faintest-color);
 		border-radius: 5px;
 
 		a {
@@ -659,14 +702,14 @@
     	padding: 0 20px;
 			font-size: 12px;
 			text-align: center;
-			color: var(--default-secondary-color);
+			color: var(--secondary-color);
 			border-radius: 5px;
 			font-weight: 400;
 		  line-height: 18px;
 		  padding-top: 2px;
 		
 			&:hover {
-				background: var(--default-light-color);
+				background: var(--light-color);
 			}
 
 		} //a
@@ -678,8 +721,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-    border-left: 1px solid rgba(0,0,0,.15);
-    color: rgba(0,0,0,.6);
+    border-left: 1px solid var(--faint-color);
+    color: var(--secondary-color);
     overflow: hidden;
 
     span.truncate {
@@ -700,8 +743,8 @@
 	.tag {
 		display: inline-block;
 		padding: 2px 4px;
-		background: var(--default-faint-color);
-		border: 1px solid var(--default-light-color);
+		background: var(--faint-color);
+		border: 1px solid var(--light-color);
 		margin: 0 2px 1px 0;
 		white-space: nowrap;
 		line-height: 1;
@@ -726,8 +769,8 @@
 
 	.spell-component.C,
 	.spell-component.R {
-	  color: #c9c7b8;
-	  background: rgba(0, 0, 0, 0.4);
+	  color: var(--pergament-color);
+	  background: var(--tertiary-color);
 	  border-radius: 2px;
 	  padding: 1px 1px 0 1px;
 	  margin: 0px 0 0 1px;

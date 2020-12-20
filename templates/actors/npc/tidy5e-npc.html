@@ -173,7 +173,7 @@
       <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
       <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
       <a class="item" data-tab="journal">{{ localize "TIDY5E.Journal" }}</a>
-      <div class="toggle-allow-edit"><span title="Edit Inventory"><i class="fas fa-lock"></i><i class="fas fa-lock-open"></i></span></div>
+      <div class="toggle-allow-edit"><span><i class="fas fa-lock" title="Enable Edit Mode"></i><i class="fas fa-lock-open" title="Disable Edit Mode"></i></span></div>
     </nav>
 
     {{!-- NPC Sheet Body --}}
@@ -196,7 +196,7 @@
             <li class="toggle-proficient" data-show-skills="{{ localize 'TIDY5E.Show' }}" data-hide-skills="{{ localize 'TIDY5E.Hide' }}"> {{ localize "TIDY5E.SkillsNotProficient" }}</li>
           </ul>
           {{!-- Traits --}}
-          {{> "modules/tidy5e-sheet/templates/actors/npc/parts/tidy5e-npc-traits.html"}}
+          {{> "modules/tidy5e-sheet/templates/actors/parts/tidy5e-traits.html"}}
         </div>
 
         <section class="center-pane">
@@ -234,7 +234,7 @@
             </div>
           </div>
           
-          {{> "modules/tidy5e-sheet/templates/actors/npc/parts/tidy5e-npc-features.html" sections=features}}
+          {{> "modules/tidy5e-sheet/templates/actors/parts/tidy5e-features.html" sections=features}}
           {{> "modules/tidy5e-sheet/templates/actors/npc/parts/tidy5e-npc-spellbook.html"}}
         </section>
       </div>

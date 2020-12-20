@@ -85,7 +85,8 @@
         </div>
 
         {{#if ../../owner}}
-        <div class="item-controls spell-prepared">
+        <div class="item-controls">
+          <hr class="context-divider">
           {{#if (and section.canPrepare (ne data.preparation.mode 'always')) }}
           <a class="item-control item-toggle {{item.toggleClass}}"><i class="fas fa-book icon-on"></i><i class="fas fa-book icon-off"></i> {{item.toggleTitle}}</a>
           {{/if}}

@@ -5,12 +5,13 @@
 	"version": "0.4.0",
 	"author": "sdenec#3813",
 	"minimumCoreVersion": "0.7.6",
-	"compatibleCoreVersion": "0.7.8",
+	"compatibleCoreVersion": "0.7.9",
 	"system": ["dnd5e"],
 	"esmodules": [
 		"./scripts/tidy5e-sheet.js",
 		"./scripts/tidy5e-favorites.js",
 		"./scripts/tidy5e-npc.js",
+		"./scripts/tidy5e-vehicle.js",
 		"./scripts/tidy5e-item.js"
 	],
 	"styles": [
@@ -19,6 +20,7 @@
 		"./css/tidy5e-sheet.css",
 		"./css/tidy5e-dark-sheet.css",
 		"./css/tidy5e-npc.css",
+		"./css/tidy5e-vehicle.css",
 		"./css/tidy5e-dark-npc.css",
 		"./css/tidy5e-items.css",
 		"./css/tidy5e-dark-items.css",

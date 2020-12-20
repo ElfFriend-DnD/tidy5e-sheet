@@ -24,6 +24,15 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+
+    .notice {
+    	display: block;
+    	background: var(--warning-accent);
+    	padding: 10px;
+    	font-size: 12px;
+    	color: var(--pergament-color);
+    	border-radius: 5px;
+    }
 	}
 
 	@import 'sheet-partials/_general.scss';
@@ -33,7 +42,7 @@
 		display: flex;
     justify-content: center;
 		padding: 10px 16px 16px 16px;
-		background: var(--default-faint-white);
+		background: var(--faint-white);
 	}
 
 	@import 'sheet-partials/_portrait.scss';
@@ -77,9 +86,9 @@
 	}
 
 	.note-entries article {
-		background: var(--default-faint-color);
+		background: var(--faintest-color);
 		border-radius: 5px;
-		padding: .5rem;
+		padding: 8px;
 		margin-bottom: 1rem;
 		position: relative;
 	  flex:1;
@@ -108,7 +117,7 @@
 
 	.note-entries article .section-titles {
 		font-weight: 700;
-		border-bottom: 1px solid var(--default-light-color);
+		border-bottom: 1px solid var(--light-color);
 		padding-bottom: .25rem;
 		margin-bottom: .5rem;
 	}
@@ -191,13 +200,3 @@
 	}
 
 }
-
-/* Mobile Support for Simple Mobile */
-
-/*
-
-@media only screen and (max-width: 1000px) {
-
-
-} 
-*/

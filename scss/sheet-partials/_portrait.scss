@@ -1,4 +1,3 @@
-
 	/* Portrait, Death Saves, Resting and Inspiration */
 
 	/* Portrait */
@@ -19,8 +18,8 @@
 		height: 100%;
 		border-radius: 5px;
 		overflow: hidden;
-		box-shadow:	0 0 10px var(--default-shadow-color) inset;
-		border: 1px solid var(--default-shadow-color);
+		box-shadow:	0 0 10px var(--tertiary-color) inset;
+		border: 1px solid var(--tertiary-color);
 		position: relative;
 		mix-blend-mode: multiply;
 		z-index: 1;
@@ -60,9 +59,6 @@
 
 	.profile .hp-overlay-wrapper {
 		overflow: hidden;
-		// border-width: 0;
-		// border-style: solid;
-		// border-color: #fff;
 	}
 
 	.profile .hp-overlay {
@@ -176,11 +172,11 @@
 		align-items: center;
 		border-radius: 0 5px 0 5px;
 		font-size: 24px;
-		color: var(--default-tertiary-color);
+		color: var(--tertiary-color);
 		cursor: pointer;
-		box-shadow:	0 0 10px var(--default-shadow-color) inset;
-		border: 1px solid var(--default-shadow-color);
-		background: var(--default-pergament-color);
+		box-shadow:	0 0 10px var(--tertiary-color) inset;
+		border: 1px solid var(--tertiary-color);
+		background: var(--pergament-color);
 	}
 
 	.roundPortrait .inspiration label {
@@ -256,10 +252,10 @@
 		overflow: hidden;
 		border-radius: 0 5px 0 5px;
 		transition: width .3s ease;
-		background: var(--default-pergament-color);
+		background: var(--pergament-color);
 		display: flex;
-		box-shadow:	0 0 10px var(--default-shadow-color) inset;
-		border: 1px solid var(--default-shadow-color);
+		box-shadow:	0 0 10px var(--tertiary-color) inset;
+		border: 1px solid var(--tertiary-color);
 	}
 
 	.roundPortrait .resting {
@@ -280,7 +276,7 @@
 		align-items: center;
 		border-radius: 50%;
 		font-size: 16px;
-		color: var(--default-tertiary-color);
+		color: var(--tertiary-color);
 	}
 
 	.resting .rest {
@@ -293,7 +289,7 @@
 		border-radius: 50%;
 		cursor: pointer;
 		border: none;
-		color: var(--default-tertiary-color);
+		color: var(--tertiary-color);
 		padding: 0;
 		font-size: 18px;
 		line-height: 32px;
@@ -306,7 +302,7 @@
 	}
 
 	.resting .rest:hover {
-		color: var(--default-secondary-color);
+		color: var(--secondary-color);
 	}
 
 	/* Hover Notes */
@@ -316,7 +312,7 @@
 		position: absolute;
 		left: 50%;
 		bottom: calc(100% + .5rem );
-		background: var(--default-primary-color);
+		background: var(--primary-color);
 		color: #fff;
 		font-size: 12px;
 		padding: .5rem 1rem;
@@ -371,10 +367,10 @@
 		text-align: center;
 		font-size: 14px;
 		position: absolute;
-	  background: var(--default-pergament-color);
-	  box-shadow: 0 0 8px var(--default-shadow-color) inset;
-	  border: 1px solid var(--default-shadow-color);
-		color: var(--default-shadow-color);
+	  background: var(--pergament-color);
+	  box-shadow: 0 0 8px var(--tertiary-color) inset;
+	  border: 1px solid var(--tertiary-color);
+		color: var(--tertiary-color);
 		top: -2px;
 		left: -2px;
 		border-radius: 50%;
@@ -395,10 +391,10 @@
 		overflow: hidden; 
 	  border-radius: 5px 0 5px 0;
 	  transition: width .3s ease;
-	  background: var(--default-pergament-color);
+	  background: var(--pergament-color);
 	  display: flex;
-	  box-shadow: 0 0 10px var(--default-shadow-color) inset;
-	  border: 1px solid var(--default-shadow-color);
+	  box-shadow: 0 0 10px var(--tertiary-color) inset;
+	  border: 1px solid var(--tertiary-color);
 	}
 
 	.roundPortrait .exhaustion-wrap {
@@ -418,7 +414,7 @@
     text-align: center;
     font-size: 24px;
     position: relative;
-	  color: var(--default-tertiary-color);
+	  color: var(--tertiary-color);
 	}
 
 	.exhaustion-wrap .exhaust-level {
@@ -434,7 +430,7 @@
 		text-align: center;
 		line-height: 34px;
 		cursor: pointer;
-		background: var(--default-light-color);
+		background: var(--light-color);
 	}
 
 	.exhaustion-wrap .exhaust-level li:hover {
@@ -551,9 +547,9 @@
     bottom: 0;
     width: 34px;
 	  height: 34px;
-    background: var(--default-pergament-color);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5) inset;
-    border: 1px solid rgba(0,0,0,0.5);
+    background: var(--pergament-color);
+    box-shadow: 0 0 10px var(--tertiary-color) inset;
+    border: 1px solid var(--tertiary-color);
     border-radius: 5px 0 5px 0px;
     
 
@@ -565,7 +561,7 @@
 	    font-family: var(--modesto);
 	    font-size: 20px;
 	    font-weight: 700;
-	    color: var(--default-secondary-color);
+	    color: var(--secondary-color);
     	padding: 2px 0 0 0;
     }
 
@@ -588,9 +584,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--default-pergament-color);
-    box-shadow: 0 0 5px rgba(0,0,0,0.5) inset;
-    border: 1px solid rgba(0,0,0,0.5);
+    background: var(--pergament-color);
+    box-shadow: 0 0 5px var(--tertiary-color) inset;
+    border: 1px solid var(--tertiary-color);
     border-radius: 0 0 5px 5px;
 	}
 

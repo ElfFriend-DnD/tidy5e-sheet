@@ -287,10 +287,10 @@ export default class Tidy5eNPC extends ActorSheet5e {
     // toggle empty traits visibility in the traits list
     html.find('.traits .toggle-traits').click( async (event) => {
       let actor = this.actor;
-      if(actor.getFlag('tidy5e-sheet', 'npcTraitsExpanded')){
-        await actor.unsetFlag('tidy5e-sheet', 'npcTraitsExpanded');
+      if(actor.getFlag('tidy5e-sheet', 'traitsExpanded')){
+        await actor.unsetFlag('tidy5e-sheet', 'traitsExpanded');
       } else {
-        await actor.setFlag('tidy5e-sheet', 'npcTraitsExpanded', true);
+        await actor.setFlag('tidy5e-sheet', 'traitsExpanded', true);
       }
     });
 
@@ -519,6 +519,9 @@ async  function resetTempHp(app, html, data){
 // Set Sheet Classes
 async function setSheetClasses(app, html, data) {
   const {token} = app;
+  if (!game.settings.get("tidy5e-sheet", "showNpcResting")) {
+    html.find('.tidy5e-sheet.tidy5e-npc .rest-container').remove();
+  }
   if (game.settings.get("tidy5e-sheet", "useRoundNpcPortraits")) {
     html.find('.tidy5e-sheet.tidy5e-npc .profile').addClass('roundPortrait');
   }
@@ -571,6 +574,7 @@ async function hideSpellbook(app, html, data) {
 async function editProtection(app, html, data) {
   let actor = app.actor;
   if(!actor.getFlag('tidy5e-sheet', 'allow-edit')){
+    let itemContainer = html.find('.inventory-list:not(.spellbook-list).items-list');
     html.find('.inventory-list:not(.spellbook-list) .items-header').each(function(){
       if($(this).next('.item-list').find('li').length <= 1){
         $(this).next('.item-list').remove();
@@ -590,6 +594,10 @@ async function editProtection(app, html, data) {
 
     if(!lair && legAct <= 1 && legRes <= 1) {
       html.find('.counters').remove();
+    }
+
+    if(itemContainer.children().length < 1){
+      itemContainer.append(`<span class="notice">This section is empty. Unlock the sheet to edit.</span>`)
     }
   }
 }
@@ -660,6 +668,14 @@ Hooks.once("ready", () => {
   game.settings.register("tidy5e-sheet", "disableNpcHpOverlay", {
     name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.DisableHpOverlay.name")}`,
     hint: game.i18n.localize("TIDY5E.Settings.DisableHpOverlay.hint"),
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean
+  });
+  game.settings.register("tidy5e-sheet", "showNpcResting", {
+    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.showNpcResting.name")}`,
+    hint: game.i18n.localize("TIDY5E.Settings.showNpcResting.hint"),
     scope: "world",
     config: true,
     default: false,

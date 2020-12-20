@@ -1,3 +1,5 @@
+{{#unless isVehicle}}
+{{#if isCharacter}}
 <div class="inventory-filters">
   <ul class="filter-list" data-filter="features">
     <li class="filter-title" title="{{localize 'DND5E.Filter'}}"><i class="fas fa-filter"></i></li>
@@ -6,6 +8,8 @@
     <li class="filter-item" data-filter="reaction">{{localize "DND5E.Reaction"}}</li>
   </ul>
 </div>
+{{/if}}
+{{/unless}}
 
 <div class="list-layout">
 
@@ -14,24 +18,31 @@
     <li class="items-header">
       <h3 class="item-name">{{localize section.label}}</h3>
 
-      {{#if section.hasActions}}
       <div class="items-header-labels">
-        <div class="items-header-uses">{{localize 'DND5E.Uses'}}</div>
-        <div class="items-header-usage">{{localize 'DND5E.Usage'}}</div>
-        <div class="items-header-feat-source">{{localize 'DND5E.Source'}}</div>
-        <div class="items-header-requirements">{{localize 'DND5E.Requirements'}}</div>
+        {{#if section.hasActions}}
+          <div class="items-header-uses">{{localize 'DND5E.Uses'}}</div>
+          <div class="items-header-usage">{{localize 'DND5E.Usage'}}</div>
+          {{#if ../isCharacter}}
+          <div class="items-header-feat-source">{{localize 'DND5E.Source'}}</div>
+          <div class="items-header-requirements">{{localize 'DND5E.Requirements'}}</div>
+          {{/if}}
+        {{else if section.isClass}}
+          <div class="items-header-subclass"><!-- {{localize 'DND5E.Subclass'}} -->Subclass</div>
+          <div class="items-header-level">{{localize 'DND5E.Level'}}</div>
+        {{else}}
+        {{#if ../isCharacter}}
+        {{#unless section.columns}}
+          <div class="items-header-feat-source">{{localize 'DND5E.Source'}}</div>
+          <div class="items-header-requirements">{{localize 'DND5E.Requirements'}}</div>
+        {{/unless}}
+        {{/if}}
+        {{/if}}
+        {{#if section.columns}}
+          {{#each section.columns}}
+            <div class="items-header-{{css}}">{{label}}</div>
+          {{/each}}
+        {{/if}}
       </div>
-      {{else if section.isClass}}
-      <div class="items-header-labels">
-        <div class="items-header-subclass"><!-- {{localize 'DND5E.Subclass'}} -->Subclass</div>
-        <div class="items-header-level">{{localize 'DND5E.Level'}}</div>
-      </div>
-      {{else}}
-      <div class="items-header-labels">
-        <div class="items-header-feat-source">{{localize 'DND5E.Source'}}</div>
-        <div class="items-header-requirements">{{localize 'DND5E.Requirements'}}</div>
-      </div>
-      {{/if}}
     </li>
 
     <ul class="item-list">
@@ -71,29 +82,48 @@
           {{item.labels.activation}}
           {{/if}}
         </div>
-       
+        
+        {{#unless ../../isVehicle}}
+        {{#if ../../isCharacter}}
         <div class="item-detail item-source">
           <span class="truncate" title="{{item.data.source}}">{{item.data.source}}</span>
         </div>
         <div class="item-detail item-requirements">
           <span class="truncate" title="{{item.data.requirements}}">{{item.data.requirements}}</span>
         </div>
+        {{/if}}
+        {{/unless}}
 
         {{else if section.isClass}}
         <div class="item-detail player-class" title="{{item.data.subclass}}">
           <span>{{item.data.subclass}}</span>
         </div>
         <div class="item-detail item-level">
-          <!-- Level -->{{item.data.levels}}
+          {{item.data.levels}}
         </div>
 
+        {{else if section.columns}}
+          {{#each section.columns}}
+            <div class="item-detail {{css}}">
+              {{#with (getProperty item property)}}
+                {{#if ../editable}}
+                  <input type="text" value="{{this}}" placeholder="&mdash;" data-dtype="{{../editable}}">
+                {{else}}
+                  {{this}}
+                {{/if}}
+              {{/with}}
+            </div>
+          {{/each}}
+
         {{else}}
+        {{#if ../../isCharacter}}
         <div class="item-detail item-source">
           <span class="truncate" title="{{item.data.source}}">{{item.data.source}}</span>
         </div>
         <div class="item-detail item-requirements">
           <span class="truncate" title="{{item.data.requirements}}">{{item.data.requirements}}</span>
         </div>
+        {{/if}}
         {{/if}}
 
         {{#if ../../owner}}

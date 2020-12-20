@@ -10,7 +10,7 @@
 	/* Skill List */
 
 	.skills-list {
-	  border: 1px solid var(--default-faint-color);
+	  border: 1px solid var(--faint-color);
 	  border-radius: 5px;
 	  overflow: visible;
 	  padding: 0;
@@ -30,7 +30,7 @@
 		  flex-wrap: nowrap;
 
 			&:nth-child(even) {
-				background: var(--default-faint-color);
+				background: var(--faint-color);
 			}
 
 			.skill-name {
@@ -84,7 +84,7 @@
 
 	.center-pane .resources {
 		margin: 0;
-		border: 1px solid var(--default-faint-color);
+		border: 1px solid var(--faint-color);
 		border-radius: 5px;
 		display: flex;
 	}
@@ -96,8 +96,8 @@
 		position: relative;
 		border: none;
 		border-radius: 0;
-		border-left: 1px solid var(--default-faint-color);
-		border-top: 1px solid var(--default-faint-color);
+		border-left: 1px solid var(--faint-color);
+		border-top: 1px solid var(--faint-color);
 		flex: 1 0 33%;
 	}
 
@@ -128,7 +128,7 @@
 	  right: 2px;
 	  bottom: 0;
 	  font-size: 12px;
-	  color: var(--default-shadow-color);
+	  color: var(--tertiary-color);
 	  transition: color .3s ease;
 	}
 
@@ -167,7 +167,7 @@
 	}
 
 	.resources .resource .resource-header label.checkbox {
-		border: 1px solid var(--default-light-color);
+		border: 1px solid var(--light-color);
     padding: 3px;
     margin: 0 2px;
     border-radius: 5px;
@@ -180,16 +180,16 @@
 	}
 
 	.resources .resource .resource-header label.checkbox:hover {
-		background: var(--default-light-color);
+		background: var(--light-color);
 	}
 
 	.resources .resource .resource-header input:checked + label.checkbox {
-		background: var(--default-shadow-color);
-		color: var(--default-pergament-color);
+		background: var(--tertiary-color);
+		color: var(--pergament-color);
 	}
 
 	.resources .resource .resource-header:hover .res-options {
-		color: var(--default-secondary-color);
+		color: var(--secondary-color);
 	}
 
 	.resources .resource .resource-header input {
@@ -242,7 +242,7 @@
 
 	/* Character Traits */
 	.traits {
-		border: 1px solid var(--default-faint-color);
+		border: 1px solid var(--faint-color);
 		border-radius: 5px 5px 0 0;
 		overflow: visible;
 		margin: 8px 0 17px 0;
@@ -273,7 +273,7 @@
 		}
 
 		.form-group.even {
-			background: var(--default-faint-color);
+			background: var(--faint-color);
 		}
 
 		&:not(.expanded):not(.always-visible) .form-group.trait-hidden {
@@ -338,7 +338,7 @@
 		}
 
 		.trait-selector:hover i.fas {
-			color: var(--default-secondary-color);
+			color: var(--secondary-color);
 			text-shadow: none;
 		}
 
@@ -346,7 +346,7 @@
 		  float: none;
 		  margin-right: 0;
 		  text-align: center;
-		  color: var(--default-secondary-color);
+		  color: var(--secondary-color);
 		  line-height: 14px;
 		  vertical-align: bottom;
 		}
@@ -355,7 +355,7 @@
 			height: 12px;
 
 			path {
-				fill: var(--default-secondary-color);
+				fill: var(--secondary-color);
 			}
 		}
 
@@ -364,13 +364,13 @@
 			display: inline-block;
 			top: calc(100% + 1px);
 			left: -1px;
-			border: 1px solid var(--default-faint-color);
+			border: 1px solid var(--faint-color);
 			border-top: 0;
 			border-radius: 0 0 3px 3px;
 			padding: 2px 4px;
 			width: auto;
 			font-size: 10px;
-		  color: var(--default-secondary-color);
+		  color: var(--secondary-color);
 		  cursor: pointer;
 		}
 
@@ -387,7 +387,7 @@
 		}
 
 		.toggle-traits:hover {
-			color: var(--default-primary-color);
+			color: var(--primary-color);
 		}
 
 		.configure-flags {
@@ -396,23 +396,23 @@
 			display: inline-block;
 			top: calc(100% + 1px);
 			right: -1px;
-			border: 1px solid var(--default-faint-color);
+			border: 1px solid var(--faint-color);
 			border-top: 0;
 			border-radius: 0 0 3px 3px;
 			padding: 2px 4px;
 			width: auto;
 			font-size: 10px;
-		  color: var(--default-secondary-color);
+		  color: var(--secondary-color);
 		}
 
 		.configure-flags i.fas {
 			line-height: 10px;
 		  vertical-align: baseline;
-		  color: var(--default-tertiary-color);
+		  color: var(--tertiary-color);
 		}
 
 		.configure-flags:hover,
 		.configure-flags:hover i.fas {
-			color: var(--default-primary-color);
+			color: var(--primary-color);
 		}
 	} //.traits

@@ -36,7 +36,7 @@
 	input[type="text"]:hover,
 	input[type="text"]:focus {
 		border: none;
-		box-shadow: 0 0 0 1px var(--default-primary-accent) inset;
+		box-shadow: 0 0 0 1px var(--primary-accent) inset;
 	}
 
 	input[type="checkbox"] {
@@ -176,7 +176,7 @@
 	}
 
 	.sheet-navigation .item:hover {
-		color: var(--default-primary-accent);
+		color: var(--primary-accent);
 		text-shadow: none;
 	}
 
@@ -353,7 +353,7 @@
 	  background: rgba(0,255,0,.3);
 	  height: 24px;
 	  cursor: pointer;
-	  color: var(--default-secondary-color);
+	  color: var(--secondary-color);
 		font-size: 13px;
 		line-height: 20px;
 	  flex: 0 0 calc(100% / 4 - 4px);
@@ -392,7 +392,7 @@
 	.sheet-body .tab.details .form-group button:hover,
 	.sheet-body .tab.details .form-group select:focus {
 		border: none; 
-	  box-shadow: 0 0 0 1px var(--default-primary-accent) inset;
+	  box-shadow: 0 0 0 1px var(--primary-accent) inset;
 	}
 
 	.sheet-body .tab.details .form-group label.prepared,
@@ -483,7 +483,7 @@
 	  -moz-appearance: none;
 	  appearance: none;
 	  background: none;
-	  border: 1px solid var(--default-tertiary-color); 
+	  border: 1px solid var(--tertiary-color); 
 	  box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 	  border-radius: 3px;
 	  background-image: url(../images/check-default.svg);

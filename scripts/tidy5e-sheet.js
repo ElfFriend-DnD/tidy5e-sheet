@@ -653,6 +653,24 @@ Hooks.once("ready", () => {
 	  window.BetterRolls.hooks.addActorSheet("Tidy5eSheet");
 	}
 
+	game.settings.register("tidy5e-sheet", "inventoryGridView", {
+    name: 'Sheets display inventory as a grid',
+    hint: '',
+    scope: "user",
+    config: false,
+    default: false,
+    type: Boolean
+  });
+
+	game.settings.register("tidy5e-sheet", "spellbookGridView", {
+    name: 'Sheets display spellbook as a grid',
+    hint: '',
+    scope: "user",
+    config: false,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register("tidy5e-sheet", "GmCanAlwaysEdit", {
     name: 'Gm can always edit Player Character Sheets',
     hint: '',

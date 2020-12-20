@@ -12,7 +12,7 @@
 	.header-attribute .value,
 	.ability-name,
 	.attribute-value {
-		font-family: "Modesto Condensed", "Palatino Linotype", serif;
+		font-family: var(--modesto);
 	}
 
 	/* general elements */
@@ -23,7 +23,7 @@
 
 	.rollable:hover {
 		text-shadow: none;
-	  color: var(--default-primary-accent);
+	  color: var(--primary-accent);
 	}
 
 	[contenteditable] {
@@ -40,7 +40,7 @@
 		  content: attr(data-placeholder);
 		  pointer-events: none;
 		  display: block; /* For Firefox */
-		  color: var(--default-tertiary-color);
+		  color: var(--tertiary-color);
 		}
 	}
 
@@ -84,25 +84,17 @@
 	[contenteditable=true]:focus,
 	input[type="text"]:hover,
 	input[type="text"]:focus {
-		box-shadow: 0px 0px 0px 1px var(--default-primary-accent) inset;
+		box-shadow: 0px 0px 0px 1px var(--primary-accent) inset;
 	}
 
 	input[type="text"]::placeholder {
-	  color: var(--default-tertiary-color);
+	  color: var(--tertiary-color);
 	}
 
 	button:hover,
 	select:hover {
-		background: var(--default-faint-color);
+		background: var(--faint-color);
 	}
-	
-/*
-	p,
-	li {
-		margin: 0;
-		padding: 0;
-	}
-*/
 
 	ul {
 		list-style: none;

@@ -73,7 +73,8 @@
         </div>
 
         {{#if ../../owner}}
-        <div class="item-controls item-equipped">
+        <div class="item-controls">
+          <hr class="context-divider">
           {{#if (and (ne item.type 'tool') (ne item.type 'loot') ) }}
           <a class="item-control item-toggle {{item.toggleClass}}"><i class="fas fa-user-alt-slash icon-off"></i><i class="fas fa-user-alt icon-on"></i> {{item.toggleTitle}}</a>
           {{/if}}

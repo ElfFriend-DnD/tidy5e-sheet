@@ -2,32 +2,32 @@
 /*   Support Better Rolls / Minor QOL   */
 /* ------------------------------------ */
 
-.tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons {
-	margin: 4px 0; 
-}
+// .tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons {
+// 	margin: 4px 0; 
+// }
 
-.tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons .tag {
-	border: none;
-	border-radius: 0;
-	margin: 2px 4px 2px 0;
-	padding: 0;
-	background: none;
-}
+// .tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons .tag {
+// 	border: none;
+// 	border-radius: 0;
+// 	margin: 2px 4px 2px 0;
+// 	padding: 0;
+// 	background: none;
+// }
 
-.tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons .tag button {
-	border: 1px solid rgba(0,0,0,.2);
-	background: rgba(0,0,0,.4);
-	color: rgba(255,255,255,.8);
-	padding: 2px 4px;
-	box-shadow: none;
-	cursor: pointer;
-	line-height: 1;
-	font-size: 12px;
-}
+// .tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons .tag button {
+// 	border: 1px solid rgba(0,0,0,.2);
+// 	background: rgba(0,0,0,.4);
+// 	color: rgba(255,255,255,.8);
+// 	padding: 2px 4px;
+// 	box-shadow: none;
+// 	cursor: pointer;
+// 	line-height: 1;
+// 	font-size: 12px;
+// }
 
-.tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons .tag button:hover {
-	background: rgba(0,0,0,.6);
-}
+// .tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons .tag button:hover {
+// 	background: rgba(0,0,0,.6);
+// }
 
 .tidy5e.sheet.item .item-betterRolls input[type="text"], 
 .tidy5e.sheet.item .item-betterRolls select {
@@ -78,8 +78,8 @@
 	line-height: 20px;
 	background: transparent;
 	border: none;
-	border-top: 1px solid rgba(0,0,0,.1);
-	font-family: "Signika", sans-serif;
+	border-top: 1px solid var(--faint-color);
+	font-family: var(--signika);
 }
 
 .tidy5e.sheet.item .effect-header:first-child,
@@ -98,13 +98,13 @@
 
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-header .effect-mode,
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-header .effect-value {
-	color: rgba(0,0,0,.4);
+	color: var(--tertiary-color);
 	padding-top: 2px;
 	border: none;
 }
 
 .tidy5e.sheet.item .effect-header h3 {
-	font-family: "Signika", sans-serif;
+	font-family: var(--signika);
 	font-size: 13px;
 	margin: 0;
 	padding: 0;
@@ -113,7 +113,7 @@
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect {
 	padding: 0;
   line-height: 30px;
-  background: rgba(0,0,0,.1);
+  background: var(--faint-color);
   border: none;
   border-radius: 5px;
   margin: 2px 0;
@@ -126,10 +126,10 @@
 
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-mode,
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-value {
-	color: rgba(0,0,0,.6);
+	color: var(--secondary-color);
 	flex: 0 0 70px;
 	text-align: center;
-	border-left: 1px solid rgba(0,0,0,.15);
+	border-left: 1px solid var(--faint-color);
 }
 
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls {
@@ -137,7 +137,7 @@
 	text-align: center;
 	justify-content: center;
 	border: none;
-	border-left: 1px solid rgba(0,0,0,.15);
+	border-left: 1px solid var(--faint-color);
 }
 
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls .effect-create {
@@ -145,7 +145,7 @@
 	text-align: center;
 	width: 100%;
 	border-radius: 5px;
-	background: rgba(0,0,0,.4);
+	background: var(--tertiary-color);
 	color: rgba(255,255,255,.6);
 	font-size: 12px;
 	font-weight: normal;
@@ -161,7 +161,7 @@
 }
 
 .tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls .effect-delete {
-	color: rgba(255,0,0,.5);
+	color: var(--tertiary-color);
 }
 
 /* ------------------------ */
@@ -186,7 +186,7 @@
 	}
 
 	.spellbook-header div:not(.spell-slots):not(.spell-rechargeable) {
-		color: var(--default-light-color);
+		color: var(--light-color);
 	}
 
 	.item-name {
@@ -228,8 +228,8 @@
 			justify-content: center;
 			align-items: center;
 			font-size: 12px;
-			color: var(--default-secondary-color);
-			border-left: 1px solid var(--default-faint-color);
+			color: var(--secondary-color);
+			border-left: 1px solid var(--faint-color);
 		}
 	}
 }
@@ -282,14 +282,14 @@
 // .tidy5e.sheet.item .magic-items-content select {
 // 	border: none !important;
 // 	background: rgba(255,255,255, .3);
-// 	color: var(--default-primary-color);
+// 	color: var(--primary-color);
 // }
 
 // .tidy5e.sheet.item .magic-items-content input[type="text"]:hover,
 // .tidy5e.sheet.item .magic-items-content select:hover,
 // .tidy5e.sheet.item .magic-items-content select:focus {
 // 	border: none !important;
-// 	box-shadow: 0 0 0 1px var(--default-primary-accent);
+// 	box-shadow: 0 0 0 1px var(--primary-accent);
 // }
 
 // .tidy5e.sheet.actor .magic-items-feats-content .spellbook-filters.magic-items-head,
@@ -363,8 +363,8 @@
 	line-height: 20px;
 	background: transparent;
 	border: none;
-	border-top: 1px solid rgba(0,0,0,.1);
-	font-family: "Signika", sans-serif;
+	border-top: 1px solid var(--faint-color);
+	font-family: var(--signika);
 }
 
 .tidy5e.sheet.item .magic-item-list .items-header:first-child,
@@ -388,7 +388,7 @@
 .tidy5e.sheet.item .magic-item-list .items-header .spell-upcast-head,
 .tidy5e.sheet.item .magic-item-list .items-header .spell-cost-head,
 .tidy5e.sheet.item .magic-item-list .items-header .spell-controls-head {
-	color: rgba(0,0,0,.4);
+	color: var(--tertiary-color);
 	padding-top: 2px;
 	margin-right: 4px;
 	text-align: center;
@@ -399,7 +399,7 @@
 }
 
 .tidy5e.sheet.item .magic-item-list .items-header h3 {
-	font-family: "Signika", sans-serif;
+	font-family: var(--signika);
 	font-size: 13px;
 	margin: 0;
 	padding: 0;
@@ -409,7 +409,7 @@
 	padding: 0;
   line-height: 30px;
   height: 30px;
-  background: rgba(0,0,0,.1);
+  background: var(--faint-color);
   border: none;
   border-radius: 5px;
   margin: 2px 0;
@@ -429,9 +429,9 @@
 .tidy5e.sheet.item .magic-item-list .item .spell-consumption,
 .tidy5e.sheet.item .magic-item-list .item .spell-upcast,
 .tidy5e.sheet.item .magic-item-list .item .spell-cost {
-	color: rgba(0,0,0,.6);
+	color: var(--secondary-color);
 	text-align: center;
-	border-left: 1px solid rgba(0,0,0,.15);
+	border-left: 1px solid var(--faint-color);
 	margin: 3px 4px 3px 0;
 }
 
@@ -500,16 +500,16 @@
   margin: 0;
   flex: 0 0 1px;
   margin-right: 2px;
-  font-family: Signika;
+  font-family: var(--signika);
   height: 14px;
-  color: var(--default-primary-color);
+  color: var(--primary-color);
 }
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:hover,
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:focus {
-  background: var(--default-primary-accent);
-  color: var(--default-primary-color);
-  box-shadow: 0 0 0 1px var(--default-primary-accent);
+  background: var(--primary-accent);
+  color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-accent);
 }
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:hover option,
@@ -530,14 +530,14 @@
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus {
 	border: none;
-	box-shadow: 0 0 0 1px var(--default-light-color) inset;
+	box-shadow: 0 0 0 1px var(--light-color) inset;
   margin-top: -2px;
   padding-top: 2px;
 }
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus:hover,
 .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus:focus {
-	box-shadow: 0 0 0 1px var(--default-primary-accent) inset;
+	box-shadow: 0 0 0 1px var(--primary-accent) inset;
 }
 
 
@@ -551,7 +551,7 @@
     font-size: 12px;
 
     &:hover {
-    	color: var(--default-primary-accent);
+    	color: var(--primary-accent);
     }
 	}
 
@@ -559,10 +559,10 @@
 		width: 12px;
 		font-size: 18px;
 		margin-right: 5px;
-		color: var(--default-light-color);
+		color: var(--light-color);
 
 		&:hover {
-			color: var(--default-primary-color);
+			color: var(--primary-color);
 		}
 	}
 
@@ -573,10 +573,10 @@
 
 		a {
 			margin-right: 5px;
-			color: var(--default-light-color);
+			color: var(--light-color);
 
 			&:hover {
-				color: var(--default-primary-color);
+				color: var(--primary-color);
 			}
 		}
 
@@ -598,11 +598,11 @@
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%,-50%);
-			color: var(--default-faint-color);
+			color: var(--faint-color);
 		}
 
 		&:hover i {
-			color: var(--default-tertiary-color);
+			color: var(--tertiary-color);
 		}
 		
 	}

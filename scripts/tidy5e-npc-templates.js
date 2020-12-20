@@ -10,8 +10,6 @@ export const preloadTidy5eHandlebarsTemplates = async function() {
   const tidy5etemplatePaths = [
 
     // Actor Sheet Partials
-    "modules/tidy5e-sheet/templates/actors/npc/parts/tidy5e-npc-traits.html",
-    "modules/tidy5e-sheet/templates/actors/npc/parts/tidy5e-npc-features.html",
     "modules/tidy5e-sheet/templates/actors/npc/parts/tidy5e-npc-spellbook.html"
   ];
 

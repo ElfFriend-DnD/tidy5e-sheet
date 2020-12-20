@@ -9,29 +9,29 @@
 
 	.item {
 		padding: 5px 1rem 0 1rem;
-		background: var(--default-faint-white);
+		background: var(--faint-white);
 		border: 1px solid transparent;
-		border-bottom: 1px solid var(--default-light-color);
+		border-bottom: 1px solid var(--light-color);
 		font-size: 13px;
 		text-align: left;
 		height: 26px;
 		flex: 1 1 auto;
 		
 		&:hover {
-			color: var(--default-primary-accent);
+			color: var(--primary-accent);
 		}
 	}
 
 	.item[data-tab="attributes"] i {
 		margin-right: 4px;
-		color: var(--default-tertiary-color);
+		color: var(--tertiary-color);
 		position: relative;
 		top: 1px;
 	}
 
 	.item.active {
 		background: transparent;
-		border: 1px solid var(--default-light-color);
+		border: 1px solid var(--light-color);
 		border-bottom-color: transparent;
 		font-weight: 700;
 		cursor: default;
@@ -56,27 +56,27 @@
     align-items: center;
     white-space: nowrap;
     padding: 2px 1rem;
-    background: var(--default-faint-white);
+    background: var(--faint-white);
     border: 1px solid transparent;
-    border-bottom: 1px solid var(--default-light-color);
+    border-bottom: 1px solid var(--light-color);
     font-size: 13px;
     text-align: left;
     height: 26px;
 
     span {
 	    cursor: pointer;
-    	background: var(--default-safe-accent);
+    	background: var(--safe-accent);
     	color: rgba(255,255,255,.6);
       border-radius: 3px;
-      padding: 2px 6px;
 
       &:hover {
     		color: #fff;
       }
 
       i {
-      	width: 15px;
+      	width: 100%;
       	text-align: center;
+      	padding: 4px 6px;
       }
     }
 
@@ -89,7 +89,7 @@
 .allow-edit .tidy5e-navigation {
 	.toggle-allow-edit {
     span {
-    	background: var(--default-unsafe-accent);
+    	background: var(--unsafe-accent);
     }
 
     .fa-lock-open {

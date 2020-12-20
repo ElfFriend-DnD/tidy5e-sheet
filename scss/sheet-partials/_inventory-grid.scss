@@ -7,14 +7,13 @@
 		position: relative;
     margin: 0 8px 10px 0;
     width: 246px;
-    border: 1px solid var(--default-faint-color);
+    border: 1px solid var(--faint-color);
     border-radius: 5px;
-    // overflow: hidden;
     z-index: 1;
 
 		.item-info-container-background {
 			font-size: 150px;
-			color: var(--default-faint-color);
+			color: var(--faintest-color);
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -24,7 +23,6 @@
 	}
   
   .item-info-container-content {
-  	// display: none;
 		height: 100%;
 
   	.info-card {
@@ -37,15 +35,15 @@
 
 			&.equipped,
 			&.prepared {
-				background: rgba(50,205,50,.3);
+				background: var(--prepared);
 			}
 
 			&.magic-item {
-				box-shadow: 0 0 6px 2px yellow inset;
+				box-shadow: 0 0 6px 2px var(--magic-accent) inset;
 			}
 
 			.info-card-name {
-				font-family: "Modesto Condensed";
+				font-family: var(--modesto);
 				font-size: 24px;
 				margin: 0 0 4px 0;
 				line-height: 1;
@@ -63,7 +61,7 @@
 				font-size: 12px;
 				display: flex;
 				justify-content: space-between;
-				border-top: 1px solid var(--default-faint-color);
+				border-top: 1px solid var(--faint-color);
 
 				span {
 					padding: 4px 0;
@@ -85,7 +83,7 @@
 
 			.info-card-hint {
 				font-size: 12px;
-		    border-top: 1px solid var(--default-faint-color);
+		    border-top: 1px solid var(--faint-color);
 		    padding: 4px;
 		    margin-top: 2px;
 		    font-style: italic;
@@ -94,8 +92,8 @@
 			.info-card-description {
 				flex: 1;
 				overflow: hidden;
-		    border-top: 2px solid var(--default-light-color);
-		    border-bottom: 2px solid var(--default-light-color);
+		    border-top: 2px solid var(--light-color);
+		    border-bottom: 2px solid var(--light-color);
 
 		    &.overflowing {
 		    	-webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
@@ -142,11 +140,11 @@
 			height: 50px;
 			position: relative;
 			margin: 3px;
-    	box-shadow: 0 0 1px 1px var(--default-light-color);
+    	box-shadow: 0 0 1px 1px var(--light-color);
 			border-radius: 5px;
 
 			&.context {
-				border: 1px solid var(--default-primary-accent);
+				border: 1px solid var(--primary-accent);
 			}
 
 			.icon-attuned {
@@ -155,19 +153,19 @@
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
-		    color: var(--default-tertiary-color);
+		    color: var(--tertiary-color);
 		    width: 13px;
 		    height: 13px;
-		    background: yellow;
+		    background: var(--magic-accent);
 		    position: absolute;
 		    top: -1px;
 		    right: -1px;
 		    border-radius: 50%;
-		    box-shadow: 0 0 3px 1px yellow;
+		    box-shadow: 0 0 3px 1px var(--magic-accent);
 
 		    &.not-attuned {
-		    	background: #CD5C5C;
-		    	box-shadow: 0 0 3px 1px #CD5C5C;
+		    	background: var(--attunement-required);
+		    	box-shadow: 0 0 3px 1px var(--attunement-required);
 		    }
 			}//.icon-attuned
 
@@ -176,46 +174,43 @@
 		    top: -2px;
 		    left: 4px;
 		    color: rgba(0,200,100,1);
-		    text-shadow: 0 0px 2px var(--default-primary-color);
+		    text-shadow: 0 0px 2px var(--primary-color);
 		    font-size: 10px;
 			}
 
 			&.preparable .item-image {
-				box-shadow: 0 0 0 2px inset lightslategrey;
+				box-shadow: 0 0 0 2px inset var(--prepareable);
     		border-radius: 5px;
 			}
 
 			&.equipped,
 			&.prepared {
-				box-shadow: 0 0 0 2px rgba(50,205,50,1);
+				box-shadow: 0 0 0 2px var(--prepared-outline);
 			}
 
 			&.prepared.alwaysPrepared {
-				box-shadow: 0 0 0 2px royalblue;
+				box-shadow: 0 0 0 2px var(--always-prepared-outline);
 			}
 
 			&.equipped .item-image,
 			&.prepared .item-image {
-    		box-shadow: 0 0 1px 1px inset greenyellow;
+    		box-shadow: 0 0 1px 1px inset var(--prepared-accent);
 				border-radius: 5px;
 			}
 
 			&.prepared.alwaysPrepared .item-image {
-    		box-shadow: 0 0 1px 1px inset deepskyblue;
+    		box-shadow: 0 0 1px 1px inset var(--always-prepared-accent);
 			}
 
 			&.magic-item {
 				.item-image {
-					box-shadow: 0 0 0 1px yellow inset, 0 0 6px 4px yellow inset;
+					box-shadow: 0 0 0 1px var(--magic-accent) inset, 0 0 6px 4px var(--magic-accent) inset;
     			border-radius: 5px;
-    			// box-shadow: 0 0 5px 0px yellow inset;
-    			// border: 1px solid rgba(230,230,0,1);
-   				// border-radius: 5px
 				}
 
 				&.equipped .item-image {
 					background-image: url(systems/dnd5e/icons/items/inventory/pearl.jpg);
-			    box-shadow: 0 0 0px 1px greenyellow inset, 0 0 0 1px yellow inset, 0 0 4px 4px yellow inset;
+			    box-shadow: 0 0 0px 1px var(--magic-outline) inset, 0 0 0 1px var(--magic-accent) inset, 0 0 4px 4px var(--magic-accent) inset;
 			    border: none;
 				}
 			}//.magic-items
@@ -241,13 +236,13 @@
 				.item-charges {
 			    border: none;
 			    font-size: 12px;
-			    color: #efefef;
+			    color: var(--pergament-color);
 			    float: right;
 
 					input {
 						height: 14px;
 				    text-shadow: 0 0 5px rgba(0,0,0,1);
-				    color: #efefef;
+				    color: var(--pergament-color);
 				    text-align: right;
 				    min-width: 0;
 				    width: 16px;
@@ -296,10 +291,10 @@
 				white-space: nowrap;
 				height: 100%;
 				font-size: 24px;
-				color: var(--default-faint-color);
+				color: var(--faint-color);
 
 				&:hover {
-					color: var(--default-tertiary-color);
+					color: var(--tertiary-color);
 				}
 			}
 		}//.items-footer
