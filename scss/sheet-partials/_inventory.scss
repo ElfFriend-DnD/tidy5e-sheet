@@ -22,14 +22,14 @@
 	  margin-left: 2px;
 	  flex: unset;
 	  cursor: pointer;
-	  border-bottom: 3px solid #b5b3a4;
+	  border-bottom: 3px solid var(--default-light-color);
 
 	  &:hover {
-			border-bottom: 3px solid #7a7971;
+			border-bottom: 3px solid var(--default-tertiary-color);
 	  }
 
 	  &.active {
-			border-bottom: 3px solid #44191A;
+			border-bottom: 3px solid var(--default-primary-color);
 	  }
 	} //.filter-item
 
@@ -49,7 +49,7 @@
   padding-top: .5rem;
   display: flex;
 	flex: 0 0 30px;
-	border-top: 2px solid rgba(0,0,0,.3);
+	border-top: 1px solid var(--default-light-color);
 }
 
 .attuned-items-counter {
@@ -59,8 +59,8 @@
   padding: 0 0 0 10px;
   border-radius: 5px;
   background: var(--default-faint-color);
-  box-shadow: 0 0 5px rgba(255,255,0,1) inset;
-  border: 1px solid yellow;
+  box-shadow: 0 0 5px var(--default-magic-highlight) inset;
+  border: 1px solid var(--default-magic-highlight);
 
 	&.overattuned {
 		background: var(--default-primary-accent);
@@ -87,7 +87,7 @@
 	input {
 		display: none;
     font-size: 16px;
-    font-family: 'Signika';
+    font-family: var(--signika);
 	}
 
 	&.isGM input {
@@ -155,12 +155,12 @@
 		a {
 			display: block;
 			background: var(--default-tertiary-color);
-			color: rgba(255,255,255,.6);
+			color: var(--default-pergament-color);
 			border-radius: 5px;
 			padding: 0 6px;
 
 			&:hover {
-			  background: rgba(0,0,0,.6);
+			  background: var(--default-secondary-color);
 			}
 		} // a
 
@@ -342,7 +342,7 @@
 
 		.item-charges:hover a.addCharges {
 			opacity: 1;
-			color: rgba(0,0,0,.6);
+			color: var(--default-secondary-color);
 		}
 
 		.item-charges .uses-max,
@@ -370,12 +370,11 @@
 		/* Item Equipped/Prepared Highlight */
 		&.equipped,
 		&.prepared {
-			background: rgba(50,205,50,.3);
+			background: var(--default-prepared);
 		}
 
 		&.alwaysPrepared {
-			// background: var(--always-prepared-accent);
-			background: rgba(0,0,255,.15);
+			background: var(--default-always-prepared);
 		}
 
 		.item-name .item-image {
@@ -429,7 +428,7 @@
 				text-align: right;
 				width: 50%;
 				padding: 0 4px 0 0;
-				color: rgba(0,0,0,.6);
+				color: var(--default-secondary-color);
 				line-height: 1;
 				height: 100%;
 			}
@@ -463,13 +462,13 @@
 		display: none;
 		min-width: 70px;
 		background: url(../../../ui/parchment.jpg) repeat;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid var(--default-light-color);
     position: absolute;
     z-index: 100;
     border-radius: 5px;
     padding: 1px 2px;
     overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,.25);
+    box-shadow: 0 0 5px var(--default-shadow-color);
 
 		a {
 			display: flex;

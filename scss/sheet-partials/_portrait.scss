@@ -19,8 +19,8 @@
 		height: 100%;
 		border-radius: 5px;
 		overflow: hidden;
-		box-shadow:	0 0 10px rgba(0,0,0,.5) inset;
-		border: 1px solid rgba(0,0,0,.5);
+		box-shadow:	0 0 10px var(--default-shadow-color) inset;
+		border: 1px solid var(--default-shadow-color);
 		position: relative;
 		mix-blend-mode: multiply;
 		z-index: 1;
@@ -178,9 +178,9 @@
 		font-size: 24px;
 		color: var(--default-tertiary-color);
 		cursor: pointer;
-		box-shadow:	0 0 10px rgba(0,0,0,.5) inset;
-		border: 1px solid rgba(0,0,0,.5);
-		background: #ECE9DF;
+		box-shadow:	0 0 10px var(--default-shadow-color) inset;
+		border: 1px solid var(--default-shadow-color);
+		background: var(--default-pergament-color);
 	}
 
 	.roundPortrait .inspiration label {
@@ -256,10 +256,10 @@
 		overflow: hidden;
 		border-radius: 0 5px 0 5px;
 		transition: width .3s ease;
-		background: #ECE9DF;
+		background: var(--default-pergament-color);
 		display: flex;
-		box-shadow:	0 0 10px rgba(0,0,0,.5) inset;
-		border: 1px solid rgba(0,0,0,.5);
+		box-shadow:	0 0 10px var(--default-shadow-color) inset;
+		border: 1px solid var(--default-shadow-color);
 	}
 
 	.roundPortrait .resting {
@@ -297,7 +297,7 @@
 		padding: 0;
 		font-size: 18px;
 		line-height: 32px;
-		font-family: "Signika";
+		font-family: var(--signika);
 		font-weight: 700;
 	}
 
@@ -306,8 +306,7 @@
 	}
 
 	.resting .rest:hover {
-		color: rgba(0,0,0,.6);
-		// transform: scale(1.2);
+		color: var(--default-secondary-color);
 	}
 
 	/* Hover Notes */
@@ -317,7 +316,7 @@
 		position: absolute;
 		left: 50%;
 		bottom: calc(100% + .5rem );
-		background: rgba(0,0,0,.9);
+		background: var(--default-primary-color);
 		color: #fff;
 		font-size: 12px;
 		padding: .5rem 1rem;
@@ -372,10 +371,10 @@
 		text-align: center;
 		font-size: 14px;
 		position: absolute;
-	  background: #ECE9DF;
-	  box-shadow: 0 0 8px rgba(0,0,0,.5) inset;
-	  border: 1px solid rgba(0,0,0,.5);
-		color: rgba(0,0,0,.5);
+	  background: var(--default-pergament-color);
+	  box-shadow: 0 0 8px var(--default-shadow-color) inset;
+	  border: 1px solid var(--default-shadow-color);
+		color: var(--default-shadow-color);
 		top: -2px;
 		left: -2px;
 		border-radius: 50%;
@@ -396,10 +395,10 @@
 		overflow: hidden; 
 	  border-radius: 5px 0 5px 0;
 	  transition: width .3s ease;
-	  background: #ECE9DF;
+	  background: var(--default-pergament-color);
 	  display: flex;
-	  box-shadow: 0 0 10px rgba(0,0,0,.5) inset;
-	  border: 1px solid rgba(0,0,0,.5);
+	  box-shadow: 0 0 10px var(--default-shadow-color) inset;
+	  border: 1px solid var(--default-shadow-color);
 	}
 
 	.roundPortrait .exhaustion-wrap {
@@ -552,7 +551,7 @@
     bottom: 0;
     width: 34px;
 	  height: 34px;
-    background: #ECE9DF;
+    background: var(--default-pergament-color);
     box-shadow: 0 0 10px rgba(0,0,0,0.5) inset;
     border: 1px solid rgba(0,0,0,0.5);
     border-radius: 5px 0 5px 0px;
@@ -563,7 +562,7 @@
 	    justify-content: center;
 	    align-items: center;
 	    height: 100%;
-	    font-family: 'Modesto Condensed';
+	    font-family: var(--modesto);
 	    font-size: 20px;
 	    font-weight: 700;
 	    color: var(--default-secondary-color);
@@ -589,7 +588,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ECE9DF;
+    background: var(--default-pergament-color);
     box-shadow: 0 0 5px rgba(0,0,0,0.5) inset;
     border: 1px solid rgba(0,0,0,0.5);
     border-radius: 0 0 5px 5px;
@@ -602,7 +601,7 @@
 
 	.portrait-hp input,
 	.portrait-hp span {
-		font-family: "Modesto Condensed", "Palatino Linotype", serif;
+		font-family: var(--modesto);
 		height: 100%;
 		font-weight: 700;
     width: 40px;

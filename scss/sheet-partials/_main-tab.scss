@@ -128,7 +128,7 @@
 	  right: 2px;
 	  bottom: 0;
 	  font-size: 12px;
-	  color: rgba(0,0,0,.5);
+	  color: var(--default-shadow-color);
 	  transition: color .3s ease;
 	}
 
@@ -184,8 +184,8 @@
 	}
 
 	.resources .resource .resource-header input:checked + label.checkbox {
-		background: rgba(0,0,0,.5);
-		color: #efefef;
+		background: var(--default-shadow-color);
+		color: var(--default-pergament-color);
 	}
 
 	.resources .resource .resource-header:hover .res-options {
@@ -198,7 +198,7 @@
 
 	/* Resource Managment */
 	.resources .resource .resource-name input {
-    font-family: "Modesto Condensed", sans-serif;
+    font-family: var(--modesto);
     font-weight: 700;
     font-size: 16px;
 		text-align: center;
@@ -211,7 +211,7 @@
 		align-items: center;
 		height: 22px;
 		line-height: 25px;
-    font-family: 'Modesto Condensed', sans-serif;
+    font-family: var(--modesto);
 	}
 
 	.resources .resource .attribute-name input[type="text"] {
@@ -249,14 +249,6 @@
 		width: 100%;
 		position: relative;
 
-		svg {
-			height: 12px;
-
-			path {
-				fill: var(--default-tertiary-color);
-			}
-		}
-
 		.form-group,
 		.form-group-stacked {
 			margin: 0; 
@@ -276,12 +268,6 @@
 			flex: unset;
 		}
 
-		// .form-group:first-child  {
-		// 	line-height: 14px;
-		// 	height: auto;
-		// 	border-radius: 5px 5px 0 0;
-		// }
-
 		.form-group:nth-child(odd) {
 			background: none;
 		}
@@ -293,10 +279,6 @@
 		&:not(.expanded):not(.always-visible) .form-group.trait-hidden {
 			display: none;
 		}
-
-		// .form-group:first-child label {
-		// 	padding-top: 1px;
-		// }
 
 		.form-group:last-child {
 			margin: 0;
@@ -364,9 +346,17 @@
 		  float: none;
 		  margin-right: 0;
 		  text-align: center;
-		  color: #7a7971;
+		  color: var(--default-secondary-color);
 		  line-height: 14px;
 		  vertical-align: bottom;
+		}
+
+		svg {
+			height: 12px;
+
+			path {
+				fill: var(--default-secondary-color);
+			}
 		}
 
 		.toggle-traits {

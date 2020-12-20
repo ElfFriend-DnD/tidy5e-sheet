@@ -3,11 +3,11 @@
   min-width: 690px;
 
   .linked {
-    box-shadow: 0 0 0 2px rgba(0,255,0,.75) inset;
+    box-shadow: 0 0 0 2px var(--default-linked-accent) inset;
   }
 
   .unlinked {
-    box-shadow: 0 0 0 2px rgba(255,0,0,.75) inset;
+    box-shadow: 0 0 0 2px var(--default-unlinked-accent) inset;
   }
 
   .link-state {
@@ -19,12 +19,12 @@
 
   .linked .link-state.fa-link {
     display: inline-block;
-    background: rgba(0,255,0,.4);
+    background: var(--default-linked-light);
   }
 
   .unlinked .link-state.fa-unlink {
     display: inline-block;
-    background: rgba(255,0,0,.4);
+    background: var(----default-unlinked-light);
   }
 
   .profile-wrap {

@@ -1,10 +1,26 @@
 :root {
+	--modesto: "Modesto Condensed", "Palatino Linotype", serif;
+	--signika: "Signika";
+	--default-pergament-color: #ECE9DF;
 	--default-primary-color: rgba(0,0,0,.87);
 	--default-secondary-color: rgba(0,0,0,.65);
+	--default-shadow-color: rgba(0,0,0,.5);
 	--default-tertiary-color: rgba(0,0,0,.4);
 	--default-light-color: rgba(0,0,0,.2);
 	--default-faint-color: rgba(0,0,0,.075);
 	--default-primary-accent: #ff6400;
 	--default-secondary-accent: rgba(210,0,255,.1);
+	--default-prepared: rgba(50,205,50,.3);
+	--default-always-prepared: rgba(0,0,255,.15);
 	--always-prepared-accent: rgba(210,0,255,.1);
+	--default-faint-white: rgba(255,255,255,.2);
+	--white: #FFF;
+	--default-linked-accent: rgba(0,255,0,.75);
+	--default-unlinked-accent: rgba(255,0,0,.75);
+	--default-linked-light: rgba(0,255,0,.4);
+	--default-unlinked-light: rgba(255,0,0,.4);
+	--default-safe-accent: rgba(0,150,100,.6);
+	--default-unsafe-accent: rgba(255,50,0,.6);
+
+	--default-magic-highlight: rgba(255,255,0,1);
 }

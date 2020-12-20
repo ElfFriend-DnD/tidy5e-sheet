@@ -33,7 +33,7 @@
 		display: flex;
     justify-content: center;
 		padding: 10px 16px 16px 16px;
-		background: rgba(255,255,255,.2);
+		background: var(--default-faint-white);
 	}
 
 	@import 'sheet-partials/_portrait.scss';
