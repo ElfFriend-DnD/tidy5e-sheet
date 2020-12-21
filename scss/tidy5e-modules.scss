@@ -29,148 +29,40 @@
 // 	background: rgba(0,0,0,.6);
 // }
 
-.tidy5e.sheet.item .item-betterRolls input[type="text"], 
-.tidy5e.sheet.item .item-betterRolls select {
-	height: 24px;
-	border: none;
-	background: rgba(255,255,255,.3); 
-}
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls {
+	.item-betterRolls input[type="text"], 
+	.item-betterRolls select {
+		height: 24px;
+		border: none;
+		background: rgba(255,255,255,.3); 
+	}
 
-.tidy5e.sheet.item .br5e-consume-container label {
-	width: 187px;
-}
+	.br5e-consume-box {
+		margin-top: 4px;
+    border: none;
+    border-top: 1px solid var(--light-color);
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+	}
 
-/* ------------------------ */
-/* Support Dynamic Effects  */
-/* ------------------------ */
+	.br5e-consume-box span {
+		text-align: left;
 
-.tidy5e.sheet.item .sheet-body .tab.dynamiceffects {
-	padding: 0 .7rem 0 0;
-}
-
-.tidy5e.sheet.item .sheet-body .tab.dynamiceffects > div {
-	float: left;
-	width: calc(50% - 2px);
-	flex-direction: row-reverse;
-}
-
-.tidy5e.sheet.item .sheet-body .tab.dynamiceffects > div + div {
-	clear: none;
-	float: right;
-	width: calc(50% - 2px);
-	flex-direction: row-reverse;
-}
-
-.tidy5e.sheet.item .sheet-body .tab.dynamiceffects > div label,
-.tidy5e.sheet.item .sheet-body .tab.dynamiceffects > div + div label {
-	padding-top: 1px;
-	margin: 0;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list {
-	clear: both;
-	padding: 0;
-}
-
-.tidy5e.sheet.item .effect-header {
-	margin: 0 0 .25rem 0;
-	padding-top: .5rem;
-	line-height: 20px;
-	background: transparent;
-	border: none;
-	border-top: 1px solid var(--faint-color);
-	font-family: var(--signika);
-}
-
-.tidy5e.sheet.item .effect-header:first-child,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-name,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-mode,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-value,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-header .effect-controls {
-	border: none;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-header .effect-name {
-	flex: 1;
-	padding-top: 2px;
-	border: none;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-header .effect-mode,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-header .effect-value {
-	color: var(--tertiary-color);
-	padding-top: 2px;
-	border: none;
-}
-
-.tidy5e.sheet.item .effect-header h3 {
-	font-family: var(--signika);
-	font-size: 13px;
-	margin: 0;
-	padding: 0;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect {
-	padding: 0;
-  line-height: 30px;
-  background: var(--faint-color);
-  border: none;
-  border-radius: 5px;
-  margin: 2px 0;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect .effect-name {
-	padding: 0 .5rem;
-	flex: 1;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-mode,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-value {
-	color: var(--secondary-color);
-	flex: 0 0 70px;
-	text-align: center;
-	border-left: 1px solid var(--faint-color);
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls {
-	flex: 0 0 66px;
-	text-align: center;
-	justify-content: center;
-	border: none;
-	border-left: 1px solid var(--faint-color);
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls .effect-create {
-	flex: 1;
-	text-align: center;
-	width: 100%;
-	border-radius: 5px;
-	background: var(--tertiary-color);
-	color: rgba(255,255,255,.6);
-	font-size: 12px;
-	font-weight: normal;
-	align-items: center;
-	padding-top: 2px;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls .effect-edit,
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls .effect-delete {
-	flex:0 0 22px;
-	text-align: center;
-	font-size: 12px;
-}
-
-.tidy5e.sheet.item .dynamiceffects-effect-list .effect-controls .effect-delete {
-	color: var(--tertiary-color);
+		label {
+			padding-left: 0;
+		}
+	}
 }
 
 /* ------------------------ */
 /*    Support Magic Items   */
 /* ------------------------ */
 
-.tidy5e.sheet.actor .magic-items-spells-content {
+.tidy5e.sheet.actor .magic-items-spells-content,
+.tidy5e.sheet.actor .magic-items-feats-content  {
 
-	padding: 10px;
+	padding: 4px 6px;
 	border: 1px solid yellow;
 	box-shadow: 0 0 10px 0 yellow inset;
 	border-radius: 5px;
@@ -178,10 +70,10 @@
 
 	.magic-items-head {
 		margin: 0;
-		padding: 0 0 8px 0;
+		padding: 0 0 2px 0;
 
 		h3 {
-			font-size: 14px;
+			font-size: 13px;
 		}
 	}
 
@@ -232,7 +124,7 @@
 			border-left: 1px solid var(--faint-color);
 		}
 	}
-}
+}//.tidy5e.sheet.actor .magic-items-spells-content
 
 .tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list {
 
@@ -276,217 +168,202 @@
 		}
 
 	}//.item
-}
-
-// .tidy5e.sheet.item .magic-items-content input[type="text"],
-// .tidy5e.sheet.item .magic-items-content select {
-// 	border: none !important;
-// 	background: rgba(255,255,255, .3);
-// 	color: var(--primary-color);
-// }
-
-// .tidy5e.sheet.item .magic-items-content input[type="text"]:hover,
-// .tidy5e.sheet.item .magic-items-content select:hover,
-// .tidy5e.sheet.item .magic-items-content select:focus {
-// 	border: none !important;
-// 	box-shadow: 0 0 0 1px var(--primary-accent);
-// }
-
-// .tidy5e.sheet.actor .magic-items-feats-content .spellbook-filters.magic-items-head,
-// .tidy5e.sheet.actor .magic-items-spells-content .spellbook-filters.magic-items-head {
-// 	padding: .5rem 0;
-// 	margin: .5rem 0 0 0;
-// 	border: none;
-// 	border-top: 3px solid rgba(0,0,0,0.3);
-// 	border-bottom: 1px solid rgba(0,0,0,0.3);
-// }
-
-// .tidy5e.sheet.actor .magic-items-feats-content .spellbook-filters.magic-items-head h3,
-// .tidy5e.sheet.actor .magic-items-spells-content .spellbook-filters.magic-items-head h3 {
-// 	font-size: 16px;
-// 	font-weight: 600;
-// }
-
-// .tidy5e.sheet.actor .magic-items-feats-content .items-header.spellbook-header,
-// .tidy5e.sheet.actor .magic-items-spells-content .items-header.spellbook-header,
-// .tidy5e.sheet.actor .magic-items-feats-content .spellbook-header div,
-// .tidy5e.sheet.actor .magic-items-spells-content .spellbook-header div,
-// .tidy5e.sheet.actor .magic-items-feats-content .magic-item,
-// .tidy5e.sheet.actor .magic-items-spells-content .magic-item {
-// 	border: none;
-// }
-
-// .tidy5e.sheet.actor .magic-items-feats-content .spell-slots input:last-child,
-// .tidy5e.sheet.actor .magic-items-spells-content .spell-slots input:last-child {
-// 	text-align: left;
-// }
-
-// .tidy5e.sheet.actor .magic-items-feats-content .magic-item div,
-// .tidy5e.sheet.actor .magic-items-spells-content .magic-item div {
-// 	border-right: 1px solid rgba(0,0,0,.15);
-// }
-
-// .tidy5e.sheet.actor .magic-items-feats-content .magic-item div:last-child,
-// .tidy5e.sheet.actor .magic-items-spells-content .magic-item div:last-child {
-// 	border-right: none;
-// }
+}//.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list
 
 
 /* Magic Item Sheet */
-
-.tidy5e.sheet.item .magic-items-content .magic-item-charges,
-.tidy5e.sheet.item .magic-items-content .magic-item-recharge input[type="text"] {
-	text-align: right;
-}
-
 .tidy5e.sheet.item .sheet-body .tab.magic-items {
-	padding: 0 .7rem 0 0;
-}
 
-.tidy5e.sheet.item .sheet-body .tab.magic-items .input-select {
-	height: 32px;
-	line-height: 30px;
-}
+	input[type=checkbox] {
+		margin: 2px 2px 2px 4px !important;
+	}
 
-.tidy5e.sheet.item .sheet-body .tab.magic-items .input-select label {
-	margin-left: 4px;
-}
+	input[name="flags.magicitems.equipped"] {
+		margin-right: 8px !important;
+	}
 
-.tidy5e.sheet.item .magic-item-list {
-	clear: both;
-	padding: 0;
-}
+	.form-group label.checkbox {
+		background: rgba(255,255,255,0.3);
 
-.tidy5e.sheet.item .magic-item-list .items-header {
-	margin: 0 0 .25rem 0;
-	padding-top: .5rem;
-	line-height: 20px;
-	background: transparent;
-	border: none;
-	border-top: 1px solid var(--faint-color);
-	font-family: var(--signika);
-}
+		&:hover {
+			background: rgba(255,255,255,0.1);
+		}
+	}
 
-.tidy5e.sheet.item .magic-item-list .items-header:first-child,
-.tidy5e.sheet.item .magic-item-list .items-header .item-name,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-level-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-consumption-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-upcast-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-cost-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-constrols-head{
-	border: none;
-}
+	.spell-drag-content {
+		height: 70px;
+    text-align: center;
+    color: #828180;
+    line-height: 5;
+    border: 2px #828180 dashed;
+	}
 
-.tidy5e.sheet.item .magic-item-list .item.items-header .item-name {
-	flex: 1;
-	padding: 2px 0 0 4px;
-	border: none;
-}
+	.magic-item-sort .form-fields label {
+	    flex: unset;
+	    background: transparent;
+    	align-items: center;
+    	margin-left: 8px;
+    	border: none;
+    	box-shadow: none;
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-level-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-consumption-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-upcast-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-cost-head,
-.tidy5e.sheet.item .magic-item-list .items-header .spell-controls-head {
-	color: var(--tertiary-color);
-	padding-top: 2px;
-	margin-right: 4px;
-	text-align: center;
-}
+	    input {
+	    	width: 16px;
+	    	position: relative;
+		    top: -1px;
+		    margin: 0 2px 0 0;
+	    }
+	}
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-controls-head {
-	margin-right: 0;
-}
+	.magic-items-content {
 
-.tidy5e.sheet.item .magic-item-list .items-header h3 {
-	font-family: var(--signika);
-	font-size: 13px;
-	margin: 0;
-	padding: 0;
-}
+		font-size: 13px;
 
-.tidy5e.sheet.item .magic-item-list .item:not(.items-header) {
-	padding: 0;
-  line-height: 30px;
-  height: 30px;
-  background: var(--faint-color);
-  border: none;
-  border-radius: 5px;
-  margin: 2px 0;
-  overflow: hidden; 
-}
+		select.magic-item-destroy-type,
+		select.magic-item-destroy-check {
+    	flex: 0.4;
+    	margin-left: 4px;
+    }
 
-.tidy5e.sheet.item .magic-item-list .item .item-name {
-	padding: 0 .5rem 0 0;
-	flex: 1;
-}
+    .magic-item-list {
+			clear: both;
+			padding: 0;
 
-.tidy5e.sheet.item .magic-item-list .item.items-header .item-name {
-	cursor: default;
-}
+			.item-list {
+				margin: 0;
+				padding: 0;
+			}
 
-.tidy5e.sheet.item .magic-item-list .item .spell-level,
-.tidy5e.sheet.item .magic-item-list .item .spell-consumption,
-.tidy5e.sheet.item .magic-item-list .item .spell-upcast,
-.tidy5e.sheet.item .magic-item-list .item .spell-cost {
-	color: var(--secondary-color);
-	text-align: center;
-	border-left: 1px solid var(--faint-color);
-	margin: 3px 4px 3px 0;
-}
+			// .items-header {
+			// 	margin: 0 0 .25rem 0;
+			// 	padding-top: .5rem;
+			// 	line-height: 20px;
+			// 	background: transparent;
+			// 	border: none;
+			// 	border-top: 1px solid var(--faintest-color);
+			// 	font-family: var(--signika);
+			// }
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-consumption-head,
-.tidy5e.sheet.item .magic-item-list .item .spell-consumption {
-	flex: 0 0 80px;
-}
+			.item {
+				padding: 0;
+			  line-height: 26px;
+		    height: 26px;
+			  background: var(--faintest-color);
+			  border: none;
+			  border-radius: 5px;
+			  margin: 2px 0;
+			  overflow: hidden; 
+			  align-items: center;
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-cost-head,
-.tidy5e.sheet.item .magic-item-list .item .spell-cost {
-	flex: 0 0 50px;
-}
+			  .item-name {
+			  	align-items: center;
+			  }
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-level-head,
-.tidy5e.sheet.item .magic-item-list .item .spell-level {
-	flex: 0 0 70px;
-}
+			  .item-image {
+			    flex: 0 0 24px;
+			  	height: 24px;
+			    background-size: cover;
+			    margin-right: 4px;
+			  }
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-upcast-head,
-.tidy5e.sheet.item .magic-item-list .item .spell-upcast {
-	flex: 0 0 85px;
-}
+			  h4 {
+			  	margin: 0;
+			  	line-height: 24px;
+			  	height: 24px;
+			  }
 
-.tidy5e.sheet.item .magic-item-list .item .feat-consumption {
-	flex: 0 0 80px;
-	margin: 3px 4px 3px 0px;
-	text-align: center;
-}
+			  select,
+			  input:not([type=checkbox]) {
+			  	line-height: 20px;
+			  	height: 20px;
+			  	background: rgba(255,255,255,0.3);
+			  }
 
-.tidy5e.sheet.item .magic-item-list .items-header .spell-controls-head,
-.tidy5e.sheet.item .magic-item-list .item-controls {
-	flex: 0 0 30px;
-	text-align: center;
-	justify-content: center;
-	border: none;
-}
+			  .item-controls {
+			  	flex: 0 0 1px;
+			    height: 24px;
+			    line-height: 24px;
+			    display: flex;
+			    align-items: center;
 
-.tidy5e.sheet.item .magic-item-list .item-controls a {
-	flex:0 0 22px;
-	text-align: center;
-	font-size: 12px;
-	color: rgba(255,0,0,.5);
-	margin: 0;
-}
+			    a {
+			    	padding: 0 8px;
+			    }
+			  }
+			}
 
-.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-item-sort .form-fields label {
-	flex:0 0 150px;
-}
+			.inventory-header {
+				background: var(--faint-color);
+		    box-shadow: 0 0 5px inset var(--light-color);
+		    border-bottom: 1px solid var(--light-color);
+			}
 
-.tidy5e.sheet.item .magic-items .magic-item-sort .form-fields input {
-  width: 16px;
-  top: 0;
-  margin: 0 4px;
-}
+	    .inventory-header h3 {
+		    margin: 0 -5px 0 0;
+		    padding-left: 5px;
+		    font-size: 13px;
+		    font-weight: bold;
+			}
 
+			.spell-level-head, 
+			.spell-upcast-head, 
+			.spell-consumption-head, 
+			.spell-cost-head, 
+			.spell-dc-head,
+			.feat-consumption-head,
+			.feat-effect-head {
+		    font-size: 12px;
+		    color: #7a7971;
+		    text-align: center;
+		    margin: 0 2px;
+		  }
+
+		  .spell-level, 
+			.spell-upcast, 
+			.spell-consumption, 
+			.spell-cost, 
+			.spell-dc,
+			.feat-consumption,
+			.feat-effect {
+		    text-align: center;
+		    margin: 0 2px;
+		  }
+
+			.spell-level-head,
+			.spell-level {
+				flex: 0 0 40px;
+			}
+
+			.spell-dc-head,
+			.spell-cost-head,
+			.spell-cost {
+				flex: 0 0 56px;
+			}
+
+			.spell-upcast-head,
+			.spell-upcast {
+				flex: 0 0 80px;
+			}
+
+			.spell-consumption-head,
+			.spell-consumption,
+			.feat-consumption-head,
+			.feat-consumption,
+			.feat-effect-head,
+			.feat-effect {
+				flex: 0 0 80px;
+			}
+
+			.spell-dc {
+				flex: 0 0 30px;
+			}
+
+			.spell-controls-head {
+				flex: 0 0 28px;
+			}
+
+		}//.magic-item-list
+	}
+}//.tidy5e.sheet.item .sheet-body .tab.magic-items
 
 /* ----------------------------- */
 /*    Support Skill Customizer   */
@@ -557,23 +434,36 @@
 
 	.toggle-collapse {
 		width: 12px;
-		font-size: 18px;
-		margin-right: 5px;
-		color: var(--light-color);
+    font-size: 18px;
+    line-height: 12px;
+    margin-right: 5px;
+    color: var(--default-light-color);
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 		&:hover {
 			color: var(--primary-color);
 		}
+
+		i {
+			position: relative;
+    	top: -1px;
+		}
 	}
 
 	.inv-plus-stuff {
-
+    align-items: center;
 		opacity: 0;
 		transition: opacity .3s ease;
 
 		a {
 			margin-right: 5px;
-			color: var(--light-color);
+	    color: var(--light-color);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
 
 			&:hover {
 				color: var(--primary-color);

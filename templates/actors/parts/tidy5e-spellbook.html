@@ -105,13 +105,13 @@
     {{else}}
     {{#if owner}}
     {{#if filters.spellbook.size}}
-    <li class="item"><p class="notes">{{localize 'DND5E.FilterNoSpells'}}</p></li>
+    <li class="notice">{{localize 'DND5E.FilterNoSpells'}}</li>
     {{else}}
 
-    <li class="item"><p class="notes">{{localize 'DND5E.NoSpellLevels'}}</p></li>
+    <li class="notice">{{localize 'DND5E.NoSpellLevels'}}</li>
     <li class="items-footer">
       <a class="item-create" title="{{localize 'DND5E.SpellCreate'}}" data-type="spell"
-      data-level="{{lvl}}"><i class="fas fa-plus-circle"></i> {{localize 'DND5E.SpellAdd'}}</a>
+      data-level="{{lvl}}"><i class="fas fa-plus-circle"></i> {{localize 'DND5E.SpellCreate'}}</a>
     </li>
     {{/if}}
     {{/if}}

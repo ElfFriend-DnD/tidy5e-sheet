@@ -455,8 +455,22 @@ async function editProtection(app, html, data) {
 
   } else if(!actor.getFlag('tidy5e-sheet', 'allow-edit')){
     
+    let itemContainer = html.find('.inventory-list.items-list');
+    html.find('.inventory-list .items-header:not(.spellbook-header)').each(function(){
+      if($(this).next('.item-list').find('li').length <= 1){
+        $(this).next('.item-list').remove();
+        $(this).remove();
+      }
+    });
+
     html.find('.inventory-list .items-footer').hide();
     html.find('.inventory-list .item-control.item-delete').remove();
+
+    itemContainer.each(function(){
+		  if($(this).children().length < 1){
+		    $(this).append(`<span class="notice">This section is empty. Unlock the sheet to edit.</span>`)
+		  }
+    });
   }
 }
 
@@ -523,6 +537,9 @@ async function setSheetClasses(app, html, data) {
 	}
 	if(game.user.isGM){
 		html.find('.tidy5e-sheet').addClass('isGM');
+	}
+	if (game.settings.get("tidy5e-sheet", "alwaysShowQuantity")) {
+		html.find('.item').addClass('alwaysShowQuantity');
 	}
 }
 
@@ -653,20 +670,11 @@ Hooks.once("ready", () => {
 	  window.BetterRolls.hooks.addActorSheet("Tidy5eSheet");
 	}
 
-	game.settings.register("tidy5e-sheet", "inventoryGridView", {
-    name: 'Sheets display inventory as a grid',
-    hint: '',
-    scope: "user",
-    config: false,
-    default: false,
-    type: Boolean
-  });
-
-	game.settings.register("tidy5e-sheet", "spellbookGridView", {
-    name: 'Sheets display spellbook as a grid',
-    hint: '',
-    scope: "user",
-    config: false,
+	game.settings.register("tidy5e-sheet", "alwaysShowQuantity", {
+    name: 'Always show item quantity',
+    hint: 'Sheets always display item quantity even if 1 or 0.',
+    scope: "world",
+    config: true,
     default: false,
     type: Boolean
   });

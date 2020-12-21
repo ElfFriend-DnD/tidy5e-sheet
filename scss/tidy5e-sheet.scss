@@ -174,9 +174,24 @@
 	}
 
 	.editor {
-	    min-height: 382px;
-	    display: flex;
-	    flex-direction: column;
+    min-height: 382px;
+    display: flex;
+    flex-direction: column;
+
+    .editor-edit {
+    	background: transparent;
+    }
+
+    .tox-editor-header {
+    	border-bottom: 1px solid var(--faint-color);
+    }
+
+    .tox-toolbar-overlord,
+    .tox-toolbar__primary {
+    	background: transparent;
+    	background-color: transparent;
+    }
+    
 	}
 
 	.tox.tox-tinymce {

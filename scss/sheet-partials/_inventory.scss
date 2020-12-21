@@ -278,19 +278,24 @@
 
 	.items-header {
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin: 0 0 2px 0;
-		padding-top: 4px;
-		line-height: 16px;
-		font-size: 12px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0 2px 0;
+    padding: 4px 0 2px 6px;
+    line-height: 12px;
+    font-size: 12px;
+    background: var(--faint-color);
+    box-shadow: 0 0 5px inset var(--light-color);
+    border-bottom: 1px solid var(--light-color);
+    border-radius: 5px;
 		
 		&:first-child { 
-			padding-top: 0;
+			margin-top: 0;
 		}
 
 		h3 {
 			font-size: 12px;
+			line-height: 12px;
 			flex: 1 0 70px;
 			white-space: nowrap;
 		}
@@ -302,7 +307,8 @@
 		justify-content: flex-end;
 		flex: 0;
   	font-size: 12px;
- 		color: var(--light-color);
+  	line-height: 12px;
+ 		color: var(--tertiary-color);
  		text-align: center;
  		white-space: nowrap;
 
@@ -330,7 +336,7 @@
 	}//.items-header-label
 
 	.item {
-		background: var(--faint-color);
+		background: var(--faintest-color);
 
 		.item-charges a.addCharges {
 			display: block;
@@ -363,7 +369,7 @@
 			}
 		}//.item-quaantity
 
-		&:not(:hover):not(.showSingleItems) .item-quantity:not(.isStack):not(:hover):not(:focus-within) {
+		&:not(:hover):not(.alwaysShowQuantity) .item-quantity:not(.isStack):not(:hover):not(:focus-within) {
 	   	opacity: 0;
 	  }
 
@@ -538,7 +544,7 @@
 
 		.item-buttons {
 
-			button {
+			.button {
 				border: none;
 				border-radius: 0;
 				background: var(--tertiary-color);
@@ -564,13 +570,8 @@
 
 			}//button
 
-			&>button:first-child {
+			&>.button:first-child {
 				border-radius: 3px 3px 0 0;				
-			}
-
-			.rollGroup {
-				display: flex;
-				gap: 1px;
 			}
 
 		}//.item-buttons
@@ -599,19 +600,22 @@
 		.spell-max {    
 			display: flex;
     	align-items: center;
-    	line-height: 16px;
+    	line-height: 12px;
     	text-align: left;
 		}
 
 		input {
 			text-align: right;
-			height: 16px;
+			height: 13px;
+			margin-top: -1px;
 			min-width: 16px;
 		}
 
 		.slot-max-override {
-			margin: 1px 0 0 4px;
+			margin: 0 0 0 4px;
 			color: var(--tertiary-color);
+			line-height: 12px;
+			height: 12px;
 		}
 	}//.items-header .spell-detail.spell-slots
 
@@ -694,16 +698,17 @@
 		display: flex;
 		justify-content: flex-end;
 		flex: 1;
-		background: var(--faintest-color);
-		border-radius: 5px;
+    border-top: 1px solid var(--faint-color);
+		border-radius: 0 0 5px 5px;
 
 		a {
 			flex: 0 0 120px;
     	padding: 0 20px;
 			font-size: 12px;
 			text-align: center;
+    	background: var(--faintest-color);
 			color: var(--secondary-color);
-			border-radius: 5px;
+			border-radius: 0 0 5px 5px;
 			font-weight: 400;
 		  line-height: 18px;
 		  padding-top: 2px;

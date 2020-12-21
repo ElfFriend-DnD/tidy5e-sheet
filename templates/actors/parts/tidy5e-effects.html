@@ -20,8 +20,8 @@
         <div class="item-detail effect-source" title="{{effect.sourceName}}"><span>{{effect.sourceName}}</span></div>
         <div class="item-detail effect-duration">{{effect.duration.label}}</div>
         <div class="item-controls effect-controls">
-          <a class="effect-control effect-toggle" data-action="toggle" title="{{localize 'DND5E.EffectToggle'}}">
-              <i class="fas fa-circle-notch"></i> {{localize 'DND5E.EffectToggle'}}
+          <a class="effect-control" data-action="toggle" title="{{localize 'DND5E.EffectToggle'}}">
+              <i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i> {{localize 'DND5E.EffectToggle'}}
           </a>
           <a class="effect-control effect-edit" data-action="edit" title=" {{localize 'DND5E.EffectEdit'}}">
               <i class="fas fa-edit"></i> {{localize 'DND5E.EffectEdit'}}
