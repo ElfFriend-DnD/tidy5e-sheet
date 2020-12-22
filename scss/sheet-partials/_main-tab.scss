@@ -1,5 +1,4 @@
-
-	/* Left Pane */
+	// Left Pane
 
 	.left-pane {
 		display: flex;
@@ -7,7 +6,7 @@
 		width: 240px;
 	}
 
-	/* Skill List */
+	// Skill List
 
 	.skills-list {
 	  border: 1px solid var(--faint-color);
@@ -68,7 +67,7 @@
 		} //.skill
 	} //.skills-list
 
-	/* Center Pane */
+	// Center Pane
 
 	.center-pane {
 		display: flex;
@@ -80,7 +79,7 @@
 		height: auto;
 	}
 
-	/* Resources */
+	// Resources
 
 	.center-pane .resources {
 		margin: 0;
@@ -111,7 +110,7 @@
 		padding-top: 0;
 	}
 
-	/* Resource Restoration Menu */
+	// Resource Restoration Menu
 
 	.resources .resource .resource-header {
 		position: absolute;
@@ -196,7 +195,7 @@
 		display: none;
 	}
 
-	/* Resource Managment */
+	// Resource Managment
 	.resources .resource .resource-name input {
     font-family: var(--modesto);
     font-weight: 700;
@@ -240,7 +239,7 @@
 		text-align: left;
 	}
 
-	/* Character Traits */
+	// Character Traits
 	.traits {
 		border: 1px solid var(--faint-color);
 		border-radius: 5px 5px 0 0;

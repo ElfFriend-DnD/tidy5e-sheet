@@ -1,4 +1,4 @@
-/* font settings */
+// font settings
 
 	h1, h2, h3, h4 {
 		margin: 0;
@@ -15,7 +15,7 @@
 		font-family: var(--modesto);
 	}
 
-	/* general elements */
+	// general elements
 
 	.rollable {
 		cursor: pointer;
@@ -39,7 +39,7 @@
 		&:empty::before {
 		  content: attr(data-placeholder);
 		  pointer-events: none;
-		  display: block; /* For Firefox */
+		  display: block; // For Firefox
 		  color: var(--tertiary-color);
 		}
 	}
@@ -65,7 +65,7 @@
 		transition: background .3s ease, border-color .3s ease;
 	}
 
-	/* pointer styles */
+	// pointer styles
 	input[type="checkbox"],
 	input[type="radio"],
 	button,

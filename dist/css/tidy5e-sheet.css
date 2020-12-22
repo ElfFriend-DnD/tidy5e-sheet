@@ -37,48 +37,6 @@
 .tidy5e.sheet.actor {
   min-width: 680px;
   min-height: 210px;
-  /* font settings */
-  /* general elements */
-  /* pointer styles */
-  /* ### HEADER ### */
-  /* Portrait, Death Saves, Resting and Inspiration */
-  /* Portrait */
-  /* Death Saves and HP-Overlay */
-  /* ## DEATH SAVES ## */
-  /* ## INSPIRATION ## */
-  /* ## REST ## */
-  /* Hover Notes */
-  /* ## EXHAUSTION ## */
-  /* # exhaustion effect note # */
-  /* # exhaustion color coding # */
-  /* Portrait Hit Points */
-  /* Portrait Hit Temp */
-  /* ### CHARACTER DETAILS ### */
-  /* ## GENERAL INFORMATION ## */
-  /* Class List */
-  /* Origin Summary */
-  /* Size Select */
-  /* Character Movement */
-  /* Header Attributes */
-  /* Ability Scores */
-  /* #### Sheet Navigation #### */
-  /* #### SHEET BODY #### */
-  /* Left Pane */
-  /* Skill List */
-  /* Center Pane */
-  /* Resources */
-  /* Resource Restoration Menu */
-  /* Resource Managment */
-  /* Character Traits */
-  /* Favorites */
-  /* Inventorys */
-  /* Filters */
-  /* Currency */
-  /* Spellcasting Ability */
-  /* Inventory Items */
-  /* SPELL SLOTS */
-  /* Notes in Biography and Journal */
-  /* Portrait hover options */
 }
 
 .tidy5e.sheet.actor .window-content {
@@ -150,7 +108,6 @@
   content: attr(data-placeholder);
   pointer-events: none;
   display: block;
-  /* For Firefox */
   color: var(--tertiary-color);
 }
 
@@ -2163,7 +2120,6 @@
   flex: 1;
   padding: 0 9px 8px 0;
   overflow-y: scroll;
-  /* Context Menu */
 }
 
 .tidy5e.sheet.actor .items-list .item-list {
@@ -2231,7 +2187,6 @@
 
 .tidy5e.sheet.actor .items-list .item {
   background: var(--faintest-color);
-  /* Item Equipped/Prepared Highlight */
 }
 
 .tidy5e.sheet.actor .items-list .item .item-charges a.addCharges {

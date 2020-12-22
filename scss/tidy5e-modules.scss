@@ -1,6 +1,6 @@
-/* ------------------------------------ */
-/*   Support Better Rolls / Minor QOL   */
-/* ------------------------------------ */
+// ------------------------------------
+//   Support Better Rolls / Minor QOL  
+// ------------------------------------
 
 // .tidy5e.sheet.actor .items-list .item-summary .item-properties .item-buttons {
 // 	margin: 4px 0; 
@@ -55,9 +55,9 @@
 	}
 }
 
-/* ------------------------ */
-/*    Support Magic Items   */
-/* ------------------------ */
+// ------------------------
+//    Support Magic Items  
+// ------------------------
 
 .tidy5e.sheet.actor .magic-items-spells-content,
 .tidy5e.sheet.actor .magic-items-feats-content  {
@@ -171,7 +171,7 @@
 }//.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list
 
 
-/* Magic Item Sheet */
+// Magic Item Sheet
 .tidy5e.sheet.item .sheet-body .tab.magic-items {
 
 	input[type=checkbox] {
@@ -365,9 +365,9 @@
 	}
 }//.tidy5e.sheet.item .sheet-body .tab.magic-items
 
-/* ----------------------------- */
-/*    Support Skill Customizer   */
-/* ----------------------------- */
+// -----------------------------
+//    Support Skill Customizer  
+// -----------------------------
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select,
 .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus {
@@ -418,9 +418,9 @@
 }
 
 
-/* -------------------- */
-/*    Inventory Plus   */
-/* ------------------- */
+// --------------------
+//    Inventory Plus  
+// -------------------
 
 .tidy5e.sheet.actor {
 	.custom-category {

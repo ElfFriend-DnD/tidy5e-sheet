@@ -1,7 +1,7 @@
 
-/* ------------------------- */
-/* Support dnd5e Item sheet  */
-/* ------------------------- */
+// -------------------------
+// Support dnd5e Item sheet 
+// -------------------------
 
 .tidy5e.sheet.item {
 
@@ -19,7 +19,7 @@
     text-shadow: none;
 	}
 
-	/* Checkbox styling */
+	// Checkbox styling
 
 	input[type="checkbox"],
 	button,
@@ -160,7 +160,7 @@
 		}//.summary
 	}//.sheet-header
 
-	/* navigation */
+	// navigation
 
 	.sheet-navigation {
 		display: flex;
@@ -208,14 +208,14 @@
 
 	}//.sheet-navigation
 
-	/* item sheet body */
+	// item sheet body
 
 	.sheet-body {
 		padding: 1rem;
 		padding-right: .25rem;
 		overflow: hidden;
 
-		/* item properties */
+		// item properties
 
 		.item-properties {
 			flex: 0 0 120px;
@@ -270,7 +270,7 @@
 			}
 		}
 
-		/* item sheet editor */
+		// item sheet editor
 
 		.editor {
 			margin-left: .5rem;
@@ -328,7 +328,7 @@
 			}//.tox 
 		}//.editor
 
-		/* tabs */
+		// tabs
 		.tab {
     	overflow: hidden auto;
     	height: 100%;
@@ -594,7 +594,7 @@
 
 }
 
-	/* actor flags */
+	// actor flags
 #actor-flags.app.dnd5e {
 
 	.window-content {

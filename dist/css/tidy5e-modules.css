@@ -1,6 +1,3 @@
-/* ------------------------------------ */
-/*   Support Better Rolls / Minor QOL   */
-/* ------------------------------------ */
 .tidy5e.sheet.item .sheet-body .tab.item-betterRolls .item-betterRolls input[type="text"],
 .tidy5e.sheet.item .sheet-body .tab.item-betterRolls .item-betterRolls select {
   height: 24px;
@@ -25,9 +22,6 @@
   padding-left: 0;
 }
 
-/* ------------------------ */
-/*    Support Magic Items   */
-/* ------------------------ */
 .tidy5e.sheet.actor .magic-items-spells-content,
 .tidy5e.sheet.actor .magic-items-feats-content {
   padding: 4px 6px;
@@ -147,7 +141,6 @@
   box-shadow: none;
 }
 
-/* Magic Item Sheet */
 .tidy5e.sheet.item .sheet-body .tab.magic-items input[type=checkbox] {
   margin: 2px 2px 2px 4px !important;
 }
@@ -326,9 +319,6 @@
   flex: 0 0 28px;
 }
 
-/* ----------------------------- */
-/*    Support Skill Customizer   */
-/* ----------------------------- */
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select,
 .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus {
   line-height: 14px;
@@ -375,9 +365,6 @@
   box-shadow: 0 0 0 1px var(--primary-accent) inset;
 }
 
-/* -------------------- */
-/*    Inventory Plus   */
-/* ------------------- */
 .tidy5e.sheet.actor .custom-category {
   margin-right: auto;
   font-size: 12px;

@@ -1,6 +1,6 @@
-	/* Portrait, Death Saves, Resting and Inspiration */
+// Portrait, Death Saves, Resting and Inspiration
 
-	/* Portrait */
+// Portrait
 
 	.profile-wrap {
 		width: 150px;
@@ -45,7 +45,7 @@
 		object-position: top;
 	}
 
-	/* Death Saves and HP-Overlay */
+// Death Saves and HP-Overlay
 
 	.death-saves,
 	.profile .hp-overlay-wrapper {
@@ -136,7 +136,7 @@
 		color: #fff !important;
 	}
 
-	/* ## DEATH SAVES ## */
+// ## DEATH SAVES ##
 	.profile .inspiration.disabled,
 	.profile:not(.deathfailure-0):not(.deathfailure-) .inspiration, 
 	.profile:not(.deathsuccess-0):not(.deathsuccess-) .inspiration,
@@ -150,7 +150,7 @@
 		display: none;
 	}
 
-	/* ## INSPIRATION ## */
+// ## INSPIRATION ##
 	.inspiration {
 		position: absolute;
 		right: 0;
@@ -233,7 +233,7 @@
 		}
 	}
 
-	/* ## REST ## */
+// ## REST ##
 
 	.rest-container {
 		position: absolute;
@@ -305,7 +305,7 @@
 		color: var(--secondary-color);
 	}
 
-	/* Hover Notes */
+// Hover Notes
 
 	.note {
 		display: none;
@@ -341,7 +341,7 @@
 		display: inline-block;
 	}
 
-	/* ## EXHAUSTION ## */
+// ## EXHAUSTION ##
 
 	.profile .exhaustion-container.disabled,
 	.profile:not(.deathfailure-0):not(.deathfailure-) .exhaustion-container, 
@@ -438,7 +438,7 @@
 		color: #191813;
 	}
 
-	/* # exhaustion effect note # */
+// # exhaustion effect note #
 
 	.exhaustion-container .note p {
 		color: rgba(255,255,255,1);
@@ -473,7 +473,7 @@
 		}
 	}
 	
-	/* # exhaustion color coding # */
+// # exhaustion color coding #
 
 	.exhaustion-container.level-0 .exhaust-level li:nth-of-type(1) {
 		background: transparent;
@@ -537,7 +537,7 @@
 		background: rgb(255,100,0);
 	}
 
-	/* Portrait Hit Points */
+// Portrait Hit Points
 
 	.portrait-hd {
     
@@ -607,7 +607,7 @@
 		flex: 0;
 	}
 
-	/* Portrait Hit Temp */
+// Portrait Hit Temp
 
 	.portrait-temp {
 		display: flex;

@@ -1,11 +1,5 @@
-/* ------------------------- */
-/* Support dnd5e Item sheet  */
-/* ------------------------- */
 .tidy5e.sheet.item {
   min-height: 500px;
-  /* Checkbox styling */
-  /* navigation */
-  /* item sheet body */
 }
 
 .tidy5e.sheet.item .window-content form {
@@ -200,9 +194,6 @@
   padding: 1rem;
   padding-right: .25rem;
   overflow: hidden;
-  /* item properties */
-  /* item sheet editor */
-  /* tabs */
 }
 
 .tidy5e.sheet.item .sheet-body .item-properties {
@@ -603,7 +594,6 @@
   margin-right: 4px;
 }
 
-/* actor flags */
 #actor-flags.app.dnd5e .window-content {
   padding: 0;
 }
