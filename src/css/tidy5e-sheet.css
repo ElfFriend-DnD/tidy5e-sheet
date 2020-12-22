@@ -2123,7 +2123,7 @@
 }
 
 .tidy5e.sheet.actor .items-list .item-list {
-  padding: 0;
+  padding: 0 0 0 8px;
   margin: 0;
 }
 
@@ -2131,13 +2131,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px 0 2px 0;
+  margin: 8px 0 2px 0;
   padding: 4px 0 2px 6px;
   line-height: 12px;
   font-size: 12px;
   background: var(--faint-color);
-  box-shadow: 0 0 5px inset var(--light-color);
-  border-bottom: 1px solid var(--light-color);
+  box-shadow: 0 0 3px inset var(--light-color);
+  border-bottom: 1px solid var(--tertiary-color);
   border-radius: 5px;
 }
 
@@ -2768,11 +2768,16 @@
   padding-left: 2px;
 }
 
+.tidy5e.sheet.actor .grid-layout .items-list .items-header {
+  margin: 2px 0 2px 0;
+}
+
 .tidy5e.sheet.actor .grid-layout .items-list .items-header-labels {
   display: none;
 }
 
 .tidy5e.sheet.actor .grid-layout .item-list {
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
 }
