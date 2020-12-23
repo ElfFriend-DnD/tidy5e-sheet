@@ -515,6 +515,123 @@
   flex: 0 0 calc(100% / 3 - 1px);
 }
 
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list {
+  flex: 1;
+  padding: 0 9px 8px 0;
+  margin: 0;
+  list-style: none;
+  overflow-y: scroll;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item-list {
+  padding: 0 0 0 8px;
+  margin: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header {
+  align-items: center;
+  margin: 8px 0 2px 0;
+  padding: 4px 0 2px 6px;
+  line-height: 12px;
+  font-size: 12px;
+  background: var(--faint-color);
+  box-shadow: 0 0 3px inset var(--light-color);
+  border-bottom: 1px solid var(--tertiary-color);
+  border-radius: 5px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header:first-child {
+  margin-top: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header h3 {
+  font-size: 12px;
+  line-height: 12px;
+  flex: 1 0 70px;
+  white-space: nowrap;
+  margin: 0;
+  font-weight: 600;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header div:not(.item-name) {
+  color: var(--tertiary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-source,
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-duration {
+  flex: 0 0 120px;
+  text-align: center;
+  justify-content: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-controls {
+  flex: 0 0 61px;
+  text-align: center;
+  justify-content: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header .effect-controls i {
+  margin-right: 4px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control {
+  flex: 0 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--tertiary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control .fas.fa-trash {
+  color: var(--unsafe-accent);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control:hover {
+  color: var(--secondary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control:hover .fas.fa-trash {
+  color: var(--unlinked-accent);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item {
+  background: var(--faintest-color);
+  margin: 2px 0;
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item div:not(.item-name) {
+  border-left: 1px solid var(--faint-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name {
+  align-items: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name h4 {
+  margin: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name .item-image {
+  flex: 0 0 24px;
+  height: 24px;
+  border-radius: 5px 0px 0px 5px;
+  margin-right: 4px;
+  border: none;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name .item-image i {
+  color: var(--tertiary-color);
+  display: none;
+  text-align: center;
+  font-size: 18px;
+}
+
 .tidy5e.sheet.item .sheet-body input[type="checkbox"] {
   appearance: none;
   background: none;
