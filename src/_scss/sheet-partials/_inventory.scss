@@ -332,8 +332,13 @@
  		.items-header-subclass,
  		.items-header-source {
  			width: 200px;
- 		}
-	}//.items-header-label
+		}
+		
+	}//.items-header-labels
+	
+	&.alt-context .items-header-labels {
+		padding-right: 16px;
+	}
 
 	.item {
 		background: var(--faintest-color);
@@ -464,6 +469,24 @@
 	}//.item
 
 	// Context Menu
+	.activate-controls {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		flex: 0 0 16px;
+		cursor: pointer;
+		color: var(--tertiary-color);
+		border-left: 1px solid var(--faint-color);
+
+		&:hover {
+			color: var(--primary-color);
+		}
+	}
+
+	&.alt-context .activate-controls {
+		display: flex;
+	}
+
 	.item-controls {
 		display: none;
 		min-width: 70px;

@@ -19,6 +19,11 @@
         </div>
         <div class="item-detail effect-source" title="{{effect.sourceName}}"><span>{{effect.sourceName}}</span></div>
         <div class="item-detail effect-duration">{{effect.duration.label}}</div>
+        
+        {{#if ../../owner}}
+        <div class="activate-controls">
+          <i class="fas fa-ellipsis-v"></i>
+        </div>
         <div class="item-controls effect-controls">
           <a class="effect-control" data-action="toggle" title="{{localize 'DND5E.EffectToggle'}}">
               <i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i> {{localize 'DND5E.EffectToggle'}}
@@ -30,7 +35,8 @@
           <a class="effect-control effect-delete warning" data-action="delete" title="{{localize 'DND5E.EffectDelete'}}">
               <i class="fas fa-trash"></i> {{localize 'DND5E.EffectDelete'}}
           </a>
-      </div>
+        </div>
+        {{/if}}
       </li>
       {{/each}}
       <li class="items-footer" data-effect-type="{{section.type}}">

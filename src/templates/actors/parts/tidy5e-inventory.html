@@ -39,7 +39,6 @@
             <h4 title="{{localize 'TIDY5E.ToggleInfo'}} ({{item.name}})">
               {{item.name}}
             </h4>
-            <!-- {{#if item.data.quantity}} {{/if}} -->
             <span class="item-quantity{{#if item.isStack}} isStack{{/if}}">
               (<input class="item-count" data-path="data.quantity" type="text" value="{{item.data.quantity}}" maxlength="3" >)
             </span>
@@ -99,6 +98,9 @@
         {{/if}}
 
         {{#if ../../owner}}
+        <div class="activate-controls">
+          <i class="fas fa-ellipsis-v"></i>
+        </div>
         <div class="item-controls">
           <hr class="context-divider">
           {{#unless @root.isVehicle}}

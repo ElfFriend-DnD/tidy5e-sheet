@@ -448,15 +448,15 @@ async function checkDeathSaveStatus(app, html, data){
 	}
 }
 
-// Edit Protection - Hide empty Inventory Sections, add and delete-buttons
+// Edit Protection - Hide empty Inventory Sections, Effects aswell as add and delete-buttons
 async function editProtection(app, html, data) {
   let actor = app.actor;
-  if(game.user.isGM && game.settings.get("tidy5e-sheet", "GmCanAlwaysEdit")) {
+  if(game.user.isGM && game.settings.get("tidy5e-sheet", "gmCanAlwaysEdit")) {
 
   } else if(!actor.getFlag('tidy5e-sheet', 'allow-edit')){
     
-    let itemContainer = html.find('.inventory-list.items-list');
-    html.find('.inventory-list .items-header:not(.spellbook-header)').each(function(){
+    let itemContainer = html.find('.inventory-list.items-list, .effects-list.items-list');
+    html.find('.inventory-list .items-header:not(.spellbook-header), .effects-list .items-header').each(function(){
       if($(this).next('.item-list').find('li').length <= 1){
         $(this).next('.item-list').remove();
         $(this).remove();
@@ -464,14 +464,41 @@ async function editProtection(app, html, data) {
     });
 
     html.find('.inventory-list .items-footer').hide();
-    html.find('.inventory-list .item-control.item-delete').remove();
+		html.find('.inventory-list .item-control.item-delete').remove();
+
+		if (game.settings.get('tidy5e-sheet', "gmOnlyEffectsEdit") && !game.user.isGM ) {
+			html.find('.effects-list .items-footer, .effects-list .effect-controls').remove();
+		} else {
+			html.find('.effects-list .items-footer, .effects-list .effect-control.effect-delete').remove();
+		}
 
     itemContainer.each(function(){
+
 		  if($(this).children().length < 1){
-		    $(this).append(`<span class="notice">This section is empty. Unlock the sheet to edit.</span>`)
-		  }
+				if( $(this).hasClass('effects-list') && game.settings.get('tidy5e-sheet', 'gmOnlyEffectsEdit')){
+					$(this).append(`<span class="notice">This section is empty.</span>`);
+				} else {
+					$(this).append(`<span class="notice">This section is empty. Unlock the sheet to edit.</span>`);
+				}
+			}
+
+			if($(this).hasClass('effects-list') && !game.user.isGM ){
+				$(this).prepend(`<span class="notice">Only your GM can edit this section.</span>`);
+			}
     });
-  }
+  } else if (!game.user.isGM && actor.getFlag('tidy5e-sheet', 'allow-edit') && game.settings.get('tidy5e-sheet', 'gmOnlyEffectsEdit')){
+			let itemContainer = html.find('.effects-list.items-list');
+
+			itemContainer.prepend(`<span class="notice">Only your GM can edit this section.</span>`);
+			html.find('.effects-list .items-footer, .effects-list .effect-controls').remove();
+
+			html.find('.effects-list .items-header').each(function(){
+				if($(this).next('.item-list').find('li').length < 1){
+					$(this).next('.item-list').remove();
+					$(this).remove();
+				}
+			});
+	}
 }
 
 // Add Character Class List
@@ -670,17 +697,26 @@ Hooks.once("ready", () => {
 	  window.BetterRolls.hooks.addActorSheet("Tidy5eSheet");
 	}
 
+	game.settings.register("tidy5e-sheet", "gmOnlyEffectsEdit", {
+    name: 'Only GMs can edit Effects',
+    hint: "Only GMs can edit character's effects. Players are only able to see active Effects on their character.",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean
+	});
+	
 	game.settings.register("tidy5e-sheet", "alwaysShowQuantity", {
     name: 'Always show item quantity',
-    hint: 'Sheets always display item quantity even if 1 or 0.',
+    hint: 'Always displays item quantity without hover even if 1.',
     scope: "world",
     config: true,
     default: false,
     type: Boolean
   });
 
-  game.settings.register("tidy5e-sheet", "GmCanAlwaysEdit", {
-    name: 'Gm can always edit Player Character Sheets',
+  game.settings.register("tidy5e-sheet", "gmCanAlwaysEdit", {
+    name: 'GM can always edit Player Character Sheets',
     hint: '',
     scope: "world",
     config: true,
