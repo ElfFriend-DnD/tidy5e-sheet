@@ -78,6 +78,7 @@
 	input[type="text"]{
 		box-shadow: 0px 0px 0 3px transparent inset;
 		transition: box-shadow .3s ease;
+		color: var(--primary-color);
 	}
 
 	[contenteditable=true]:hover,

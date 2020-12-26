@@ -1,4 +1,4 @@
-:root {
+.system-dnd5e {
   --modesto: "Modesto Condensed", "Palatino Linotype", serif;
   --signika: "Signika", sans-serif;
   --pergament-color: 					rgba(236,233,223,1);
@@ -31,7 +31,7 @@
   --xp-bar: 									rgba(94,225,146,1);
   --encumbrance-bar: 					rgba(108,138,165,1);
   --encumbrance-outline: 			rgba(205,228,255,1);
-  --warning-accent: 					rgba(255,0,0,.6);
+  --warning-accent: rgba(255, 0, 0, .6);
 }
 
 .tidy5e.sheet.actor {
@@ -144,6 +144,7 @@
 .tidy5e.sheet.actor input[type="text"] {
   box-shadow: 0px 0px 0 3px transparent inset;
   transition: box-shadow .3s ease;
+  color: var(--primary-color);
 }
 
 .tidy5e.sheet.actor [contenteditable=true]:hover,
@@ -2798,6 +2799,15 @@
   display: none;
 }
 
+.tidy5e.sheet.actor .grid-layout .items-list .activate-controls {
+  display: none;
+}
+
+.tidy5e.sheet.actor .grid-layout .items-list.alt-context .item:hover .activate-controls,
+.tidy5e.sheet.actor .grid-layout .items-list.alt-context .context .activate-controls {
+  display: flex;
+}
+
 .tidy5e.sheet.actor .grid-layout .item-list {
   padding: 0;
   display: flex;
@@ -2872,13 +2882,13 @@
 }
 
 .tidy5e.sheet.actor .grid-layout .item-list .item.magic-item .item-image {
-  box-shadow: 0 0 0 1px var(--magic-accent) inset, 0 0 6px 4px var(--magic-accent) inset;
+  box-shadow: 0 0 0 1px var(--magic-accent) inset, 0 0 3px 2px var(--magic-accent) inset;
   border-radius: 5px;
 }
 
 .tidy5e.sheet.actor .grid-layout .item-list .item.magic-item.equipped .item-image {
   background-image: url(systems/dnd5e/icons/items/inventory/pearl.jpg);
-  box-shadow: 0 0 0px 1px var(--magic-outline) inset, 0 0 0 1px var(--magic-accent) inset, 0 0 4px 4px var(--magic-accent) inset;
+  box-shadow: 0 0 0px 1px var(--magic-outline) inset, 0 0 0 1px var(--magic-accent) inset, 0 0 3px 2px var(--magic-accent) inset;
   border: none;
 }
 
@@ -2942,6 +2952,20 @@
   height: 100%;
   margin: 0;
   border-radius: 0;
+}
+
+.tidy5e.sheet.actor .grid-layout .item-list .item .activate-controls {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -5px) rotate(-90deg);
+  background: var(--pergament-color);
+  border-right: 1px solid var(--light-color);
+  width: 14px;
+  height: 20px;
+  border-radius: 3px 0 0 3px;
+  box-shadow: -1px 0 3px var(--secondary-color);
+  z-index: 1;
 }
 
 .tidy5e.sheet.actor .grid-layout .item-list .items-footer {

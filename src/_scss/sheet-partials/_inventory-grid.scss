@@ -129,6 +129,15 @@
 		.items-header-labels {
 			display: none;
 		}
+
+		.activate-controls {
+			display: none;
+		}
+
+		&.alt-context .item:hover .activate-controls,
+		&.alt-context .context .activate-controls {
+			display: flex;
+		}
 	}//.items-list
 
 	.item-list {
@@ -205,13 +214,13 @@
 
 			&.magic-item {
 				.item-image {
-					box-shadow: 0 0 0 1px var(--magic-accent) inset, 0 0 6px 4px var(--magic-accent) inset;
+					box-shadow: 0 0 0 1px var(--magic-accent) inset, 0 0 3px 2px var(--magic-accent) inset;
     			border-radius: 5px;
 				}
 
 				&.equipped .item-image {
 					background-image: url(systems/dnd5e/icons/items/inventory/pearl.jpg);
-			    box-shadow: 0 0 0px 1px var(--magic-outline) inset, 0 0 0 1px var(--magic-accent) inset, 0 0 4px 4px var(--magic-accent) inset;
+			    box-shadow: 0 0 0px 1px var(--magic-outline) inset, 0 0 0 1px var(--magic-accent) inset, 0 0 3px 2px var(--magic-accent) inset;
 			    border: none;
 				}
 			}//.magic-items
@@ -278,8 +287,25 @@
 				margin: 0;
 				border-radius: 0;
 			}
-		}//.item-ist
 
+			.activate-controls {
+				// display: none;
+				position: absolute;
+				top: 0%;
+				left: 50%;
+				transform: translate(-50%, -5px) rotate(-90deg);
+				background: var(--pergament-color);
+				border-right: 1px solid var(--light-color);
+				width: 14px;
+				height: 20px;
+				border-radius: 3px 0 0 3px;
+				box-shadow: -1px 0 3px var(--secondary-color);
+				z-index: 1;
+			}
+
+			
+		}//.item
+		
 		.items-footer{
 			flex: 0 0 50px;
 			height: 50px;
@@ -304,6 +330,7 @@
 			display: none;
 		}
 
-	}//.item
+
+	}//.item-list
 
 }//.grid-layout

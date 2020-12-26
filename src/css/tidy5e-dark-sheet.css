@@ -1,7 +1,43 @@
+.system-dnd5e.tidy5eDark {
+  --signika: "Signika Negative", sans-serif;
+  --white: rgba(0, 0, 0, 1);
+  --pergament-color:rgba(0,0,0,.9);
+  --primary-color: rgba(255, 255, 255, .7);
+  --secondary-color: rgba(255, 255, 255, .65);
+  --tertiary-color: rgba(255, 255, 255, .4);
+  --light-color: rgba(255, 255, 255, .25);
+  --faint-color: rgba(255, 255, 255, .1);
+  --faintest-color: rgba(255, 255, 255, .05);
+  --primary-accent: rgba(255, 100, 0, 1);
+  --prepared: rgba(0, 250, 180, .3);
+  --always-prepared: rgba(0, 100, 255, .3);
+  --danger-500: #F56565;
+  --danger-700: #C53030;
+}
+
+.tidy5eDark .tidy5e.sheet.actor .window-content {
+  color: var(--primary-color);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .tidy5e-sheet {
+  background-color: var(--pergament-color);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .tidy5e-header {
+  background: var(--faintest-color);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .tidy5e-navigation .item:not(.active),
+.tidy5eDark .tidy5e.sheet.actor .tidy5e-navigation .toggle-allow-edit {
+  background: var(--faintest-color);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .note {
+  background: var(--pergament-color);
+}
+
 .disable-styles {
-  /* Sheet Content */
   /* Sheet Background */
-  /* Sheet Header */
   /* Portrait */
   /* Inspiration Indicator */
   /* Rest Button */
@@ -25,30 +61,8 @@
   /* font color fix */
 }
 
-.disable-styles :root {
-  --darkmode-primary-color: rgba(255,255,255,.7);
-  --darkmode-secondary-color: rgba(255,255,255,.55);
-  --darkmode-tertiary-color: rgba(255,255,255,.35);
-  --darkmode-light-color: rgba(255,255,255,.15);
-  --darkmode-faint-color: rgba(255,255,255,.075);
-  --darkmode-primary-accent: #48BB78;
-  --darkmode-secondary-accent: rgba(0,150,150,.325);
-  --darkmode-always-prepared-accent: rgba(0,150,150,.325);
-  --danger-500: #F56565;
-  --danger-700: #C53030;
-}
-
-.disable-styles .tidy5eDark .tidy5e.sheet .window-content {
-  color: var(--darkmode-primary-color);
-}
-
-.disable-styles .tidy5eDark .tidy5e-sheet {
-  /*background-color: #121212;*/
-  background-color: rgba(0, 0, 0, 0.91);
-  font-family: "Signika Negative", sans-serif;
-}
-
-.disable-styles .tidy5eDark .tidy5e-header {
+.disable-styles .tidy5eDark
+.tidy5eDark .tidy5e-header {
   background: rgba(255, 255, 255, 0.05);
 }
 

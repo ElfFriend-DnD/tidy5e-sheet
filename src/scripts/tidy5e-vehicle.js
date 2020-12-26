@@ -129,6 +129,7 @@ export class Tidy5eVehicle extends ActorSheet5eVehicle {
 
     // open context menu
     html.find('.item-list .item').mousedown( function (event) {
+			let target = event.target.class;
 	    switch (event.which) {
 	      case 2:
 	      	// middle mouse opens item editor
@@ -137,57 +138,77 @@ export class Tidy5eVehicle extends ActorSheet5eVehicle {
 	    		$(item).find('.item-edit').trigger('click');
 	      	break;
 	      case 3:
-	      	// right click opens context menu
-	      	$('.item').removeClass('context');
-	    		$('.item .item-controls').hide();
-	      	itemContextMenu(event);
+					// right click opens context menu
+					if(!game.settings.get("tidy5e-sheet", "disableRightClick")){
+						$('.item').removeClass('context');
+						$('.item .item-controls').hide();
+						itemContextMenu(event);
+					}
 	        break;
 	  	}
-
-	  	// context menu calculations
-	    function itemContextMenu(e){
-	    	let item = e.currentTarget,
-	    			mouseX = event.clientX,
-	    			mouseY = event.clientY,
-	    			itemTop = $(item).offset().top,
-	    			itemLeft = $(item).offset().left,
-	    			itemHeight = $(item).height(),
-	    			itemWidth = $(item).width(),
-	    			contextTop = mouseY-itemTop+1,
-	    			contextLeft = mouseX-itemLeft+1,
-	    			contextWidth = $(item).find('.item-controls').width(),
-	    			contextHeight = $(item).find('.item-controls').height(),
-	    			contextRightBound = mouseX + contextWidth,
-	    			contextBottomBound = mouseY + contextHeight,
-	    			itemsList = $(item).closest('.items-list'),
-	    			itemsListRightBound = itemsList.offset().left + itemsList.width() - 17,
-	    			itemsListBottomBound = itemsList.offset().top + itemsList.height();
-
-	    	// check right side bounds
-	    	if(contextRightBound > itemsListRightBound) {
-	    		let rightDiff = itemsListRightBound - contextRightBound;
-	    		contextLeft = contextLeft + rightDiff;
-	    	}
-
-	    	// check bottom bounds
-				if(contextBottomBound > itemsListBottomBound) {
-	    		let bottomDiff = itemsListBottomBound - contextBottomBound;
-	    		contextTop = contextTop + bottomDiff;
-	    	}
-
-	    	$(item)
-	    		.addClass('context')
-	    		.find('.item-controls')
-	    		.css({'top': contextTop+'px', 'left': contextLeft+'px'})
-	    		.fadeIn(300);
-	    }
 		});
+
+		html.find('.item-list .item .activate-controls').mousedown( function (event) {
+			if(game.settings.get("tidy5e-sheet", "disableRightClick")){
+				switch (event.which) {
+					case 1:
+						event.preventDefault();
+						$('.item').removeClass('context');
+						$('.item .item-controls').hide();
+						itemContextMenu(event);
+						break;
+				}
+			}
+		});
+
+		// context menu calculations
+		function itemContextMenu(event){
+			let item = event.currentTarget;
+			
+			if($(item).hasClass('activate-controls')){
+				item = item.parentNode;
+			}
+			
+			let	mouseX = event.clientX,
+			mouseY = event.clientY,
+			itemTop = $(item).offset().top,
+			itemLeft = $(item).offset().left,
+			itemHeight = $(item).height(),
+			itemWidth = $(item).width(),
+			contextTop = mouseY-itemTop+1,
+			contextLeft = mouseX-itemLeft+1,
+			contextWidth = $(item).find('.item-controls').width(),
+			contextHeight = $(item).find('.item-controls').height(),
+			contextRightBound = mouseX + contextWidth,
+			contextBottomBound = mouseY + contextHeight,
+			itemsList = $(item).closest('.items-list'),
+			itemsListRightBound = itemsList.offset().left + itemsList.width() - 17,
+			itemsListBottomBound = itemsList.offset().top + itemsList.height();			
+			
+			// check right side bounds
+			if(contextRightBound > itemsListRightBound) {
+				let rightDiff = itemsListRightBound - contextRightBound;
+				contextLeft = contextLeft + rightDiff;
+			}
+			
+			// check bottom bounds
+			if(contextBottomBound > itemsListBottomBound) {
+				let bottomDiff = itemsListBottomBound - contextBottomBound;
+				contextTop = contextTop + bottomDiff;
+			}
+
+			$(item)
+				.addClass('context')
+				.find('.item-controls')
+				.css({'top': contextTop+'px', 'left': contextLeft+'px'})
+				.fadeIn(300);
+		}
 
     // close context menu on any click outside
     $(document).mousedown( function (event) {
     	switch (event.which) {
 	      case 1:
-	      if ( ! $(event.target).closest('.item .item-controls').length ) {
+	      if ( ! $(event.target).closest('.item .item-controls').length && ! $(event.target).closest('.item .activate-controls').length ) {
 	      	html.find('.item').removeClass('context');
 	        html.find('.item .item-controls').hide();
   			}
@@ -233,6 +254,13 @@ async function toggleTraitsList(app, html, data){
   }
 }
 
+// add sheet classes
+async function addsSheetClasses(app, html, data){
+   if (game.settings.get("tidy5e-sheet", "disableRightClick")) {
+		html.find('.tidy5e-sheet .items-list').addClass('alt-context');
+	}
+}
+
 // Register Tidy5e Vehicle Sheet and make default vehicle sheet
 Actors.registerSheet("dnd5e", Tidy5eVehicle, {
 	types: ["vehicle"],
@@ -242,5 +270,6 @@ Actors.registerSheet("dnd5e", Tidy5eVehicle, {
 
 Hooks.on("renderTidy5eVehicle", (app, html, data) => {
 	editProtection(app, html, data);
-	toggleTraitsList(app, html, data);
+  toggleTraitsList(app, html, data);
+  addsSheetClasses(app,html,data);
 });
