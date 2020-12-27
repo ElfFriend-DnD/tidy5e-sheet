@@ -1,8 +1,8 @@
 .system-dnd5e.tidy5eDark {
   --signika: "Signika Negative", sans-serif;
   --white: rgba(0, 0, 0, 1);
-  --pergament-color:rgba(0,0,0,.9);
-  --primary-color: rgba(255, 255, 255, .7);
+  --pergament-color:rgb(30, 30, 30);
+  --primary-color: rgba(255, 255, 255, 0.8);
   --secondary-color: rgba(255, 255, 255, .65);
   --tertiary-color: rgba(255, 255, 255, .4);
   --light-color: rgba(255, 255, 255, .25);
@@ -11,8 +11,7 @@
   --primary-accent: rgba(255, 100, 0, 1);
   --prepared: rgba(0, 250, 180, .3);
   --always-prepared: rgba(0, 100, 255, .3);
-  --danger-500: #F56565;
-  --danger-700: #C53030;
+  --warning-accent: rgba(255, 30, 0, .6);
 }
 
 .tidy5eDark .tidy5e.sheet.actor .window-content {
@@ -27,6 +26,19 @@
   background: var(--faintest-color);
 }
 
+.tidy5eDark .tidy5e.sheet.actor .resting,
+.tidy5eDark .tidy5e.sheet.actor .exhaustion-wrap,
+.tidy5eDark .tidy5e.sheet.actor .portrait-hd {
+  background: #555;
+  color: var(--primary-color);
+  box-shadow: 0 0 10px var(--pergament-color) inset;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .exhaustion-container .level-display {
+  color: var(--primary-color);
+}
+
 .tidy5eDark .tidy5e.sheet.actor .tidy5e-navigation .item:not(.active),
 .tidy5eDark .tidy5e.sheet.actor .tidy5e-navigation .toggle-allow-edit {
   background: var(--faintest-color);
@@ -34,6 +46,14 @@
 
 .tidy5eDark .tidy5e.sheet.actor .note {
   background: var(--pergament-color);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .items-list .items-header {
+  border-bottom-color: var(--light-color);
+}
+
+.tidy5eDark .tidy5e.sheet.actor .grid-layout .item-list .item .icon-attuned {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .disable-styles {

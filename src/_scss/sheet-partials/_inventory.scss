@@ -490,13 +490,14 @@
 	.item-controls {
 		display: none;
 		min-width: 70px;
-		background: url(../../../ui/parchment.jpg) repeat;
+		max-height: 203px;
+		background: var(--pergament-color);
     border: 1px solid var(--light-color);
     position: absolute;
     z-index: 100;
     border-radius: 5px;
     padding: 1px 2px;
-    overflow: hidden;
+    overflow-y: auto;
     box-shadow: 0 0 5px var(--tertiary-color);
 
 		a {

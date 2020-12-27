@@ -75,6 +75,15 @@
       }
     }
 
+    .profile.roundPortrait .rest-container {
+      left: 7px;
+      bottom: 0;
+
+      .resting {
+        border-radius: 5px 0 0 5px;
+      }
+    }
+
     .health {
       position: absolute;
       z-index: 25;

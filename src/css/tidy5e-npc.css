@@ -73,6 +73,15 @@
   color: var(--primary-color);
 }
 
+.tidy5e.sheet.actor.npc .profile-wrap .profile.roundPortrait .rest-container {
+  left: 7px;
+  bottom: 0;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile.roundPortrait .rest-container .resting {
+  border-radius: 5px 0 0 5px;
+}
+
 .tidy5e.sheet.actor.npc .profile-wrap .health {
   position: absolute;
   z-index: 25;

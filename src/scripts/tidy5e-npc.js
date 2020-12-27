@@ -546,7 +546,7 @@ async function setSheetClasses(app, html, data) {
   if (!game.settings.get("tidy5e-sheet", "showNpcResting")) {
     html.find('.tidy5e-sheet.tidy5e-npc .rest-container').remove();
   }
-  if (game.settings.get("tidy5e-sheet", "useRoundNpcPortraits")) {
+  if (game.settings.get("tidy5e-sheet", "portraitStyle") == "round") {
     html.find('.tidy5e-sheet.tidy5e-npc .profile').addClass('roundPortrait');
   }
   if (game.settings.get("tidy5e-sheet", "disableNpcHpOverlay")) {
@@ -561,13 +561,13 @@ async function setSheetClasses(app, html, data) {
   if (game.settings.get("tidy5e-sheet", "npcAlwaysShowSkills")) {
     html.find('.tidy5e-sheet.tidy5e-npc .skills-list').addClass('always-visible');
   }
-  if (token && token.data.actorLink && game.settings.get("tidy5e-sheet", "npcMarkLinked")) {
+  if (token && token.data.actorLink && game.settings.get("tidy5e-sheet", "npcLinkMarker") == 'both') {
     html.find('.tidy5e-sheet.tidy5e-npc').addClass('linked');
   }
-  if (token && !token.data.actorLink && game.settings.get("tidy5e-sheet", "npcMarkUnlinked")) {
+  if (token && !token.data.actorLink && ( game.settings.get("tidy5e-sheet", "npcLinkMarker") == "unlinked" || game.settings.get("tidy5e-sheet", "npcLinkMarker") == "both")) {
     html.find('.tidy5e-sheet.tidy5e-npc').addClass('unlinked');
   }
-  if (!token && game.settings.get("tidy5e-sheet", "npcMarkUnlinked")) {
+  if (!token && (game.settings.get("tidy5e-sheet", "npcLinkMarker") == "unlinked" || game.settings.get("tidy5e-sheet", "npcLinkMarker") == "both")) {
     html.find('.tidy5e-sheet.tidy5e-npc').addClass('original');
   }
 }
@@ -671,71 +671,6 @@ Hooks.once("ready", () => {
   if (window.BetterRolls) {
     window.BetterRolls.hooks.addActorSheet("Tidy5eNPC");
   }
-
-  game.settings.register("tidy5e-sheet", "useRoundNpcPortraits", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.UseRoundPortraits.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.UseRoundPortraits.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "npcHpOverlayBorder", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.HpOverlayBorder.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.HpOverlayBorder.hint"),
-    scope: "world",
-    config: true,
-    default: 0,
-    type: Number
-  });
-  game.settings.register("tidy5e-sheet", "disableNpcHpOverlay", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.DisableHpOverlay.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.DisableHpOverlay.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "showNpcResting", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.showNpcResting.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.showNpcResting.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "npcAlwaysShowTraits", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.AlwaysShowTraits.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.AlwaysShowTraits.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "npcAlwaysShowSkills", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.AlwaysShowSkills.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.AlwaysShowSkills.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "npcMarkLinked", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.MarkLinked.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.MarkLinked.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "npcMarkUnlinked", {
-    name: `${game.i18n.localize("TIDY5E.Settings.NpcLabel")} ${game.i18n.localize("TIDY5E.Settings.MarkUnlinked.name")}`,
-    hint: game.i18n.localize("TIDY5E.Settings.MarkUnlinked.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
 
 });
 

@@ -1,6 +1,7 @@
 import { DND5E } from "../../../systems/dnd5e/module/config.js";
 import ActorSheet5e from "../../../systems/dnd5e/module/actor/sheets/base.js";
 import ActorSheet5eCharacter from "../../../systems/dnd5e/module/actor/sheets/character.js";
+import { tidy5eSettings } from "./settings.js";
 
 import { preloadTidy5eHandlebarsTemplates } from "./tidy5e-templates.js";
 import { addFavorites } from "./tidy5e-favorites.js";
@@ -548,7 +549,7 @@ async function setSheetClasses(app, html, data) {
 	if (game.settings.get("tidy5e-sheet", "disableRightClick")) {
 		html.find('.tidy5e-sheet .items-list').addClass('alt-context');
 	}
-	if (game.settings.get("tidy5e-sheet", "useRoundPortraits")) {
+	if (game.settings.get("tidy5e-sheet", "portraitStyle") == "round") {
 		html.find('.tidy5e-sheet .profile').addClass('roundPortrait');
 	}
 	if (game.settings.get("tidy5e-sheet", "disableHpOverlay")) {
@@ -572,9 +573,9 @@ async function setSheetClasses(app, html, data) {
 	if (game.settings.get("tidy5e-sheet", "exhaustionOnHover")) {
 		html.find('.tidy5e-sheet .profile').addClass('exhaustionOnHover');
 	}
-	if (game.settings.get("tidy5e-sheet", "restOnHover")) {
-		html.find('.tidy5e-sheet .profile').addClass('restOnHover');
-	}
+	// if (game.settings.get("tidy5e-sheet", "restOnHover")) {
+	// 	html.find('.tidy5e-sheet .profile').addClass('restOnHover');
+	// }
 	if (game.settings.get("tidy5e-sheet", "inspirationOnHover")) {
 		html.find('.tidy5e-sheet .profile').addClass('inspirationOnHover');
 	}
@@ -598,100 +599,83 @@ async function setSheetClasses(app, html, data) {
 Hooks.once("init", () => {
   preloadTidy5eHandlebarsTemplates();
 
-	game.settings.register("tidy5e-sheet", "useDarkMode", {
-    name: game.i18n.localize("TIDY5E.Settings.UseDarkMode.name"),
-    hint: game.i18n.localize("TIDY5E.Settings.UseDarkMode.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean,
-		onChange: data => {
-      data === true ? document.body.classList.add("tidy5eDark"):document.body.classList.remove("tidy5eDark");
-     }
-	});
+	// game.settings.register("tidy5e-sheet", "primaryAccent", {
+  //   name: game.i18n.localize("TIDY5E.Settings.PrimaryAccentColor.name"),
+  //   hint: game.i18n.localize("TIDY5E.Settings.PrimaryAccentColor.hint"),
+	// 	scope: "user",
+	// 	config: true,
+	// 	default: "",
+	// 	type: String,
+	// 	onChange: data => {
+	// 		if(data){
+	// 			document.documentElement.style.setProperty('--default-primary-accent',data);
+	// 			document.documentElement.style.setProperty('--darkmode-primary-accent',data);
+	// 		} else {
+	// 			document.documentElement.style.setProperty('--default-primary-accent',"#ff6400");
+	// 			document.documentElement.style.setProperty('--darkmode-primary-accent',"#48BB78");
+	// 		}
+  //    }
+	// });
 
-	game.settings.register("tidy5e-sheet", "primaryAccent", {
-    name: game.i18n.localize("TIDY5E.Settings.PrimaryAccentColor.name"),
-    hint: game.i18n.localize("TIDY5E.Settings.PrimaryAccentColor.hint"),
-		scope: "user",
-		config: true,
-		default: "",
-		type: String,
-		onChange: data => {
-			if(data){
-				document.documentElement.style.setProperty('--default-primary-accent',data);
-				document.documentElement.style.setProperty('--darkmode-primary-accent',data);
-			} else {
-				document.documentElement.style.setProperty('--default-primary-accent',"#ff6400");
-				document.documentElement.style.setProperty('--darkmode-primary-accent',"#48BB78");
-			}
-     }
-	});
+	// game.settings.register("tidy5e-sheet", "secondaryAccent", {
+  //   name: game.i18n.localize("TIDY5E.Settings.SecondaryAccentColor.name"),
+  //   hint: game.i18n.localize("TIDY5E.Settings.SecondaryAccentColor.hint"),
+	// 	scope: "user",
+	// 	config: true,
+	// 	default: "",
+	// 	type: String,
+	// 	onChange: data => {
+	// 		if(data){
+	// 			document.documentElement.style.setProperty('--default-secondary-accent',data);
+	// 			document.documentElement.style.setProperty('--darkmode-secondary-accent',data);
+	// 		} else {
+	// 			document.documentElement.style.setProperty('--default-secondary-accent',"rgba(210,0,255,.1)");
+	// 			document.documentElement.style.setProperty('--darkmode-secondary-accent',"rgba(0,150,150,.325)");
+	// 		}
+  //    }
+	// });
 
-	game.settings.register("tidy5e-sheet", "secondaryAccent", {
-    name: game.i18n.localize("TIDY5E.Settings.SecondaryAccentColor.name"),
-    hint: game.i18n.localize("TIDY5E.Settings.SecondaryAccentColor.hint"),
-		scope: "user",
-		config: true,
-		default: "",
-		type: String,
-		onChange: data => {
-			if(data){
-				document.documentElement.style.setProperty('--default-secondary-accent',data);
-				document.documentElement.style.setProperty('--darkmode-secondary-accent',data);
-			} else {
-				document.documentElement.style.setProperty('--default-secondary-accent',"rgba(210,0,255,.1)");
-				document.documentElement.style.setProperty('--darkmode-secondary-accent',"rgba(0,150,150,.325)");
-			}
-     }
-	});
+	// game.settings.register("tidy5e-sheet", "alwaysPreparedAccent", {
+  //   name: game.i18n.localize("TIDY5E.Settings.AlwaysPreparedAccentColor.name"),
+  //   hint: game.i18n.localize("TIDY5E.Settings.AlwaysPreparedAccentColor.hint"),
+	// 	scope: "user",
+	// 	config: true,
+	// 	default: "",
+	// 	type: String,
+	// 	onChange: data => {
+	// 		if(data){
+	// 			document.documentElement.style.setProperty('--always-prepared-accent',data);
+	// 			document.documentElement.style.setProperty('--darkmode-always-prepared-accent',data);
+	// 		} else {
+	// 			document.documentElement.style.setProperty('--always-prepared-accent',"rgba(210,0,255,.1)");
+	// 			document.documentElement.style.setProperty('--darkmode-always-prepared-accent',"rgba(0,150,150,.325)");
+	// 		}
+  //   }
+	// });
 
-	game.settings.register("tidy5e-sheet", "alwaysPreparedAccent", {
-    name: game.i18n.localize("TIDY5E.Settings.AlwaysPreparedAccentColor.name"),
-    hint: game.i18n.localize("TIDY5E.Settings.AlwaysPreparedAccentColor.hint"),
-		scope: "user",
-		config: true,
-		default: "",
-		type: String,
-		onChange: data => {
-			if(data){
-				document.documentElement.style.setProperty('--always-prepared-accent',data);
-				document.documentElement.style.setProperty('--darkmode-always-prepared-accent',data);
-			} else {
-				document.documentElement.style.setProperty('--always-prepared-accent',"rgba(210,0,255,.1)");
-				document.documentElement.style.setProperty('--darkmode-always-prepared-accent',"rgba(0,150,150,.325)");
-			}
-    }
-	});
+  // const primaryAccentColor = game.settings.get('tidy5e-sheet', "primaryAccent");
+  // if(primaryAccentColor !==  '') {
+  // 	document.documentElement.style.setProperty('--default-primary-accent',primaryAccentColor);
+  // }
+  // if(useDarkMode === true && primaryAccentColor !==  '') {
+  // 	document.documentElement.style.setProperty('--darkmode-primary-accent',primaryAccentColor);
+  // }
 
-  const useDarkMode = game.settings.get('tidy5e-sheet', "useDarkMode");
-  if (useDarkMode === true) {
-    document.body.classList.add("tidy5eDark");
-  }
-
-  const primaryAccentColor = game.settings.get('tidy5e-sheet', "primaryAccent");
-  if(primaryAccentColor !==  '') {
-  	document.documentElement.style.setProperty('--default-primary-accent',primaryAccentColor);
-  }
-  if(useDarkMode === true && primaryAccentColor !==  '') {
-  	document.documentElement.style.setProperty('--darkmode-primary-accent',primaryAccentColor);
-  }
-
-  const secondaryAccentColor = game.settings.get('tidy5e-sheet', "secondaryAccent");
-  if(secondaryAccentColor !==  '') {
-   	document.documentElement.style.setProperty('--default-secondary-accent',secondaryAccentColor);	
-  }
-  if(useDarkMode === true && secondaryAccentColor !==  '') {
-   	document.documentElement.style.setProperty('--darkmode-secondary-accent',secondaryAccentColor);	
-  }
+  // const secondaryAccentColor = game.settings.get('tidy5e-sheet', "secondaryAccent");
+  // if(secondaryAccentColor !==  '') {
+  //  	document.documentElement.style.setProperty('--default-secondary-accent',secondaryAccentColor);	
+  // }
+  // if(useDarkMode === true && secondaryAccentColor !==  '') {
+  //  	document.documentElement.style.setProperty('--darkmode-secondary-accent',secondaryAccentColor);	
+  // }
   
-  const alwaysPreparedAccent = game.settings.get('tidy5e-sheet', "alwaysPreparedAccent");
-  if(alwaysPreparedAccent !==  '') {
-  	document.documentElement.style.setProperty('--always-prepared-accent',alwaysPreparedAccent);
-  } 
-  if(useDarkMode === true && alwaysPreparedAccent !==  '') {
-  	document.documentElement.style.setProperty('--darkmode-always-prepared-accent',alwaysPreparedAccent);
-  }
+  // const alwaysPreparedAccent = game.settings.get('tidy5e-sheet', "alwaysPreparedAccent");
+  // if(alwaysPreparedAccent !==  '') {
+  // 	document.documentElement.style.setProperty('--always-prepared-accent',alwaysPreparedAccent);
+  // } 
+  // if(useDarkMode === true && alwaysPreparedAccent !==  '') {
+  // 	document.documentElement.style.setProperty('--darkmode-always-prepared-accent',alwaysPreparedAccent);
+  // }
 });
 
 // Register Tidy5e Sheet and make default character sheet
@@ -720,154 +704,7 @@ Hooks.once("ready", () => {
 	if (window.BetterRolls) {
 	  window.BetterRolls.hooks.addActorSheet("Tidy5eSheet");
 	}
-
-	game.settings.register("tidy5e-sheet", "disableRightClick", {
-    name: 'Disable Right Click Context Menu',
-    hint: "In case of module conflicts you can diable the right click context menu. Instead a menu button will appear next to items.",
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-	});
-
-	game.settings.register("tidy5e-sheet", "gmOnlyEffectsEdit", {
-    name: 'Only GMs can edit Effects',
-    hint: "Only GMs can edit character's effects. Players are only able to see active Effects on their character.",
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-	});
 	
-	game.settings.register("tidy5e-sheet", "alwaysShowQuantity", {
-    name: 'Always show item quantity',
-    hint: 'Always displays item quantity without hover even if 1.',
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
+	tidy5eSettings();
 
-  game.settings.register("tidy5e-sheet", "gmCanAlwaysEdit", {
-    name: 'GM can always edit Player Character Sheets',
-    hint: '',
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-
-  game.settings.register("tidy5e-sheet", "useExpandedSheet", {
-    name: game.i18n.localize("TIDY5E.Settings.UseExpandedSheet.name"),
-    hint: game.i18n.localize("TIDY5E.Settings.UseExpandedSheet.hint"),
-    scope: "world",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-
-	game.settings.register("tidy5e-sheet", "useRoundPortraits", {
-		name: game.i18n.localize("TIDY5E.Settings.UseRoundPortraits.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.UseRoundPortraits.hint"),
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "hpOverlayBorder", {
-		name: game.i18n.localize("TIDY5E.Settings.HpOverlayBorder.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.HpOverlayBorder.hint"),
-		scope: "world",
-		config: true,
-		default: 0,
-		type: Number
-	});
-	game.settings.register("tidy5e-sheet", "disableHpOverlay", {
-		name: game.i18n.localize("TIDY5E.Settings.DisableHpOverlay.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.DisableHpOverlay.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "hideClassList", {
-		name: game.i18n.localize("TIDY5E.Settings.HideClassList.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.HideClassList.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "disableInspiration", {
-		name: game.i18n.localize("TIDY5E.Settings.DisableInspiration.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.DisableInspiration.hint"),
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "disableExhaustion", {
-		name: game.i18n.localize("TIDY5E.Settings.DisableExhaustion.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.DisableExhaustion.hint"),
-		scope: "world",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "noInspirationAnimation", {
-		name: game.i18n.localize("TIDY5E.Settings.DisableInspirationAnimation.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.DisableInspirationAnimation.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "hideIfZero", {
-		name: game.i18n.localize("TIDY5E.Settings.HideIfZero.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.HideIfZero.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "exhaustionOnHover", {
-		name: game.i18n.localize("TIDY5E.Settings.ExhaustionOnHover.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.ExhaustionOnHover.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "inspirationOnHover", {
-		name: game.i18n.localize("TIDY5E.Settings.InspirationOnHover.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.InspirationOnHover.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-	game.settings.register("tidy5e-sheet", "restOnHover", {
-		name: game.i18n.localize("TIDY5E.Settings.RestOnHover.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.RestOnHover.hint"),
-		scope: "user",
-		config: true,
-		default: false,
-		type: Boolean
-	});
-  game.settings.register("tidy5e-sheet", "moveTraits", {
-		name: game.i18n.localize("TIDY5E.Settings.MoveTraits.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.MoveTraits.hint"),
-    scope: "user",
-    config: true,
-    default: false,
-    type: Boolean
-  });
-  game.settings.register("tidy5e-sheet", "pcToggleTraits", {
-		name: game.i18n.localize("TIDY5E.Settings.PcToggleTraits.name"),
-		hint: game.i18n.localize("TIDY5E.Settings.PcToggleTraits.hint"),
-    scope: "user",
-    config: true,
-    default: false,
-    type: Boolean
-  });
 });

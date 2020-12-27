@@ -256,9 +256,12 @@ async function toggleTraitsList(app, html, data){
 
 // add sheet classes
 async function addsSheetClasses(app, html, data){
-   if (game.settings.get("tidy5e-sheet", "disableRightClick")) {
+  if (game.settings.get("tidy5e-sheet", "disableRightClick")) {
 		html.find('.tidy5e-sheet .items-list').addClass('alt-context');
-	}
+  }
+  if (game.settings.get("tidy5e-sheet", "portraitStyle") == "round") {
+    html.find('.tidy5e-sheet.tidy5e-vehicle .profile').addClass('roundPortrait');
+  }
 }
 
 // Register Tidy5e Vehicle Sheet and make default vehicle sheet
