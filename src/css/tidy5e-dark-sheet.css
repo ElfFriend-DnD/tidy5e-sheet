@@ -30,3 +30,20 @@
 .tidy5eDark .tidy5e.sheet.actor .tidy5e-sheet {
   background-color: var(--background);
 }
+
+.tidy5eDark .tidy5e.sheet.item .window-content {
+  color: var(--primary-font);
+}
+
+.tidy5eDark .tidy5e.sheet.item .window-content form {
+  background-color: var(--background);
+}
+
+.tidy5eDark .tidy5e.sheet.item .tox .tox-toolbar-overlord button {
+  color: #222;
+}
+
+.tidy5eDark .tidy5e.sheet.item .tox-sidebar-wrap {
+  padding: 8px;
+  background: var(--secondary-color);
+}

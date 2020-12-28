@@ -3,10 +3,10 @@ import ActorSheet5e from "../../../systems/dnd5e/module/actor/sheets/base.js";
 import ActorSheet5eCharacter from "../../../systems/dnd5e/module/actor/sheets/character.js";
 import { tidy5eSettings } from "./app/settings.js";
 
-import { preloadTidy5eHandlebarsTemplates } from "./tidy5e-templates.js";
+import { preloadTidy5eHandlebarsTemplates } from "./app/tidy5e-templates.js";
 import { tidy5eListeners } from "./app/listeners.js";
 import { tidy5eContextMenu } from "./app/context-menu.js";
-import { addFavorites } from "./tidy5e-favorites.js";
+import { addFavorites } from "./app/tidy5e-favorites.js";
 
 let position = 0;
 

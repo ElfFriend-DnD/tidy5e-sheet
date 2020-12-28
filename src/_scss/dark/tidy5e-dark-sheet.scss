@@ -50,4 +50,25 @@
     }
 
   }
+  
+  .tidy5e.sheet.item {
+
+    .window-content {
+      color: var(--primary-font);
+
+      form {
+        background-color: var(--background);
+      }
+    }
+
+    .tox .tox-toolbar-overlord button {
+      color: #222;
+    }
+
+    .tox-sidebar-wrap {
+      padding: 8px;
+      background: var(--secondary-color);
+    }
+
+  }
 }

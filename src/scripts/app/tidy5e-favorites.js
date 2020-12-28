@@ -10,7 +10,7 @@
 * and can be found at https://github.com/syl3r86/favtab.
 */
 
-import { tidy5eContextMenu } from "./app/context-menu.js";
+import { tidy5eContextMenu } from "./context-menu.js";
 
 export const addFavorites = async function(app, html, data, position) {
 

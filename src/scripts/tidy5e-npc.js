@@ -1,5 +1,5 @@
 import ActorSheet5e from "../../../systems/dnd5e/module/actor/sheets/base.js";
-import { preloadTidy5eHandlebarsTemplates } from "./tidy5e-npc-templates.js";
+import { preloadTidy5eHandlebarsTemplates } from "./app/tidy5e-npc-templates.js";
 
 import { tidy5eListeners } from "./app/listeners.js";
 import { tidy5eContextMenu } from "./app/context-menu.js";
