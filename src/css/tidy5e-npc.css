@@ -60,7 +60,7 @@
 }
 
 .tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting .rest:hover {
-  color: var(--primary-color);
+  color: var(--primary-font);
 }
 
 .tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting .resting-icon {
@@ -70,7 +70,11 @@
   margin-right: 8px;
   border-radius: 0;
   font-size: 12px;
-  color: var(--primary-color);
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .hp-overlay-wrapper::before {
+  border-width: var(--npc-border);
 }
 
 .tidy5e.sheet.actor.npc .profile-wrap .profile.roundPortrait .rest-container {
@@ -99,7 +103,9 @@
 }
 
 .tidy5e.sheet.actor.npc .profile-wrap .health .formula-edit {
-  background: var(--primary-color);
+  background: var(--icon-background);
+  box-shadow: 0 0 10px var(--icon-shadow) inset;
+  border: 1px solid var(--icon-outline);
   display: none;
   justify-content: center;
   align-items: center;
@@ -283,7 +289,7 @@
 }
 
 .tidy5e.sheet.actor.npc .skills-list .toggle-proficient:hover {
-  color: var(--primary-color);
+  color: var(--primary-font);
 }
 
 .tidy5e.sheet.actor.npc .skills-list.expanded .toggle-proficient::before {

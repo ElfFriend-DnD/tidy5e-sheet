@@ -48,6 +48,11 @@
 
 			.skill-proficiency {
 				font-size: 10px;
+				color: var(--tertiary-color);
+
+				&:hover {
+					color: var(--primary-font);
+				}
 
 				i {
 					vertical-align: baseline;
@@ -58,6 +63,10 @@
 			.skill-passive {
 				text-align: right;
 		    flex: 0 0 24px;
+			}
+
+			.skill-passive {
+				color: var(--tertiary-color);
 			}
 
 			.skill-ability {
@@ -184,7 +193,7 @@
 
 	.resources .resource .resource-header input:checked + label.checkbox {
 		background: var(--tertiary-color);
-		color: var(--pergament-color);
+		color: var(--background);
 	}
 
 	.resources .resource .resource-header:hover .res-options {
@@ -345,7 +354,7 @@
 		  float: none;
 		  margin-right: 0;
 		  text-align: center;
-		  color: var(--secondary-color);
+		  color: var(--tertiary-color);
 		  line-height: 14px;
 		  vertical-align: bottom;
 		}
@@ -354,7 +363,7 @@
 			height: 12px;
 
 			path {
-				fill: var(--secondary-color);
+				fill: var(--tertiary-color);
 			}
 		}
 
@@ -386,7 +395,7 @@
 		}
 
 		.toggle-traits:hover {
-			color: var(--primary-color);
+			color: var(--primary-font);
 		}
 
 		.configure-flags {
@@ -412,6 +421,6 @@
 
 		.configure-flags:hover,
 		.configure-flags:hover i.fas {
-			color: var(--primary-color);
+			color: var(--primary-font);
 		}
 	} //.traits

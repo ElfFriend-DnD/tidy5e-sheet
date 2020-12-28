@@ -155,7 +155,7 @@
 		a {
 			display: block;
 			background: var(--tertiary-color);
-			color: var(--pergament-color);
+			color: var(--background);
 			border-radius: 5px;
 			padding: 0 6px;
 
@@ -178,15 +178,16 @@
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 0 1px var(--tertiary-color) inset;
+  box-shadow: 0 0 0 1px var(--encumbrance-outline) inset;
 
 	.encumbrance-bar {
     position: absolute;
     top: 1px;
+    --count-font: rgba(0, 0, 0, .9);
     left: 1px;
     bottom: 1px;
     max-width: calc(100% - 2px);
-    border: 1px solid var(--encumbrance-outline);
+    border: 1px solid var(--encumbrance-bar-outline);
     background: var(--encumbrance-bar);
     border-radius: 4px;
 	}
@@ -219,12 +220,12 @@
 
 	.arrow-up {
 		bottom: 0;
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: var(--encumbrance-outline);
 	}
 
 	.arrow-down {
 		top: 0;
-    border-top-color: var(--primary-color);
+    border-top-color: var(--encumbrance-outline);
 	}
 }
 
@@ -286,7 +287,6 @@
     font-size: 12px;
     background: var(--faint-color);
     box-shadow: 0 0 3px inset var(--light-color);
-    border-bottom: 1px solid var(--tertiary-color);
     border-radius: 5px;
 		
 		&:first-child { 
@@ -372,7 +372,7 @@
 				width: 23px;
 				height: 100%;
 			}
-		}//.item-quaantity
+		}//.item-quantity
 
 		&:not(:hover):not(.alwaysShowQuantity) .item-quantity:not(.isStack):not(:hover):not(:focus-within) {
 	   	opacity: 0;
@@ -426,7 +426,7 @@
 		}
 
 		&:not(.context) .item-name:hover .item-image:hover i {
-			color: var(--primary-color);
+			color: var(--primary-font);
 		}
 
 		.item-charges {
@@ -479,7 +479,7 @@
 		border-left: 1px solid var(--faint-color);
 
 		&:hover {
-			color: var(--primary-color);
+			color: var(--primary-font);
 		}
 	}
 
@@ -491,14 +491,14 @@
 		display: none;
 		min-width: 70px;
 		max-height: 203px;
-		background: var(--pergament-color);
-    border: 1px solid var(--light-color);
+		background: var(--background);
+    border: 1px solid var(--context-outline);
     position: absolute;
     z-index: 100;
     border-radius: 5px;
     padding: 1px 2px;
     overflow-y: auto;
-    box-shadow: 0 0 5px var(--tertiary-color);
+    box-shadow: 0 0 5px var(--context-shadow);
 
 		a {
 			display: flex;
@@ -555,6 +555,8 @@
 
 		.context-divider {
 			margin: 2px 0 0 0;
+			border-top: 1px solid var(--light-color);
+			border-bottom: 1px solid var(--faint-color);
 
 			+ .context-divider {
 				display: none;
@@ -572,7 +574,7 @@
 				border: none;
 				border-radius: 0;
 				background: var(--tertiary-color);
-				color: var(--pergament-color);
+				color: var(--background);
 				display: flex;
 		    align-items: center;
 		    padding: 4px 8px 4px 6px;
@@ -798,7 +800,7 @@
 
 	.spell-component.C,
 	.spell-component.R {
-	  color: var(--pergament-color);
+	  color: var(--background);
 	  background: var(--tertiary-color);
 	  border-radius: 2px;
 	  padding: 1px 1px 0 1px;

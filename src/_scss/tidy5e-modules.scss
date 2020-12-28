@@ -210,7 +210,11 @@
 	    	width: 16px;
 	    	position: relative;
 		    top: -1px;
-		    margin: 0 2px 0 0;
+				margin: 0 2px 0 0;
+				
+				&::after {
+					content: none;
+				}
 	    }
 	}
 
@@ -275,7 +279,7 @@
 			  input:not([type=checkbox]) {
 			  	line-height: 20px;
 			  	height: 20px;
-			  	background: rgba(255,255,255,0.3);
+					background: rgba(255,255,255,0.3);
 			  }
 
 			  .item-controls {
@@ -379,13 +383,13 @@
   margin-right: 2px;
   font-family: var(--signika);
   height: 14px;
-  color: var(--primary-color);
+  color: var(--primary-font);
 }
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:hover,
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:focus {
   background: var(--primary-accent);
-  color: var(--primary-color);
+  color: var(--primary-font);
   box-shadow: 0 0 0 1px var(--primary-accent);
 }
 
@@ -444,7 +448,7 @@
     align-items: center;
 
 		&:hover {
-			color: var(--primary-color);
+			color: var(--primary-font);
 		}
 
 		i {
@@ -466,7 +470,7 @@
 	    align-items: center;
 
 			&:hover {
-				color: var(--primary-color);
+				color: var(--primary-font);
 			}
 		}
 

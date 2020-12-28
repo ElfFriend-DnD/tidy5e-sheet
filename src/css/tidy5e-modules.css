@@ -181,6 +181,10 @@
   margin: 0 2px 0 0;
 }
 
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-item-sort .form-fields label input::after {
+  content: none;
+}
+
 .tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content {
   font-size: 13px;
 }
@@ -329,13 +333,13 @@
   margin-right: 2px;
   font-family: var(--signika);
   height: 14px;
-  color: var(--primary-color);
+  color: var(--primary-font);
 }
 
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:hover,
 .tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:focus {
   background: var(--primary-accent);
-  color: var(--primary-color);
+  color: var(--primary-font);
   box-shadow: 0 0 0 1px var(--primary-accent);
 }
 
@@ -387,7 +391,7 @@
 }
 
 .tidy5e.sheet.actor .toggle-collapse:hover {
-  color: var(--primary-color);
+  color: var(--primary-font);
 }
 
 .tidy5e.sheet.actor .toggle-collapse i {
@@ -410,7 +414,7 @@
 }
 
 .tidy5e.sheet.actor .inv-plus-stuff a:hover {
-  color: var(--primary-color);
+  color: var(--primary-font);
 }
 
 .tidy5e.sheet.actor .items-header:hover .inv-plus-stuff {

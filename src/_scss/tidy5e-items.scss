@@ -1,19 +1,15 @@
-
-// -------------------------
-// Support dnd5e Item sheet 
-// -------------------------
-
 .tidy5e.sheet.item {
 
+	min-height: 500px;
+
 	.window-content {
+		padding: 0;
 
 		form {
 			height: 100%;
 			overflow: hidden;
 		}
 	}
-	
-	min-height: 500px;
 	
 	a:hover {
     text-shadow: none;
@@ -25,7 +21,7 @@
 	button,
 	select{
 		cursor: pointer;
-    font-family: var(--signika);
+		font-family: var(--signika);
 	}
 
 	// input[type="checkbox"] {
@@ -35,6 +31,7 @@
 	button,
 	select{
 		border: none;
+		color: var(--primary-font);
 	}
 
 	select{
@@ -44,6 +41,7 @@
 	input[type="text"] {
 		border: none;
 		padding: 0 6px;
+		color: var(--primary-font);
 	}
 
 	input[type="text"]:hover,
@@ -56,16 +54,11 @@
 		margin: 2px;
 	}
 
-	.window-content {
-		padding: 0;
-	}
-
 	.sheet-header {
 		flex: 0 0 80px;
 		padding: 1rem;
-		background: rgba(255,255,255,.2);
+		background: var(--header-background);
 		align-items: flex-start;
-
 
 		img.profile {
 			flex: 0 0 80px;
@@ -172,9 +165,9 @@
 
 		.item {
 			padding: 5px 1rem 0 1rem;
-			background: var(--faint-white);
+			background: var(--header-background);
 			border: 1px solid transparent;
-			border-bottom: 1px solid var(--light-color);
+			border-bottom: 1px solid var(--header-border);
 			font-size: 13px;
 			text-align: left;
 			height: 26px;
@@ -187,7 +180,7 @@
 
 		.item.active {
 			background: transparent;
-			border: 1px solid var(--light-color);
+			border: 1px solid var(--header-border);
 			border-bottom-color: transparent;
 			font-weight: 700;
 			cursor: default;
@@ -347,7 +340,7 @@
 			    line-height: 16px;
 			    font-family: var(--modesto);
 			    font-weight: 600;
-			    color: var(--primary-color);
+			    color: var(--primary-font);
 
 					&:first-child {
 						margin-top: 0;
@@ -358,10 +351,11 @@
 					margin: 2px 0;
 			    padding: 3px;
 			    background: var(--faintest-color);
-			    border-radius: 5px;
-
+					border-radius: 5px;
+					
 			    .form-fields {
-			    	justify-content: flex-start;
+						justify-content: flex-start;
+						gap: 1px;
 			    }
 
 			    &.stacked {
@@ -390,22 +384,22 @@
 					    display: flex;
 					    border-radius: 3px;
 					    overflow: hidden;
-					    border: 1px solid #b3b3b3;
-					    background: rgba(0,255,0,0.3);
+					    border: 1px solid var(--checkbox-outline);
+					    background:	var(--checkbox-checked);
 					    height: 20px;
 					    cursor: pointer;
-					    color: var(--secondary-color);
+					    color: var(--checkbox-font);
 					    font-size: 13px;
 					    line-height: 16px;
 					    flex: 0 0 calc(100% / 4 - 1px);
 					    font-weight: 400;
 
 							&:hover {
-								background: rgba(0,100,0,.3);
+								background: var(--checkbox-checked);
 							}
 
 							&:hover input::after {
-								background: #b8b8b8;
+								background: var(--checkbox-checked);
 							}
 						}
 					}
@@ -442,7 +436,7 @@
 							top: 0;
 							left: 0;
 							z-index: -1;
-							background: #D8D7D1;
+							background: var(--checkbox-unchecked);
 							width: 100%;
 							height: 100%;
 							cursor: pointer;
@@ -523,7 +517,6 @@
 						font-size: 12px;
 						background: var(--faint-color);
 						box-shadow: 0 0 3px inset var(--light-color);
-						border-bottom: 1px solid var(--tertiary-color);
 						border-radius: 5px;
 
 						&:first-child {
@@ -589,7 +582,7 @@
 						margin: 2px 0;
 						border-radius: 5px;
 						font-size: 12px;
-						color: var(--primary-color);
+						color: var(--primary-font);
 
 						div:not(.item-name) {
 							border-left: 1px solid var(--faint-color);
@@ -635,7 +628,7 @@
 		  border: 1px solid var(--tertiary-color); 
 		  box-shadow: 0 0 2px var(--light-color) inset;
 		  border-radius: 3px;
-		  background-image: url(../images/check-default.svg);
+		  background-image: var(--check-default);
 		  background-repeat: no-repeat;
 		  background-position: center;
 		  background-size: 60%;
@@ -649,14 +642,14 @@
 
 		input[type="checkbox"]:checked {
 			background: var(--secondary-color);
-	    background-image: url(../images/check-darkmode-checked.svg);
+	    background-image: var(--check-checked);
 	    background-size: 60%;
 	    background-repeat: no-repeat;
 	    background-position: center;
 		}
 
 		.checkbox input[type="checkbox"]:checked {
-	    background-image: url(../images/check-default-checked.svg);
+	    background-image: var(--check-checked);
 		}
 
 		label input[type="checkbox"]:checked {

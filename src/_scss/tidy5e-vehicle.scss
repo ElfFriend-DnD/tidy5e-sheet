@@ -82,6 +82,10 @@
 		width: 60px;
 	}
 
+	.profile .hp-overlay-wrapper::before {
+		border-width: var(--vehicle-border);
+	}
+
 	.items-header {
 
 		.items-header-item-cover,

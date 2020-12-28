@@ -72,13 +72,14 @@
 	select {
 		cursor: pointer;
 		box-shadow: none;
+		color: var(--primary-font);
 	}
 	 
 	[contenteditable],
 	input[type="text"]{
 		box-shadow: 0px 0px 0 3px transparent inset;
 		transition: box-shadow .3s ease;
-		color: var(--primary-color);
+		color: var(--primary-font);
 	}
 
 	[contenteditable=true]:hover,

@@ -59,7 +59,7 @@
           font-weight: 700;
 
           &:hover {
-            color: var(--primary-color);
+            color: var(--primary-font);
           }
         }
 
@@ -70,9 +70,14 @@
           margin-right: 8px;
           border-radius: 0;
           font-size: 12px;
-          color: var(--primary-color);
+          color: var(--primary-font);
         }
       }
+
+    }
+    
+    .profile .hp-overlay-wrapper::before {
+      border-width: var(--npc-border);
     }
 
     .profile.roundPortrait .rest-container {
@@ -100,7 +105,9 @@
       }
 
       .formula-edit {
-        background: var(--primary-color);
+        background: var(--icon-background);
+        box-shadow: 0 0 10px var(--icon-shadow) inset;
+        border: 1px solid var(--icon-outline);
         display: none;
         justify-content: center;
         align-items: center;
@@ -292,7 +299,7 @@
     }
 
     .toggle-proficient:hover {
-      color: var(--primary-color);
+      color: var(--primary-font);
     }
 
     &.expanded .toggle-proficient::before {

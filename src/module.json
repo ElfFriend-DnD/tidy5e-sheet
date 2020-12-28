@@ -6,16 +6,14 @@
 	"author": "sdenec#3813",
 	"minimumCoreVersion": "0.7.6",
 	"compatibleCoreVersion": "0.7.9",
-	"system": ["dnd5e"],
+	"system": "dnd5e",
 	"esmodules": [
 		"./scripts/tidy5e-sheet.js",
-		"./scripts/tidy5e-favorites.js",
 		"./scripts/tidy5e-npc.js",
 		"./scripts/tidy5e-vehicle.js",
 		"./scripts/tidy5e-item.js"
 	],
 	"styles": [
-		"./fonts/signika-negative/signika-negative.css",
 		"../fonts/modesto-condensed/modesto-condensed.css",
 		"./css/tidy5e-sheet.css",
 		"./css/tidy5e-dark-sheet.css",

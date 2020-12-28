@@ -75,6 +75,10 @@
   width: 60px;
 }
 
+.tidy5e.sheet.actor.vehicle .profile .hp-overlay-wrapper::before {
+  border-width: var(--vehicle-border);
+}
+
 .tidy5e.sheet.actor.vehicle .items-header .items-header-item-cover,
 .tidy5e.sheet.actor.vehicle .items-header .items-header-item-crew {
   width: 50px;

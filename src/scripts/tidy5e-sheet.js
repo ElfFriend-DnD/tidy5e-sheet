@@ -1,9 +1,11 @@
 import { DND5E } from "../../../systems/dnd5e/module/config.js";
 import ActorSheet5e from "../../../systems/dnd5e/module/actor/sheets/base.js";
 import ActorSheet5eCharacter from "../../../systems/dnd5e/module/actor/sheets/character.js";
-import { tidy5eSettings } from "./settings.js";
+import { tidy5eSettings } from "./app/settings.js";
 
 import { preloadTidy5eHandlebarsTemplates } from "./tidy5e-templates.js";
+import { tidy5eListeners } from "./app/listeners.js";
+import { tidy5eContextMenu } from "./app/context-menu.js";
 import { addFavorites } from "./tidy5e-favorites.js";
 
 let position = 0;
@@ -51,20 +53,11 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 
 	activateListeners(html) {
 		super.activateListeners(html);
+		
+		let actor = this.actor;
 
-		// Modificator Ability Check
-    html.find('.ability-mod').click( async (event) => {
-    	event.preventDefault();
-	    let ability = event.currentTarget.parentElement.parentElement.dataset.ability;
-	    this.actor.rollAbilityTest(ability, {event: event});
-    });
-
-		// Modificator Ability Saving Throw
-    html.find('.ability-save').click( async (event) => {
-    	event.preventDefault();
-	    let ability = event.currentTarget.parentElement.parentElement.dataset.ability;
-	    this.actor.rollAbilitySave(ability, {event: event});
-    });
+    tidy5eListeners(html, actor);
+    tidy5eContextMenu(html);
 
 		// store Scroll Pos
 		const attributesTab = html.find('.tab.attributes');
@@ -80,8 +73,7 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 		// toggle inventory layout
 		html.find('.toggle-layout.inventory-layout').click(async (event) => {
 			event.preventDefault();
-			let actor = this.actor;
-
+			
 			if( $(event.currentTarget).hasClass('spellbook-layout')){
 				if(actor.getFlag('tidy5e-sheet', 'spellbook-grid')){
 					await actor.unsetFlag('tidy5e-sheet', 'spellbook-grid');
@@ -97,23 +89,10 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 			}
  		});
 
-		// toggle legacy speed display
-		html.find('.legacy-switch').click(async (event) => {
-			event.preventDefault();
-			let actor = this.actor;
-
-			if(actor.getFlag('tidy5e-sheet', 'legacy-speed')){
-				await actor.unsetFlag('tidy5e-sheet', 'legacy-speed');
-			} else {
-				await actor.setFlag('tidy5e-sheet', 'legacy-speed', true);
-			}
- 		});
-
 		// toggle traits
  		html.find('.traits-toggle').click(async (event) => {
 			event.preventDefault();
-			let actor = this.actor;
-
+			
 			if(actor.getFlag('tidy5e-sheet', 'traits-compressed')){
 				await actor.unsetFlag('tidy5e-sheet', 'traits-compressed');
 			} else {
@@ -121,93 +100,19 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 			}
  		});
 
-		// toggle favorites - deprecated
- 		// html.find('.favorites-toggle').click(async (event) => {
-			// event.preventDefault();
-			// let actor = this.actor;
-
-			// if(actor.getFlag('tidy5e-sheet', 'favorites-compressed')){
-			// 	await actor.unsetFlag('tidy5e-sheet', 'favorites-compressed');
-			// } else {
-			// 	await actor.setFlag('tidy5e-sheet', 'favorites-compressed', true);
-			// }
- 		// });
-
 		// set exhaustion level with portrait icon
 		html.find('.exhaust-level li').click(async (event) => {
 			event.preventDefault();
-			let actor = this.actor;
+			
 			let data = actor.data.data;
 			let target = event.currentTarget;
 			let value = target.dataset.elvl;
 			await actor.update({"data.attributes.exhaustion": value});
  		});
 
- 		// set input fields via editable elements
-    html.find('[contenteditable]').on('paste', function(e) {
-      //strips elements added to the editable tag when pasting
-      let $self = $(this);
-
-      // set maxlength
-      let maxlength = 40;
-      if($self[0].dataset.maxlength){
-        maxlength = parseInt($self[0].dataset.maxlength);
-      }
-
-      setTimeout(function() {
-        let textString = $self.text();
-        textString = textString.substring(0,maxlength);
-        $self.html(textString);
-      }, 0);
-
-    }).on('keypress', function(e) {
-      let $self = $(this);
-
-      // set maxlength
-      let maxlength = 40;
-      if($self[0].dataset.maxlength){
-        maxlength = parseInt($self[0].dataset.maxlength);
-      }
-
-      // only accept backspace, arrow keys and delete after maximum characters
-      let keys = [8,37,38,39,40,46];
-
-      if($(this).text().length === maxlength && keys.indexOf(e.keyCode) < 0) { 
-        e.preventDefault();
-      }
-
-       if(e.keyCode===13){
-        $(this).blur();
-      }
-    });
-
-    html.find('[contenteditable]').blur(async (event) => {
-      let value = event.target.textContent;
-      let target = event.target.dataset.target;
-      html.find('input[type="hidden"][data-input="'+target+'"]').val(value).submit();
-    });
-
- 		html.find('[contenteditable]').blur(async (event) => {
-    	let value = event.target.textContent;
-    	let target = event.target.dataset.target;
-    	html.find('input[type="hidden"][data-input="'+target+'"]').val(value).submit();
- 		});
-
-    // actor size menu
-    html.find('.actor-size-select .size-label').on('click', function(){
-      let currentSize = $(this).data('size');
-      $(this).closest('ul').toggleClass('active').find('ul li[data-size="'+currentSize+'"]').addClass("current");
-    });
-    html.find('.actor-size-select .size-list li').on('click', async (event) => {
-      let value = event.target.dataset.size;
-      this.actor.update({"data.traits.size": value});
-      html.find('.actor-size-select').toggleClass('active');
-    });
-
  		// changing item qty and charges values (removing if both value and max are 0)
     html.find('.item:not(.items-header) input').change(event => {
     	let value = event.target.value;
-			let actor = this.actor;
       let itemId = $(event.target).parents('.item')[0].dataset.itemId;
       let path = event.target.dataset.path;
       let data = {};
@@ -217,7 +122,6 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 
     // creating charges for the item
     html.find('.inventory-list .item .addCharges').click(event => {
-			let actor = this.actor;
       let itemId = $(event.target).parents('.item')[0].dataset.itemId;
       let item = actor.getOwnedItem(itemId);
 
@@ -231,7 +135,6 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 
     // toggle empty traits visibility in the traits list
     html.find('.traits .toggle-traits').click( async (event) => {
-      let actor = this.actor;
       if(actor.getFlag('tidy5e-sheet', 'traitsExpanded')){
         await actor.unsetFlag('tidy5e-sheet', 'traitsExpanded');
       } else {
@@ -239,118 +142,15 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
       }
     });
 
-    // toggle item edit protection
-    html.find('.toggle-allow-edit span').click(async (event) => {
-      event.preventDefault();
-      let actor = this.actor;
-
-      if(actor.getFlag('tidy5e-sheet', 'allow-edit')){
-        await actor.unsetFlag('tidy5e-sheet', 'allow-edit');
-      } else {
-        await actor.setFlag('tidy5e-sheet', 'allow-edit', true);
-      }
-    });
-
-    // open context menu
-    html.find('.item-list .item').mousedown( function (event) {
-			let target = event.target.class;
-	    switch (event.which) {
-	      case 2:
-	      	// middle mouse opens item editor
-	      	event.preventDefault();
-	    		let item = event.currentTarget;
-	    		$(item).find('.item-edit').trigger('click');
-	      	break;
-	      case 3:
-					// right click opens context menu
-					if(!game.settings.get("tidy5e-sheet", "disableRightClick")){
-						$('.item').removeClass('context');
-						$('.item .item-controls').hide();
-						itemContextMenu(event);
-					}
-	        break;
-	  	}
-		});
-
-		html.find('.item-list .item .activate-controls').mousedown( function (event) {
-			if(game.settings.get("tidy5e-sheet", "disableRightClick")){
-				switch (event.which) {
-					case 1:
-						event.preventDefault();
-						$('.item').removeClass('context');
-						$('.item .item-controls').hide();
-						itemContextMenu(event);
-						break;
-				}
-			}
-		});
-
-		// context menu calculations
-		function itemContextMenu(event){
-			let item = event.currentTarget;
-			
-			if($(item).hasClass('activate-controls')){
-				item = item.parentNode;
-			}
-			
-			let	mouseX = event.clientX,
-			mouseY = event.clientY,
-			itemTop = $(item).offset().top,
-			itemLeft = $(item).offset().left,
-			itemHeight = $(item).height(),
-			itemWidth = $(item).width(),
-			contextTop = mouseY-itemTop+1,
-			contextLeft = mouseX-itemLeft+1,
-			contextWidth = $(item).find('.item-controls').width(),
-			contextHeight = $(item).find('.item-controls').height(),
-			contextRightBound = mouseX + contextWidth,
-			contextBottomBound = mouseY + contextHeight,
-			itemsList = $(item).closest('.items-list'),
-			itemsListRightBound = itemsList.offset().left + itemsList.width() - 17,
-			itemsListBottomBound = itemsList.offset().top + itemsList.height();			
-			
-			// check right side bounds
-			if(contextRightBound > itemsListRightBound) {
-				let rightDiff = itemsListRightBound - contextRightBound;
-				contextLeft = contextLeft + rightDiff;
-			}
-			
-			// check bottom bounds
-			if(contextBottomBound > itemsListBottomBound) {
-				let bottomDiff = itemsListBottomBound - contextBottomBound;
-				contextTop = contextTop + bottomDiff;
-			}
-
-			$(item)
-				.addClass('context')
-				.find('.item-controls')
-				.css({'top': contextTop+'px', 'left': contextLeft+'px'})
-				.fadeIn(300);
-		}
-
-    // close context menu on any click outside
-    $(document).mousedown( function (event) {
-    	switch (event.which) {
-	      case 1:
-	      if ( ! $(event.target).closest('.item .item-controls').length && ! $(event.target).closest('.item .activate-controls').length ) {
-	      	html.find('.item').removeClass('context');
-	        html.find('.item .item-controls').hide();
-  			}
-	      	break;
-	  	}
-		});
-
 		// update item attunement
 		html.find('.item-control.item-attunement').click( async (event) => {
 	    event.preventDefault();
  			let li = $(event.currentTarget).closest('.item'),
- 					actor = this.actor,
  					item = actor.getOwnedItem(li.data("item-id"));
 
  			if(item.data.data.attunement == 2) {
  				actor.getOwnedItem(li.data("item-id")).update({'data.attunement': 1});
  			} else {
-
  				if(actor.data.data.details.attunedItemsCount >= actor.data.data.details.attunedItemsMax) {
 			  	ui.notifications.warn(`Attunement warning: You can't attune to more than ${actor.data.data.details.attunedItemsCount} items!`);
 			  } else {
@@ -364,10 +164,10 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
  		html.find('.grid-layout .item-list .item').mouseenter( async (event) => {
 	    event.preventDefault();
  			let li = $(event.currentTarget),
- 					item = this.actor.getOwnedItem(li.data("item-id")),
+ 					item = actor.getOwnedItem(li.data("item-id")),
  					itemData = item.data,
  					itemDescription = itemData.data.description.value,
-	        chatData = item.getChatData({secrets: this.actor.owner}),
+	        chatData = item.getChatData({secrets: actor.owner}),
  					infoContainer = li.closest('.grid-layout').find('.item-info-container-content'),
  					infoCard = li.find('.info-card');
  					
@@ -391,7 +191,7 @@ export class Tidy5eSheet extends ActorSheet5eCharacter {
 				infoDescription.addClass('overflowing');
 				infoDescription.after('<span class="truncated">&hellip;</span>');
 			}
-	    console.log(itemData);
+	    // console.log(itemData);
  		});
 
  		html.find('.item-list .item').mouseleave( function (event) {
@@ -549,7 +349,7 @@ async function setSheetClasses(app, html, data) {
 	if (game.settings.get("tidy5e-sheet", "disableRightClick")) {
 		html.find('.tidy5e-sheet .items-list').addClass('alt-context');
 	}
-	if (game.settings.get("tidy5e-sheet", "portraitStyle") == "round") {
+	if (game.settings.get("tidy5e-sheet", "portraitStyle") == "pc" || game.settings.get("tidy5e-sheet", "portraitStyle") == "all") {
 		html.find('.tidy5e-sheet .profile').addClass('roundPortrait');
 	}
 	if (game.settings.get("tidy5e-sheet", "disableHpOverlay")) {
@@ -562,7 +362,7 @@ async function setSheetClasses(app, html, data) {
 		html.find('.tidy5e-sheet .profile .inspiration label i').addClass('disable-animation');
 	}
 	if (game.settings.get("tidy5e-sheet", "hpOverlayBorder") > 0) {
-		html.find('.tidy5e-sheet .profile .hp-overlay').css({'border-width':game.settings.get("tidy5e-sheet", "hpOverlayBorder")+'px'});
+		$('.system-dnd5e').get(0).style.setProperty('--pc-border', game.settings.get("tidy5e-sheet", "hpOverlayBorder")+'px');
 	}
 	if(game.settings.get("tidy5e-sheet", "hideIfZero")) {
 		html.find('.tidy5e-sheet .profile').addClass('autohide');
@@ -597,7 +397,7 @@ async function setSheetClasses(app, html, data) {
 
 // Preload tidy5e Handlebars Templates
 Hooks.once("init", () => {
-  preloadTidy5eHandlebarsTemplates();
+	preloadTidy5eHandlebarsTemplates();
 
 	// game.settings.register("tidy5e-sheet", "primaryAccent", {
   //   name: game.i18n.localize("TIDY5E.Settings.PrimaryAccentColor.name"),
@@ -685,26 +485,25 @@ Actors.registerSheet("dnd5e", Tidy5eSheet, {
 });
 
 Hooks.on("renderTidy5eSheet", (app, html, data) => {
-	addFavorites(app, html, data, position);
-	addClassList(app, html, data);
 	setSheetClasses(app, html, data);
 	editProtection(app, html, data);
+	addFavorites(app, html, data, position);
+	addClassList(app, html, data);
 	toggleTraitsList(app, html, data)
 	checkDeathSaveStatus(app, html, data);
 	countInventoryItems(app,html,data);
 	countAttunedItems(app, html, data);
-	console.log(game);
-	console.log("Tidy5e Sheet rendered!");
+	// console.log("Tidy5e Sheet rendered!");
 });
 
-Hooks.once("ready", () => {
-	console.log("Tidy5e Sheet is ready!");
+Hooks.once("ready", (app, html, data) => {
+	// console.log("Tidy5e Sheet is ready!");
 	
 	// can be removed when 0.7.x is stable
 	if (window.BetterRolls) {
 	  window.BetterRolls.hooks.addActorSheet("Tidy5eSheet");
 	}
-	
+
 	tidy5eSettings();
 
 });

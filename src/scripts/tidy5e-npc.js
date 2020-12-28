@@ -1,6 +1,10 @@
 import ActorSheet5e from "../../../systems/dnd5e/module/actor/sheets/base.js";
 import { preloadTidy5eHandlebarsTemplates } from "./tidy5e-npc-templates.js";
 
+import { tidy5eListeners } from "./app/listeners.js";
+import { tidy5eContextMenu } from "./app/context-menu.js";
+
+
 /**
  * An Actor sheet for NPC type characters in the D&D5E system.
  * Extends the base ActorSheet5e class.
@@ -190,20 +194,11 @@ export default class Tidy5eNPC extends ActorSheet5e {
    */
 	activateListeners(html) {
      super.activateListeners(html);
+     
+		let actor = this.actor;
 
-    // Modificator Ability Test Throw
-     html.find('.ability-mod').click( async (event) => {
-      event.preventDefault();
-      let ability = event.currentTarget.parentElement.parentElement.dataset.ability;
-      this.actor.rollAbilityTest(ability, {event: event});
-    });
-
-    // Modificator Ability Saving Throw
-    html.find('.ability-save').click( async (event) => {
-      event.preventDefault();
-      let ability = event.currentTarget.parentElement.parentElement.dataset.ability;
-      this.actor.rollAbilitySave(ability, {event: event});
-    });
+    tidy5eListeners(html, actor);
+    tidy5eContextMenu(html);
 
     // store Scroll Pos
     let attributesTab = html.find('.tab.attributes');
@@ -219,64 +214,8 @@ export default class Tidy5eNPC extends ActorSheet5e {
     // Rollable Health Formula
     html.find(".health .rollable").click(this._onRollHealthFormula.bind(this));
 
-    // set input fields via editable elements
-    html.find('[contenteditable]').on('paste', function(e) {
-      //strips elements added to the editable tag when pasting
-      let $self = $(this);
-
-      // set maxlength
-      let maxlength = 40;
-      if($self[0].dataset.maxlength){
-        maxlength = parseInt($self[0].dataset.maxlength);
-      }
-
-      setTimeout(function() {
-        let textString = $self.text();
-        textString = textString.substring(0,maxlength);
-        $self.html(textString);
-      }, 0);
-
-    }).on('keypress', function(e) {
-      let $self = $(this);
-
-      // set maxlength
-      let maxlength = 40;
-      if($self[0].dataset.maxlength){
-        maxlength = parseInt($self[0].dataset.maxlength);
-      }
-
-      // only accept backspace, arrow keys and delete after maximum characters
-      let keys = [8,37,38,39,40,46];
-
-      if($(this).text().length === maxlength && keys.indexOf(e.keyCode) < 0) { 
-        e.preventDefault();
-      }
-
-       if(e.keyCode===13){
-        $(this).blur();
-      }
-    });
-
-    html.find('[contenteditable]').blur(async (event) => {
-      let value = event.target.textContent;
-      let target = event.target.dataset.target;
-      html.find('input[type="hidden"][data-input="'+target+'"]').val(value).submit();
-    });
-
-    // actor size menu
-    html.find('.actor-size-select .size-label').on('click', function(){
-      let currentSize = $(this).data('size');
-      $(this).closest('ul').toggleClass('active').find('ul li[data-size="'+currentSize+'"]').addClass("current");
-    });
-    html.find('.actor-size-select .size-list li').on('click', async (event) => {
-      let value = event.target.dataset.size;
-      this.actor.update({"data.traits.size": value});
-      html.find('.actor-size-select').toggleClass('active');
-    });
-
     // toggle proficient skill visibility in the skill list
     html.find('.skills-list .toggle-proficient').click( async (event) => {
-      let actor = this.actor;
       if(actor.getFlag('tidy5e-sheet', 'npcSkillsExpanded')){
         await actor.unsetFlag('tidy5e-sheet', 'npcSkillsExpanded');
       } else {
@@ -286,42 +225,16 @@ export default class Tidy5eNPC extends ActorSheet5e {
 
     // toggle empty traits visibility in the traits list
     html.find('.traits .toggle-traits').click( async (event) => {
-      let actor = this.actor;
       if(actor.getFlag('tidy5e-sheet', 'traitsExpanded')){
         await actor.unsetFlag('tidy5e-sheet', 'traitsExpanded');
       } else {
         await actor.setFlag('tidy5e-sheet', 'traitsExpanded', true);
       }
     });
-
-    // toggle item edit protection
-    html.find('.toggle-allow-edit span').click(async (event) => {
-      event.preventDefault();
-      let actor = this.actor;
-
-      if(actor.getFlag('tidy5e-sheet', 'allow-edit')){
-        await actor.unsetFlag('tidy5e-sheet', 'allow-edit');
-      } else {
-        await actor.setFlag('tidy5e-sheet', 'allow-edit', true);
-      }
-    });
-
-    // toggle legacy speed display
-    html.find('.legacy-switch').click(async (event) => {
-      event.preventDefault();
-      let actor = this.actor;
-
-      if(actor.getFlag('tidy5e-sheet', 'legacy-speed')){
-        await actor.unsetFlag('tidy5e-sheet', 'legacy-speed');
-      } else {
-        await actor.setFlag('tidy5e-sheet', 'legacy-speed', true);
-      }
-    });
     
     // changing item qty and charges values (removing if both value and max are 0)
     html.find('.item:not(.items-header) input').change(event => {
       let value = event.target.value;
-      let actor = this.actor;
       let itemId = $(event.target).parents('.item')[0].dataset.itemId;
       let path = event.target.dataset.path;
       let data = {};
@@ -331,7 +244,6 @@ export default class Tidy5eNPC extends ActorSheet5e {
 
     // creating charges for the item
     html.find('.inventory-list .item .addCharges').click(event => {
-      let actor = this.actor;
       let itemId = $(event.target).parents('.item')[0].dataset.itemId;
       let item = actor.getOwnedItem(itemId);
 
@@ -342,96 +254,6 @@ export default class Tidy5eNPC extends ActorSheet5e {
 
       actor.getOwnedItem(itemId).update(data);
     });
-
-    // open context menu
-    html.find('.item-list .item').mousedown( function (event) {
-			let target = event.target.class;
-	    switch (event.which) {
-	      case 2:
-	      	// middle mouse opens item editor
-	      	event.preventDefault();
-	    		let item = event.currentTarget;
-	    		$(item).find('.item-edit').trigger('click');
-	      	break;
-	      case 3:
-					// right click opens context menu
-					if(!game.settings.get("tidy5e-sheet", "disableRightClick")){
-						$('.item').removeClass('context');
-						$('.item .item-controls').hide();
-						itemContextMenu(event);
-					}
-	        break;
-	  	}
-		});
-
-		html.find('.item-list .item .activate-controls').mousedown( function (event) {
-			if(game.settings.get("tidy5e-sheet", "disableRightClick")){
-				switch (event.which) {
-					case 1:
-						event.preventDefault();
-						$('.item').removeClass('context');
-						$('.item .item-controls').hide();
-						itemContextMenu(event);
-						break;
-				}
-			}
-		});
-
-		// context menu calculations
-		function itemContextMenu(event){
-			let item = event.currentTarget;
-			
-			if($(item).hasClass('activate-controls')){
-				item = item.parentNode;
-			}
-			
-			let	mouseX = event.clientX,
-			mouseY = event.clientY,
-			itemTop = $(item).offset().top,
-			itemLeft = $(item).offset().left,
-			itemHeight = $(item).height(),
-			itemWidth = $(item).width(),
-			contextTop = mouseY-itemTop+1,
-			contextLeft = mouseX-itemLeft+1,
-			contextWidth = $(item).find('.item-controls').width(),
-			contextHeight = $(item).find('.item-controls').height(),
-			contextRightBound = mouseX + contextWidth,
-			contextBottomBound = mouseY + contextHeight,
-			itemsList = $(item).closest('.items-list'),
-			itemsListRightBound = itemsList.offset().left + itemsList.width() - 17,
-			itemsListBottomBound = itemsList.offset().top + itemsList.height();			
-			
-			// check right side bounds
-			if(contextRightBound > itemsListRightBound) {
-				let rightDiff = itemsListRightBound - contextRightBound;
-				contextLeft = contextLeft + rightDiff;
-			}
-			
-			// check bottom bounds
-			if(contextBottomBound > itemsListBottomBound) {
-				let bottomDiff = itemsListBottomBound - contextBottomBound;
-				contextTop = contextTop + bottomDiff;
-			}
-
-			$(item)
-				.addClass('context')
-				.find('.item-controls')
-				.css({'top': contextTop+'px', 'left': contextLeft+'px'})
-				.fadeIn(300);
-		}
-
-    // close context menu on any click outside
-    $(document).mousedown( function (event) {
-    	switch (event.which) {
-	      case 1:
-	      if ( ! $(event.target).closest('.item .item-controls').length && ! $(event.target).closest('.item .activate-controls').length ) {
-	      	html.find('.item').removeClass('context');
-	        html.find('.item .item-controls').hide();
-  			}
-	      	break;
-	  	}
-		});
-
 
     // Short and Long Rest
     html.find('.short-rest').click(this._onShortRest.bind(this));
@@ -546,15 +368,15 @@ async function setSheetClasses(app, html, data) {
   if (!game.settings.get("tidy5e-sheet", "showNpcResting")) {
     html.find('.tidy5e-sheet.tidy5e-npc .rest-container').remove();
   }
-  if (game.settings.get("tidy5e-sheet", "portraitStyle") == "round") {
+  if (game.settings.get("tidy5e-sheet", "portraitStyle") == "npc" || game.settings.get("tidy5e-sheet", "portraitStyle") == "all") {
     html.find('.tidy5e-sheet.tidy5e-npc .profile').addClass('roundPortrait');
   }
   if (game.settings.get("tidy5e-sheet", "disableNpcHpOverlay")) {
     html.find('.tidy5e-sheet.tidy5e-npc .profile').addClass('disable-hp-overlay');
   }
   if (game.settings.get("tidy5e-sheet", "npcHpOverlayBorder") > 0) {
-    html.find('.tidy5e-sheet.tidy5e-npc .profile .hp-overlay').css({'border-width':game.settings.get("tidy5e-sheet", "hpOverlayBorder")+'px'});
-  }
+    $('.system-dnd5e').get(0).style.setProperty('--npc-border', game.settings.get("tidy5e-sheet", "npcHpOverlayBorder")+'px');
+	}
   if (game.settings.get("tidy5e-sheet", "npcAlwaysShowTraits")) {
     html.find('.tidy5e-sheet.tidy5e-npc .traits').addClass('always-visible');
   }
@@ -612,8 +434,6 @@ async function editProtection(app, html, data) {
         legAct = actor.data.data.resources.legact.max,
         legRes = actor.data.data.resources.legres.max,
         lair = actor.data.data.resources.lair.value;
-
-    console.log(actor, legAct, legRes, lair);
 
     if(!lair && legAct <= 1 && legRes <= 1) {
       html.find('.counters').remove();
@@ -684,5 +504,4 @@ Hooks.on("renderTidy5eNPC", (app, html, data) => {
   resetTempHp(app, html, data);
   editProtection(app, html, data);
   npcFavorites (app, html, data);
-  // console.log(data);
 });

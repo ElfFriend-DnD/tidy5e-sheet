@@ -1,3 +1,4 @@
+.disable {
 /* ------------------------------------ */
 /*   Support Better Rolls / Minor QOL   */
 /* ------------------------------------ */
@@ -169,4 +170,5 @@
 .tidy5eDark .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus:hover,
 .tidy5eDark .tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus:focus {
 	box-shadow: 0 0 0 1px var(--darkmode-primary-accent) inset;
+}
 }

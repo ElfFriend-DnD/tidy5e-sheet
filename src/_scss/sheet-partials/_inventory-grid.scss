@@ -163,7 +163,7 @@
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
-		    color: var(--tertiary-color);
+		    color: var(--icon-attuned);
 		    width: 13px;
 		    height: 13px;
 		    background: var(--magic-accent);
@@ -246,13 +246,13 @@
 				.item-charges {
 			    border: none;
 			    font-size: 12px;
-			    color: var(--pergament-color);
+			    color: var(--stat-font);
 			    float: right;
 
 					input {
 						height: 14px;
 				    text-shadow: 0 0 5px rgba(0,0,0,1);
-				    color: var(--pergament-color);
+				    color: var(--stat-font);
 				    text-align: right;
 				    min-width: 0;
 				    width: 16px;
@@ -294,7 +294,7 @@
 				top: 0%;
 				left: 50%;
 				transform: translate(-50%, -5px) rotate(-90deg);
-				background: var(--pergament-color);
+				background: var(--background);
 				border-right: 1px solid var(--light-color);
 				width: 14px;
 				height: 20px;
