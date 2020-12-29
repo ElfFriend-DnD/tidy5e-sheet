@@ -22,7 +22,7 @@ jobs:
         download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip
 
     # Create a zip file with all files required by the module to add to the release
-    - run: zip -r ./dist/module.zip src/module.json src/css/ src/scripts/ src/images/ src/templates/ src/lang/
+    - run: zip -r ./module.zip src/module.json src/css/ src/scripts/ src/images/ src/templates/ src/lang/
 
     # Create a release for this specific version
     - name: Update Release with Files
@@ -34,6 +34,6 @@ jobs:
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './src/module.json, ./dist/module.zip'
+        artifacts: './src/module.json, ./module.zip'
         tag: ${{ github.event.release.tag_name }}
         body: ${{ github.event.release.body }}
