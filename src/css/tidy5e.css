@@ -3222,3 +3222,1774 @@
   flex: 1;
   min-height: 100px;
 }
+
+.tidy5e.sheet.actor.npc {
+  min-width: 690px;
+}
+
+.tidy5e.sheet.actor.npc .linked {
+  box-shadow: 0 0 4px 2px var(--linked-accent) inset;
+}
+
+.tidy5e.sheet.actor.npc .unlinked {
+  box-shadow: 0 0 4px 2px var(--unlinked-accent) inset;
+}
+
+.tidy5e.sheet.actor.npc .link-state {
+  display: none;
+  padding: 4px 3px 3px 4px;
+  margin-top: -1px;
+  border-radius: 5px;
+}
+
+.tidy5e.sheet.actor.npc .linked .link-state.fa-link {
+  display: inline-block;
+  background: var(--linked-light);
+}
+
+.tidy5e.sheet.actor.npc .unlinked .link-state.fa-unlink {
+  display: inline-block;
+  background: var(--unlinked-light);
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container {
+  display: block;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting {
+  width: 24px;
+  height: 20px;
+  border-radius: 0 0 0 5px;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting:hover {
+  width: 94px;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting .rest {
+  flex: 0 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  color: var(--tertiary-color);
+  padding: 0;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: var(--signika);
+  font-weight: 700;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting .rest:hover {
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .rest-container .resting .resting-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 18px;
+  margin-right: 8px;
+  border-radius: 0;
+  font-size: 12px;
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile .hp-overlay-wrapper::before {
+  border-width: var(--npc-border);
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile.roundPortrait .rest-container {
+  left: 7px;
+  bottom: 0;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .profile.roundPortrait .rest-container .resting {
+  border-radius: 5px 0 0 5px;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .health {
+  position: absolute;
+  z-index: 25;
+  right: 7px;
+  bottom: 14px;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .health .rollable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 22px;
+  border-radius: 0 5px 5px 0;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .health .formula-edit {
+  background: var(--icon-background);
+  box-shadow: 0 0 10px var(--icon-shadow) inset;
+  border: 1px solid var(--icon-outline);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 136px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .health:hover .formula-edit,
+.tidy5e.sheet.actor.npc .profile-wrap .health .formula-edit:focus-within {
+  display: flex;
+}
+
+.tidy5e.sheet.actor.npc .profile-wrap .health input {
+  padding-top: 2px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.tidy5e.sheet.actor.npc .level-information {
+  flex-direction: row;
+  align-items: center;
+  font-family: var(--modesto);
+  font-weight: 700;
+}
+
+.tidy5e.sheet.actor.npc .level-information .xp {
+  font-size: 16px;
+  margin-right: 4px;
+  color: var(--secondary-color);
+}
+
+.tidy5e.sheet.actor.npc .origin-summary .environment {
+  position: relative;
+  top: -1px;
+  display: flex;
+  margin: 0 4px 0 0;
+  padding: 0;
+}
+
+.tidy5e.sheet.actor.npc .origin-summary .environment::after {
+  content: none;
+}
+
+.tidy5e.sheet.actor.npc .origin-summary .environment .environment-label {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  margin: 0;
+  z-index: 100;
+  border-radius: 3px;
+  padding: 1px;
+}
+
+.tidy5e.sheet.actor.npc .origin-summary .environment .environment-label span {
+  padding: 2px 4px;
+  margin: 0;
+}
+
+.tidy5e.sheet.actor.npc .origin-summary .environment .environment-label::after {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: calc(50% - 6px);
+  content: '';
+  display: block;
+  background: transparent;
+  border-radius: 0;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: #fff;
+}
+
+.tidy5e.sheet.actor.npc .origin-summary .environment span:focus-within,
+.tidy5e.sheet.actor.npc .origin-summary .environment:hover .environment-label {
+  display: inline-block;
+}
+
+.tidy5e.sheet.actor.npc .left-pane {
+  flex: 0 0 220px;
+}
+
+.tidy5e.sheet.actor.npc .center-pane {
+  min-height: 100%;
+}
+
+.tidy5e.sheet.actor.npc .counters {
+  display: flex;
+  flex: none;
+  padding: 0;
+  margin: 0 0 8px 0;
+  border-bottom: none;
+  border: 1px solid var(--faint-color);
+  border-radius: 5px;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter {
+  height: auto;
+  line-height: 16px;
+  flex: 1;
+  text-align: center;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter .counter-value {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2px;
+  margin-top: 3px;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter input[type="text"]:first-of-type {
+  text-align: right;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter input[type="text"]:last-of-type {
+  text-align: left;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter input[type="text"] {
+  height: 14px;
+  max-width: 20px;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+.tidy5e.sheet.actor.npc .counters .counter h4 {
+  font-size: 12px;
+  line-height: 12px;
+  padding-top: 4px;
+}
+
+.tidy5e.sheet.actor.npc .skills-list {
+  margin-bottom: 17px;
+  position: relative;
+}
+
+.tidy5e.sheet.actor.npc .skills-list.always-visible {
+  margin-bottom: 0;
+}
+
+.tidy5e.sheet.actor.npc .skills-list .skill:nth-child(even) {
+  background: none;
+}
+
+.tidy5e.sheet.actor.npc .skills-list .skill.even {
+  background: var(--faint-color);
+}
+
+.tidy5e.sheet.actor.npc .skills-list .toggle-proficient {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 10px;
+  border: 1px solid var(--faint-color);
+  border-top: none;
+  padding: 2px 8px;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+  color: var(--secondary-color);
+  white-space: nowrap;
+}
+
+.tidy5e.sheet.actor.npc .skills-list .toggle-proficient::before {
+  content: attr(data-show-skills);
+}
+
+.tidy5e.sheet.actor.npc .skills-list .toggle-proficient:hover {
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor.npc .skills-list.expanded .toggle-proficient::before {
+  content: attr(data-hide-skills);
+}
+
+.tidy5e.sheet.actor.npc .skills-list.always-visible .toggle-proficient,
+.tidy5e.sheet.actor.npc .skills-list:not(.expanded):not(.always-visible) .skill .skill-proficiency {
+  display: none;
+}
+
+.tidy5e.sheet.actor.npc .items-list {
+  padding: 0 0 8px 0;
+  overflow-y: visible;
+}
+
+.tidy5e.sheet.actor.npc .items-list .item .item-name .item-image {
+  flex: 0 0 20px;
+  height: 20px;
+}
+
+.tidy5e.sheet.actor.npc .items-list .item .item-name .item-image i {
+  font-size: 16px;
+}
+
+.tidy5e.sheet.actor.npc .items-list .spell-action,
+.tidy5e.sheet.actor.npc .items-list .spell-target,
+.tidy5e.sheet.actor.npc .items-list .spell-school,
+.tidy5e.sheet.actor.npc .items-list .spell-comps {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tidy5e.sheet.actor.npc .items-list .items-header-comps,
+.tidy5e.sheet.actor.npc .items-list .spell-comps {
+  flex: 0 0 50px;
+}
+
+.tidy5e.sheet.actor.npc .items-list .item-charges {
+  flex: 0 0 70px;
+}
+
+.tidy5e.sheet.actor.npc .items-list .items-header-action,
+.tidy5e.sheet.actor.npc .items-list .items-header-target,
+.tidy5e.sheet.actor.npc .items-list .items-header-school
+.spell-action,
+.tidy5e.sheet.actor.npc .items-list .spell-target,
+.tidy5e.sheet.actor.npc .items-list .spell-school {
+  flex: 0 0 90px;
+}
+
+.tidy5e.sheet.actor.npc .items-list .items-header-action,
+.tidy5e.sheet.actor.npc .items-list .item-action {
+  flex: 0 0 120px;
+}
+
+.tidy5e.sheet.actor.npc .npc-spell-stats {
+  display: flex;
+  flex: 0;
+  font-size: 12px;
+}
+
+.tidy5e.sheet.actor.npc .spellcasting-ability {
+  margin: 0;
+  position: sticky;
+  bottom: 0;
+  background: url(../../../systems/dnd5e/ui/parchment.jpg) repeat;
+  background-attachment: fixed;
+}
+
+.tidy5e.sheet.actor.npc .spellcasting-ability .spell-dc {
+  flex: 1;
+  font-size: 20px;
+  font-family: var(--modesto);
+}
+
+.tidy5e.sheet.actor.npc .spellcasting-ability select {
+  flex: 0 0 90px;
+  font-family: var(--signika);
+}
+
+.tidy5e.sheet.actor.npc .spellcasting-ability input {
+  min-width: 16px;
+  height: 16px;
+}
+
+.tidy5e.sheet.actor.npc .caster-level {
+  display: flex;
+  align-items: center;
+  flex: 0;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.tidy5e.sheet.actor.npc .spellbook-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px 2px 0;
+  margin: 4px 0;
+  line-height: 1;
+  border: 1px solid var(--light-color);
+  border-left: none;
+  border-right: none;
+  font-family: var(--modesto);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.tidy5e.sheet.actor.npc .spellbook-title.toggle-spellbook.show .fa-caret-down,
+.tidy5e.sheet.actor.npc .spellbook-title i {
+  display: none;
+}
+
+.tidy5e.sheet.actor.npc .spellbook-title.toggle-spellbook .fa-caret-down,
+.tidy5e.sheet.actor.npc .spellbook-title.show .fa-caret-up {
+  display: inline-block;
+}
+
+.tidy5e.sheet.actor.npc .spellbook-title.toggle-spellbook {
+  opacity: .4;
+  transition: opacity .3s ease;
+  cursor: pointer;
+}
+
+.tidy5e.sheet.actor.npc .spellbook-title:hover, .tidy5e.sheet.actor.npc .spellbook-title.show {
+  opacity: 1;
+}
+
+.tidy5e.sheet.actor.npc .spellbook-empty .notice {
+  font-size: 12px;
+}
+
+.tidy5e.sheet.actor.vehicle {
+  min-width: 690px;
+  min-height: 210px;
+}
+
+.tidy5e.sheet.actor.vehicle .left-pane {
+  flex: 0 0 220px;
+}
+
+.tidy5e.sheet.actor.vehicle .counters {
+  width: 100%;
+  background: var(--faint-color);
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.tidy5e.sheet.actor.vehicle .counters .counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  border-top: 1px solid var(--light-color);
+}
+
+.tidy5e.sheet.actor.vehicle .counters .counter:first-child {
+  border: none;
+}
+
+.tidy5e.sheet.actor.vehicle .counters .counter-value input[type=text] {
+  width: 70px;
+  height: 20px;
+  text-align: right;
+}
+
+.tidy5e.sheet.actor.vehicle .counters .counter-value input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  margin: 2px 0;
+}
+
+.tidy5e.sheet.actor.vehicle .counters .action-thresholds .counter-value {
+  display: flex;
+  align-items: center;
+}
+
+.tidy5e.sheet.actor.vehicle .counters .action-thresholds .counter-value input[type=text] {
+  width: 24px;
+  text-align: center;
+}
+
+.tidy5e.sheet.actor.vehicle .attributes .items-list {
+  padding: 0 0 8px 0;
+  overflow-y: visible;
+}
+
+.tidy5e.sheet.actor.vehicle .header-attributes .ac-display .value {
+  top: 28px;
+}
+
+.tidy5e.sheet.actor.vehicle .header-attributes .ac-display .value-footer {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+}
+
+.tidy5e.sheet.actor.vehicle .ability-scores .ability .ability-mod {
+  text-align: center;
+}
+
+.tidy5e.sheet.actor.vehicle .portrait-hp input,
+.tidy5e.sheet.actor.vehicle .portrait-hp span,
+.tidy5e.sheet.actor.vehicle .portrait-temp input {
+  width: 60px;
+}
+
+.tidy5e.sheet.actor.vehicle .profile .hp-overlay-wrapper::before {
+  border-width: var(--vehicle-border);
+}
+
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-cover,
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-crew {
+  width: 50px;
+}
+
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-ac,
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-hp {
+  width: 40px;
+}
+
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-threshold,
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-qty,
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-price,
+.tidy5e.sheet.actor.vehicle .items-header .items-header-item-weight {
+  width: 70px;
+}
+
+.tidy5e.sheet.actor.vehicle .item.cargo-row.crew input,
+.tidy5e.sheet.actor.vehicle .item.cargo-row.passengers input {
+  padding: 0 4px;
+}
+
+.tidy5e.sheet.actor.vehicle .item .item-detail.item-cover, .tidy5e.sheet.actor.vehicle .item .item-detail.item-crew {
+  width: 50px;
+}
+
+.tidy5e.sheet.actor.vehicle .item .item-detail.item-ac, .tidy5e.sheet.actor.vehicle .item .item-detail.item-hp {
+  width: 40px;
+}
+
+.tidy5e.sheet.actor.vehicle .item .item-detail.item-threshold, .tidy5e.sheet.actor.vehicle .item .item-detail.item-qty, .tidy5e.sheet.actor.vehicle .item .item-detail.item-price, .tidy5e.sheet.actor.vehicle .item .item-detail.item-weight {
+  width: 70px;
+}
+
+.tidy5e.sheet.actor.vehicle .item .item-detail input {
+  text-align: center;
+}
+
+.tidy5e.sheet.item {
+  min-height: 500px;
+}
+
+.tidy5e.sheet.item .window-content {
+  padding: 0;
+}
+
+.tidy5e.sheet.item .window-content form {
+  height: 100%;
+  overflow: hidden;
+}
+
+.tidy5e.sheet.item a:hover {
+  text-shadow: none;
+}
+
+.tidy5e.sheet.item input[type="checkbox"],
+.tidy5e.sheet.item button,
+.tidy5e.sheet.item select {
+  cursor: pointer;
+  font-family: var(--signika);
+}
+
+.tidy5e.sheet.item button,
+.tidy5e.sheet.item select {
+  border: none;
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.item select {
+  padding: 0;
+}
+
+.tidy5e.sheet.item input[type="text"] {
+  border: none;
+  padding: 0 6px;
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.item input[type="text"]:hover,
+.tidy5e.sheet.item input[type="text"]:focus {
+  border: none;
+  box-shadow: 0 0 0 1px var(--primary-accent) inset;
+}
+
+.tidy5e.sheet.item input[type="checkbox"] {
+  margin: 2px;
+}
+
+.tidy5e.sheet.item .sheet-header {
+  flex: 0 0 80px;
+  padding: 1rem;
+  background: var(--header-background);
+  align-items: flex-start;
+}
+
+.tidy5e.sheet.item .sheet-header img.profile {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  margin-right: 0;
+}
+
+.tidy5e.sheet.item .sheet-header .header-details {
+  margin-left: 1rem;
+  align-items: center;
+}
+
+.tidy5e.sheet.item .sheet-header .charname {
+  padding: 0;
+  height: 30px;
+  line-height: 18px;
+}
+
+.tidy5e.sheet.item .sheet-header .charname input {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  height: 100%;
+  width: 100%;
+  font-family: var(--modesto);
+  background: transparent;
+}
+
+.tidy5e.sheet.item .sheet-header .item-subtitle {
+  padding: 2px 4px;
+  background: var(--faint-color);
+  border-radius: 5px;
+  color: var(--tertiary-color);
+  display: flex;
+  align-items: flex-end;
+  height: 20px;
+  margin-left: 1rem;
+  flex: 0 0 1px;
+  font-family: var(--modesto);
+}
+
+.tidy5e.sheet.item .sheet-header .item-subtitle .item-type {
+  margin: 0;
+  font-size: 20px;
+  line-height: 16px;
+  color: var(--secondary-color);
+}
+
+.tidy5e.sheet.item .sheet-header .item-subtitle .item-status {
+  font-size: 16px;
+  line-height: 14px;
+  margin-left: 4px;
+  color: var(--tertiary-color);
+  white-space: nowrap;
+}
+
+.tidy5e.sheet.item .sheet-header .summary {
+  border: 1px solid var(--light-color);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  font-size: 13px;
+  font-family: var(--signika);
+  height: 22px;
+  flex: 0 0 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tidy5e.sheet.item .sheet-header .summary li {
+  border-left: 1px solid var(--faint-color);
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.tidy5e.sheet.item .sheet-header .summary li input {
+  height: 20px;
+  background: transparent;
+  font-weight: 400;
+}
+
+.tidy5e.sheet.item .sheet-header .summary li:first-child {
+  border: none;
+  padding-left: 0;
+}
+
+.tidy5e.sheet.item .sheet-header .summary li:last-child {
+  padding-right: 0;
+}
+
+.tidy5e.sheet.item .sheet-navigation {
+  display: flex;
+  flex: 0 0 1px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tidy5e.sheet.item .sheet-navigation .item {
+  padding: 5px 1rem 0 1rem;
+  background: var(--header-background);
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--header-border);
+  font-size: 13px;
+  text-align: left;
+  height: 26px;
+  flex: 1 1 auto;
+}
+
+.tidy5e.sheet.item .sheet-navigation .item:hover {
+  color: var(--primary-accent);
+}
+
+.tidy5e.sheet.item .sheet-navigation .item.active {
+  background: transparent;
+  border: 1px solid var(--header-border);
+  border-bottom-color: transparent;
+  font-weight: 700;
+  cursor: default;
+  text-shadow: none;
+}
+
+.tidy5e.sheet.item .sheet-navigation .item.active:hover {
+  color: inherit;
+}
+
+.tidy5e.sheet.item .sheet-navigation .item:first-child.active {
+  border-left-color: transparent;
+}
+
+.tidy5e.sheet.item .sheet-navigation .item:last-child.active {
+  border-right-color: transparent;
+}
+
+.tidy5e.sheet.item .sheet-body {
+  padding: 1rem;
+  padding-right: .25rem;
+  overflow: hidden;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties {
+  flex: 0 0 120px;
+  margin: 0;
+  padding: 0 .5rem 0 0;
+  border-right: 1px solid var(--faint-color);
+  height: 100%;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .form-group {
+  margin: 0;
+  border-bottom: 1px solid var(--faint-color);
+  color: var(--secondary-color);
+  font-size: 13px;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .form-group:last-of-type {
+  border: none;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .form-group label {
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .form-group input {
+  flex: 0 0 50px;
+  text-align: right;
+  background: none;
+  height: 16px;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .properties-list {
+  margin-top: .25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .properties-list li {
+  margin: 0 0 2px 0;
+  border: 1px solid var(--faint-color);
+  border-radius: 5px;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 0 2px;
+  background: rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.tidy5e.sheet.item .sheet-body .item-properties .form-group + .properties-list {
+  margin-top: .5rem;
+}
+
+.tidy5e.sheet.item .sheet-body .editor {
+  margin-left: .5rem;
+  height: 100%;
+  font-size: 13px;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .editor-edit {
+  right: .75rem;
+  top: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .editor-edit i {
+  font-size: 1em;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  cursor: pointer;
+  text-shadow: none;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .editor-content {
+  margin: 0;
+  padding: 0 .75rem 0 0;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .editor-content .details-headline {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  margin-bottom: .5rem;
+  border: none;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .tox .tox-toolbar__group {
+  padding: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .tox .tox-tbtn {
+  width: 24px;
+  height: 24px;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .tox.tox-tinymce .tox-tbtn[title="Formats"] {
+  width: 90px;
+}
+
+.tidy5e.sheet.item .sheet-body .editor .tox .tox-tbtn--select {
+  width: auto;
+}
+
+.tidy5e.sheet.item .sheet-body .tab {
+  overflow: hidden auto;
+  height: 100%;
+  align-content: flex-start;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls, .tidy5e.sheet.item .sheet-body .tab.details, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects, .tidy5e.sheet.item .sheet-body .tab.magic-items {
+  padding-right: .75rem;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-header, .tidy5e.sheet.item .sheet-body .tab.details .form-header, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-header, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-header {
+  margin: 8px 6px 4px 6px;
+  font-size: 18px;
+  line-height: 16px;
+  font-family: var(--modesto);
+  font-weight: 600;
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-header:first-child, .tidy5e.sheet.item .sheet-body .tab.details .form-header:first-child, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-header:first-child, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-header:first-child {
+  margin-top: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group, .tidy5e.sheet.item .sheet-body .tab.details .form-group, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group {
+  margin: 2px 0;
+  padding: 3px;
+  background: var(--faintest-color);
+  border-radius: 5px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group .form-fields, .tidy5e.sheet.item .sheet-body .tab.details .form-group .form-fields, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group .form-fields, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group .form-fields {
+  justify-content: flex-start;
+  gap: 1px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group.stacked, .tidy5e.sheet.item .sheet-body .tab.details .form-group.stacked, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group.stacked, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group.stacked {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group span, .tidy5e.sheet.item .sheet-body .tab.details .form-group span, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group span, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group span {
+  text-align: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label, .tidy5e.sheet.item .sheet-body .tab.details .form-group label, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group label, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label {
+  margin-left: 4px;
+  line-height: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  white-space: nowrap;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label.checkbox, .tidy5e.sheet.item .sheet-body .tab.details .form-group label.checkbox, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group label.checkbox, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.checkbox {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 1px;
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--checkbox-outline);
+  background: var(--checkbox-checked);
+  height: 20px;
+  cursor: pointer;
+  color: var(--checkbox-font);
+  font-size: 13px;
+  line-height: 16px;
+  flex: 0 0 calc(100% / 4 - 1px);
+  font-weight: 400;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label.checkbox:hover, .tidy5e.sheet.item .sheet-body .tab.details .form-group label.checkbox:hover, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group label.checkbox:hover, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.checkbox:hover {
+  background: var(--checkbox-checked);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label.checkbox:hover input::after, .tidy5e.sheet.item .sheet-body .tab.details .form-group label.checkbox:hover input::after, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group label.checkbox:hover input::after, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.checkbox:hover input::after {
+  background: var(--checkbox-checked);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group select,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[type="text"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group button, .tidy5e.sheet.item .sheet-body .tab.details .form-group select,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[type="text"],
+.tidy5e.sheet.item .sheet-body .tab.details .form-group button, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group select,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[type="text"],
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group button, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group select,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[type="text"],
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group button {
+  background: rgba(255, 255, 255, 0.3);
+  height: 20px;
+  font-size: 13px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group button:hover, .tidy5e.sheet.item .sheet-body .tab.details .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group button:hover, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group button:hover, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input:disabled, .tidy5e.sheet.item .sheet-body .tab.details .form-group input:disabled, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input:disabled, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input:disabled {
+  background: transparent;
+  color: var(--secondary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input:disabled:hover, .tidy5e.sheet.item .sheet-body .tab.details .form-group input:disabled:hover, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input:disabled:hover, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input:disabled:hover {
+  border: none !important;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group .checkbox input, .tidy5e.sheet.item .sheet-body .tab.details .form-group .checkbox input, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group .checkbox input, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group .checkbox input {
+  position: static;
+  margin: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group .checkbox input::after, .tidy5e.sheet.item .sheet-body .tab.details .form-group .checkbox input::after, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group .checkbox input::after, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group .checkbox input::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: var(--checkbox-unchecked);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group .checkbox input:checked::after, .tidy5e.sheet.item .sheet-body .tab.details .form-group .checkbox input:checked::after, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group .checkbox input:checked::after, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group .checkbox input:checked::after {
+  display: none;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.activation.cost"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.target.value"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.range.value"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.duration.value"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.uses.value"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.damage.parts.0.0"], .tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.activation.cost"],
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.target.value"],
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.range.value"],
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.duration.value"],
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.uses.value"],
+.tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.damage.parts.0.0"], .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.activation.cost"],
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.target.value"],
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.range.value"],
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.duration.value"],
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.uses.value"],
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.damage.parts.0.0"], .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.activation.cost"],
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.target.value"],
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.range.value"],
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.duration.value"],
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.uses.value"],
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.damage.parts.0.0"] {
+  text-align: right;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[name="data.save.dc"], .tidy5e.sheet.item .sheet-body .tab.details .form-group input[name="data.save.dc"], .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[name="data.save.dc"], .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[name="data.save.dc"] {
+  text-align: center;
+  flex: 0 0 30px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group button:hover,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group select:focus, .tidy5e.sheet.item .sheet-body .tab.details .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group button:hover,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group select:focus, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group button:hover,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group select:focus, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group input[type="text"]:hover,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group select:hover,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group button:hover,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group select:focus {
+  border: none;
+  box-shadow: 0 0 0 1px var(--primary-accent) inset;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label.prepared,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group.recharge label, .tidy5e.sheet.item .sheet-body .tab.details .form-group label.prepared,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group.recharge label, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group label.prepared,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group.recharge label, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.prepared,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group.recharge label {
+  flex: unset !important;
+  padding-right: 8px;
+  margin: 0 .5rem 0 0;
+  flex-direction: row-reverse;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label.prepared input,
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group.recharge label input, .tidy5e.sheet.item .sheet-body .tab.details .form-group label.prepared input,
+.tidy5e.sheet.item .sheet-body .tab.details .form-group.recharge label input, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group label.prepared input,
+.tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group.recharge label input, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.prepared input,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group.recharge label input {
+  width: 20px;
+  height: 20px;
+  top: initial;
+  margin: 0 4px 0 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group.recharge label, .tidy5e.sheet.item .sheet-body .tab.details .form-group.recharge label, .tidy5e.sheet.item .sheet-body .tab.dynamiceffects .form-group.recharge label, .tidy5e.sheet.item .sheet-body .tab.magic-items .form-group.recharge label {
+  margin-right: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .form-group label.checkbox {
+  flex: 0 0 calc(100% / 3 - 1px);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list {
+  flex: 1;
+  padding: 0 9px 8px 0;
+  margin: 0;
+  list-style: none;
+  overflow-y: scroll;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item-list {
+  padding: 0 0 0 8px;
+  margin: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header {
+  align-items: center;
+  margin: 8px 0 2px 0;
+  padding: 4px 0 2px 6px;
+  line-height: 12px;
+  font-size: 12px;
+  background: var(--faint-color);
+  box-shadow: 0 0 3px inset var(--light-color);
+  border-radius: 5px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header:first-child {
+  margin-top: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header h3 {
+  font-size: 12px;
+  line-height: 12px;
+  flex: 1 0 70px;
+  white-space: nowrap;
+  margin: 0;
+  font-weight: 600;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header div:not(.item-name) {
+  color: var(--tertiary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-source,
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-duration {
+  flex: 0 0 120px;
+  text-align: center;
+  justify-content: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-controls {
+  flex: 0 0 61px;
+  text-align: center;
+  justify-content: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .items-header .effect-controls i {
+  margin-right: 4px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control {
+  flex: 0 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--tertiary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control .fas.fa-trash {
+  color: var(--unsafe-accent);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control:hover {
+  color: var(--secondary-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .effect-control:hover .fas.fa-trash {
+  color: var(--unlinked-accent);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item {
+  background: var(--faintest-color);
+  margin: 2px 0;
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item div:not(.item-name) {
+  border-left: 1px solid var(--faint-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name {
+  align-items: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name h4 {
+  margin: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name .item-image {
+  flex: 0 0 24px;
+  height: 24px;
+  border-radius: 5px 0px 0px 5px;
+  margin-right: 4px;
+  border: none;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.effects .items-list .item .item-name .item-image i {
+  color: var(--tertiary-color);
+  display: none;
+  text-align: center;
+  font-size: 18px;
+}
+
+.tidy5e.sheet.item .sheet-body input[type="checkbox"] {
+  appearance: none;
+  background: none;
+  border: 1px solid var(--tertiary-color);
+  box-shadow: 0 0 2px var(--light-color) inset;
+  border-radius: 3px;
+  background-image: var(--check-default);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}
+
+.tidy5e.sheet.item .sheet-body label input[type="checkbox"] {
+  border: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.tidy5e.sheet.item .sheet-body input[type="checkbox"]:checked {
+  background: var(--secondary-color);
+  background-image: var(--check-checked);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tidy5e.sheet.item .sheet-body .checkbox input[type="checkbox"]:checked {
+  background-image: var(--check-checked);
+}
+
+.tidy5e.sheet.item .sheet-body label input[type="checkbox"]:checked {
+  background-color: transparent;
+}
+
+.tidy5e.sheet.item .damage-header {
+  margin: 8px 4px 4px 6px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--modesto);
+  font-size: 18px;
+}
+
+.tidy5e.sheet.item .damage-control {
+  margin: 0 .5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex: 0 0 1px;
+  white-space: nowrap;
+  color: var(--tertiary-color);
+  font-family: var(--signika);
+  font-size: 13px;
+}
+
+.tidy5e.sheet.item .damage-parts {
+  flex-direction: column;
+}
+
+.tidy5e.sheet.item .damage-parts li {
+  margin-top: 2px;
+  width: 100%;
+  border-bottom: 1px solid var(--faint-color);
+  padding-bottom: 2px;
+}
+
+.tidy5e.sheet.item .damage-parts li:first-child {
+  margin-top: 0;
+}
+
+.tidy5e.sheet.item .damage-parts li:last-child {
+  border: none;
+  padding: 0;
+}
+
+.tidy5e.sheet.item .damage-parts li input {
+  margin-right: 4px;
+}
+
+#actor-flags.app.dnd5e .window-content {
+  padding: 0;
+}
+
+#actor-flags.app.dnd5e .window-content form {
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+#actor-flags.app.dnd5e .notes {
+  margin: 0;
+}
+
+#actor-flags.app.dnd5e .form-header {
+  margin: 1rem 0;
+  border: none;
+}
+
+#actor-flags.app.dnd5e .form-group {
+  margin: 4px 0;
+  padding: .5rem;
+  background: var(--faintest-color);
+  border-radius: 5px;
+}
+
+#actor-flags.app.dnd5e .form-group label {
+  line-height: 1.5;
+  padding-top: 1px;
+}
+
+#actor-flags.app.dnd5e .form-group input[type="text"] {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#actor-flags.app.dnd5e .form-group input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .item-betterRolls input[type="text"],
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .item-betterRolls select {
+  height: 24px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .br5e-consume-box {
+  margin-top: 4px;
+  border: none;
+  border-top: 1px solid var(--light-color);
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .br5e-consume-box span {
+  text-align: left;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.item-betterRolls .br5e-consume-box span label {
+  padding-left: 0;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content,
+.tidy5e.sheet.actor .magic-items-feats-content {
+  padding: 4px 6px;
+  border: 1px solid yellow;
+  box-shadow: 0 0 10px 0 yellow inset;
+  border-radius: 5px;
+  margin: 8px 0 0 0;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .magic-items-head,
+.tidy5e.sheet.actor .magic-items-feats-content .magic-items-head {
+  margin: 0;
+  padding: 0 0 2px 0;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .magic-items-head h3,
+.tidy5e.sheet.actor .magic-items-feats-content .magic-items-head h3 {
+  font-size: 13px;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .spellbook-header div:not(.spell-slots):not(.spell-rechargeable),
+.tidy5e.sheet.actor .magic-items-feats-content .spellbook-header div:not(.spell-slots):not(.spell-rechargeable) {
+  color: var(--light-color);
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .item-name,
+.tidy5e.sheet.actor .magic-items-feats-content .item-name {
+  padding: 0 8px 0 0;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .spell-slots,
+.tidy5e.sheet.actor .magic-items-feats-content .spell-slots {
+  padding: 0 8px 0 0;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .spell-slots input:last-child,
+.tidy5e.sheet.actor .magic-items-feats-content .spell-slots input:last-child {
+  text-align: left;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .spell-level,
+.tidy5e.sheet.actor .magic-items-spells-content .spell-consumption,
+.tidy5e.sheet.actor .magic-items-spells-content .spell-upcast,
+.tidy5e.sheet.actor .magic-items-feats-content .spell-level,
+.tidy5e.sheet.actor .magic-items-feats-content .spell-consumption,
+.tidy5e.sheet.actor .magic-items-feats-content .spell-upcast {
+  flex: 0 0 70px;
+  text-align: center;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .spellbook-header .spell-level,
+.tidy5e.sheet.actor .magic-items-feats-content .spellbook-header .spell-level {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .spell-rechargeable,
+.tidy5e.sheet.actor .magic-items-feats-content .spell-rechargeable {
+  flex: 0 0 1px;
+  white-space: nowrap;
+  padding: 0 8px 0 0;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-level,
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-consumption,
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-upcast,
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-slots,
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-rechargeable,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-level,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-consumption,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-upcast,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-slots,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-rechargeable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: var(--secondary-color);
+  border-left: 1px solid var(--faint-color);
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-slots,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-slots {
+  border: none;
+  margin-left: 8px;
+  flex: 0 0 1px;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-slots input,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-slots input {
+  width: 20px;
+  height: 16px;
+  background: var(--faint-color);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-slots input:first-child,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-slots input:first-child {
+  text-align: right;
+}
+
+.tidy5e.sheet.actor .magic-items-spells-content .item-list .spell-rechargeable,
+.tidy5e.sheet.actor .magic-items-feats-content .item-list .spell-rechargeable {
+  border: none;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list {
+  display: block;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list .item {
+  width: 100%;
+  height: auto;
+  margin: 2px 0;
+  box-shadow: none;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list .item .item-name {
+  display: flex;
+  flex: 1;
+  cursor: default;
+  flex-wrap: nowrap;
+  font-size: 12px;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list .item .item-name.rollable:hover {
+  color: inherit;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list .item h4 {
+  display: flex;
+  align-items: center;
+  flex: initial;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list .item .rollable h4 {
+  cursor: pointer;
+}
+
+.tidy5e.sheet.actor .grid-layout .magic-items-spells-content .item-list .item .item-image {
+  height: 24px;
+  margin-right: 4px;
+  box-shadow: none;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items input[type=checkbox] {
+  margin: 2px 2px 2px 4px !important;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items input[name="flags.magicitems.equipped"] {
+  margin-right: 8px !important;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.checkbox {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .form-group label.checkbox:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .spell-drag-content {
+  height: 70px;
+  text-align: center;
+  color: #828180;
+  line-height: 5;
+  border: 2px #828180 dashed;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-item-sort .form-fields label {
+  flex: unset;
+  background: transparent;
+  align-items: center;
+  margin-left: 8px;
+  border: none;
+  box-shadow: none;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-item-sort .form-fields label input {
+  width: 16px;
+  position: relative;
+  top: -1px;
+  margin: 0 2px 0 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-item-sort .form-fields label input::after {
+  content: none;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content {
+  font-size: 13px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content select.magic-item-destroy-type,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content select.magic-item-destroy-check {
+  flex: 0.4;
+  margin-left: 4px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list {
+  clear: both;
+  padding: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item-list {
+  margin: 0;
+  padding: 0;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item {
+  padding: 0;
+  line-height: 26px;
+  height: 26px;
+  background: var(--faintest-color);
+  border: none;
+  border-radius: 5px;
+  margin: 2px 0;
+  overflow: hidden;
+  align-items: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item .item-name {
+  align-items: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item .item-image {
+  flex: 0 0 24px;
+  height: 24px;
+  background-size: cover;
+  margin-right: 4px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item h4 {
+  margin: 0;
+  line-height: 24px;
+  height: 24px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item select,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item input:not([type=checkbox]) {
+  line-height: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item .item-controls {
+  flex: 0 0 1px;
+  height: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .item .item-controls a {
+  padding: 0 8px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .inventory-header {
+  background: var(--faint-color);
+  box-shadow: 0 0 5px inset var(--light-color);
+  border-bottom: 1px solid var(--light-color);
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .inventory-header h3 {
+  margin: 0 -5px 0 0;
+  padding-left: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-level-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-upcast-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-consumption-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-cost-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-dc-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-consumption-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-effect-head {
+  font-size: 12px;
+  color: #7a7971;
+  text-align: center;
+  margin: 0 2px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-level,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-upcast,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-consumption,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-cost,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-dc,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-consumption,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-effect {
+  text-align: center;
+  margin: 0 2px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-level-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-level {
+  flex: 0 0 40px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-dc-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-cost-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-cost {
+  flex: 0 0 56px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-upcast-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-upcast {
+  flex: 0 0 80px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-consumption-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-consumption,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-consumption-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-consumption,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-effect-head,
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .feat-effect {
+  flex: 0 0 80px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-dc {
+  flex: 0 0 30px;
+}
+
+.tidy5e.sheet.item .sheet-body .tab.magic-items .magic-items-content .magic-item-list .spell-controls-head {
+  flex: 0 0 28px;
+}
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select,
+.tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus {
+  line-height: 14px;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 1px;
+  margin-right: 2px;
+  font-family: var(--signika);
+  height: 14px;
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:hover,
+.tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:focus {
+  background: var(--primary-accent);
+  color: var(--primary-font);
+  box-shadow: 0 0 0 1px var(--primary-accent);
+}
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:hover option,
+.tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select:focus option {
+  background: #fff;
+  padding: 0 4px;
+}
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-ability-select {
+  text-align-last: left;
+  -moz-text-align-last: left;
+  -ms-text-align-last: left;
+  appearance: none;
+  border: none;
+}
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus {
+  border: none;
+  box-shadow: 0 0 0 1px var(--light-color) inset;
+  margin-top: -2px;
+  padding-top: 2px;
+}
+
+.tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus:hover,
+.tidy5e.sheet.actor .skills-list > .skill > .skill-cust-bonus:focus {
+  box-shadow: 0 0 0 1px var(--primary-accent) inset;
+}
+
+.tidy5e.sheet.actor .custom-category {
+  margin-right: auto;
+  font-size: 12px;
+}
+
+.tidy5e.sheet.actor .custom-category:hover {
+  color: var(--primary-accent);
+}
+
+.tidy5e.sheet.actor .toggle-collapse {
+  width: 12px;
+  font-size: 18px;
+  line-height: 12px;
+  margin-right: 5px;
+  color: var(--default-light-color);
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tidy5e.sheet.actor .toggle-collapse:hover {
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor .toggle-collapse i {
+  position: relative;
+  top: -1px;
+}
+
+.tidy5e.sheet.actor .inv-plus-stuff {
+  align-items: center;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.tidy5e.sheet.actor .inv-plus-stuff a {
+  margin-right: 5px;
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tidy5e.sheet.actor .inv-plus-stuff a:hover {
+  color: var(--primary-font);
+}
+
+.tidy5e.sheet.actor .items-header:hover .inv-plus-stuff {
+  opacity: 1;
+}
+
+.tidy5e.sheet.actor .grid-layout .items-footer .item-control.remove-category,
+.tidy5e.sheet.actor .grid-layout .items-footer .item-control.remove-category:hover {
+  position: relative;
+  color: transparent;
+  z-index: 1;
+}
+
+.tidy5e.sheet.actor .grid-layout .items-footer .item-control.remove-category i,
+.tidy5e.sheet.actor .grid-layout .items-footer .item-control.remove-category:hover i {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--faint-color);
+}
+
+.tidy5e.sheet.actor .grid-layout .items-footer .item-control.remove-category:hover i,
+.tidy5e.sheet.actor .grid-layout .items-footer .item-control.remove-category:hover:hover i {
+  color: var(--tertiary-color);
+}

@@ -13,8 +13,7 @@ let position = 0;
 export class Tidy5eSheet extends ActorSheet5eCharacter {
 	
 	get template() {
-		if ( !game.user.isGM && this.actor.limited && game.settings.get("tidy5e-sheet", "useExpandedSheet")) return "modules/tidy5e-sheet/templates/actors/tidy5e-sheet-expanded.html";
-		if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/actors/tidy5e-sheet-ltd.html";
+		if ( !game.user.isGM && this.actor.limited && !game.settings.get("tidy5e-sheet", "useExpandedSheet") ) return "modules/tidy5e-sheet/templates/actors/tidy5e-sheet-ltd.html";
 		return "modules/tidy5e-sheet/templates/actors/tidy5e-sheet.html";
 	}
 	
@@ -297,15 +296,12 @@ async function editProtection(app, html, data) {
     itemContainer.each(function(){
 
 		  if($(this).children().length < 1){
-				if( $(this).hasClass('effects-list') && game.settings.get('tidy5e-sheet', 'gmOnlyEffectsEdit')){
-					$(this).append(`<span class="notice">This section is empty.</span>`);
+				if( $(this).hasClass('effects-list') && !game.user.isGM && game.settings.get('tidy5e-sheet', 'gmOnlyEffectsEdit')){
+					// $(this).append(`<span class="notice">This section is empty.</span>`);
+					$(this).prepend(`<span class="notice">Only your GM can edit this section.</span>`);
 				} else {
 					$(this).append(`<span class="notice">This section is empty. Unlock the sheet to edit.</span>`);
 				}
-			}
-
-			if($(this).hasClass('effects-list') && !game.user.isGM ){
-				$(this).prepend(`<span class="notice">Only your GM can edit this section.</span>`);
 			}
     });
   } else if (!game.user.isGM && actor.getFlag('tidy5e-sheet', 'allow-edit') && game.settings.get('tidy5e-sheet', 'gmOnlyEffectsEdit')){

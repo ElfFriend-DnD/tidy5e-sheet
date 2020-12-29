@@ -1,7 +1,7 @@
 export const tidy5eContextMenu = function (html) {
   // open context menu
 
-  html.find('.item-list .item').mousedown( function (event) {
+  html.find('.item-list .item.context-enabled').mousedown( function (event) {
     let target = event.target.class;
     switch (event.which) {
       case 2:

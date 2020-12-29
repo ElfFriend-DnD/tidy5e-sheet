@@ -23,7 +23,7 @@
               <a class="rest long-rest" title="{{ localize 'TIDY5E.RestL' }}"><i class="fas fa-hourglass-end"></i></a>
             </div>
           </div>
-          
+
           {{!-- Hit Points --}}
           <div class="portrait-hp" title="{{ localize 'DND5E.HitPoints' }}">
             <input class="hp-min" name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}"
@@ -35,12 +35,12 @@
         </div>
 
         <div class="portrait-hp-formula health" title="{{ localize 'DND5E.HPFormula' }}">
-          <span class="rollable" title="Reroll Hit Points"><i class="fas fa-dice-six"></i><!-- {{ localize "DND5E.HitPoints" }} --></span>
+          <span class="rollable" title="{{ localize 'DND5E.HitDiceRoll'}}><i class="fas fa-dice-six"></i></span>
           <div class="formula-edit">
             <input name="data.attributes.hp.formula" class="hpformula" type="text" placeholder="{{ localize 'DND5E.HPFormula' }}" value="{{data.attributes.hp.formula}}"  maxlength="12" title="{{ localize 'DND5E.HPFormula' }}: {{data.attributes.hp.formula}}">
           </div>
         </div>
-        
+
         {{!-- Temp Hit Points --}}
         <div class="portrait-temp">
           <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Temp' }}" title="+{{ localize 'DND5E.Temp' }}"
@@ -55,8 +55,8 @@
       <div class="character-details">
         <section class="general-information">
           <input data-input="{{actor._id}}-name" name="name" type="hidden" value="{{actor.name}}" placeholder="{{ localize 'DND5E.Name' }}" maxlength="40">
-          <i class="link-state fas fa-link" title="Token linked to Actor"></i>
-          <i class="link-state fas fa-unlink" title="Token not linked to Actor"></i>
+          <i class="link-state fas fa-link" title="{{ localize 'TIDY5E.TokenLinked' }}"></i>
+          <i class="link-state fas fa-unlink" title="{{ localize 'TIDY5E.TokenUnlinked' }}"></i>
           <h1 class="char-name" contenteditable="true" spellcheck="false" data-target="{{actor._id}}-name" data-placeholder="{{ localize 'DND5E.Name' }}" data-maxlength="40">{{actor.name}}</h1>
           <div class="level-information">
             <div class="xp">
@@ -118,8 +118,8 @@
             <li class="movement-special">
               <input type="text" class="speed" name="data.attributes.speed.special" value="{{data.attributes.speed.special}}" placeholder="{{ localize 'DND5E.SpeedSpecial' }}">
             </li>
-          </ul>          
-          <span class="legacy-switch" title="toggle between modern and legacy speed display"><i class="fas fa-toggle-on"></i><i class="fas fa-toggle-off"></i></span>
+          </ul>
+          <span class="legacy-switch" title="{{localize 'TIDY5E.ToggleMovement'}}"><i class="fas fa-toggle-on"></i><i class="fas fa-toggle-off"></i></span>
         </section>
 
         <section class="character-stats">
@@ -173,7 +173,9 @@
       <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
       <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
       <a class="item" data-tab="journal">{{ localize "TIDY5E.Journal" }}</a>
-      <div class="toggle-allow-edit"><span><i class="fas fa-lock" title="Enable Edit Mode"></i><i class="fas fa-lock-open" title="Disable Edit Mode"></i></span></div>
+      {{#if owner}}
+      <div class="toggle-allow-edit"><span><i class="fas fa-lock" title="{{localize 'TIDY5E.EnableEdit'}} - {{localize 'TIDY5E.EditHint'}}"></i><i class="fas fa-lock-open" title="{{localize 'TIDY5E.DisableEdit'}} - {{localize 'TIDY5E.EditHint'}}"></i></span></div>
+      {{/if}}
     </nav>
 
     {{!-- NPC Sheet Body --}}
@@ -190,10 +192,10 @@
               <h4 class="skill-name rollable">{{skill.label}}</h4>
               <span class="skill-ability">{{skill.ability}}</span>
               <span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
-              <span class="skill-passive" title="{{skill.label}} ({{ localize 'TIDY5E.SkillPassive' }})">({{skill.passive}})</span>
+              <span class="skill-passive" title="{{skill.label}} ({{ localize 'DND5E.Passive' }})">({{skill.passive}})</span>
             </li>
             {{/each}}
-            <li class="toggle-proficient" data-show-skills="{{ localize 'TIDY5E.Show' }}" data-hide-skills="{{ localize 'TIDY5E.Hide' }}"> {{ localize "TIDY5E.SkillsNotProficient" }}</li>
+            <li class="toggle-proficient" data-show-skills="{{ localize 'TIDY5E.Show' }}" data-hide-skills="{{ localize 'TIDY5E.Hide' }}"> {{ localize "DND5E.NotProficient" }}</li>
           </ul>
           {{!-- Traits --}}
           {{> "modules/tidy5e-sheet/templates/actors/parts/tidy5e-traits.html"}}
@@ -233,7 +235,7 @@
               </div>
             </div>
           </div>
-          
+
           {{> "modules/tidy5e-sheet/templates/actors/parts/tidy5e-features.html" sections=features}}
           {{> "modules/tidy5e-sheet/templates/actors/parts/tidy5e-npc-spellbook.html"}}
         </section>
@@ -248,26 +250,26 @@
       <div class="tab biography" data-group="primary" data-tab="biography">
         <div class="left-notes note-entries">
           <article>
-            <div class="section-titles biopage">{{ localize "TIDY5E.BioTraits" }}</div>
-            {{editor content=data.details.trait target="data.details.trait" button=true owner=owner editable=editable}}
-          </article>
-          <article>
-            <div class="section-titles biopage">{{ localize "TIDY5E.BioIdeals" }}</div>
-            {{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner editable=editable}}
-          </article>
-          <article>
-            <div class="section-titles biopage">{{ localize "TIDY5E.BioBonds" }}</div>
-            {{editor content=data.details.bond target="data.details.bond" button=true owner=owner editable=editable}}
-          </article>
-          <article>
-            <div class="section-titles biopage">{{ localize "TIDY5E.BioFlaws" }}</div>
-            {{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
-          </article>
+						<div class="section-titles biopage">{{ localize "DND5E.PersonalityTraits" }}</div>
+						{{editor content=data.details.trait target="data.details.trait" button=true owner=owner editable=editable}}
+					</article>
+					<article>
+						<div class="section-titles biopage">{{ localize "DND5E.Ideals" }}</div>
+						{{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner editable=editable}}
+					</article>
+					<article>
+						<div class="section-titles biopage">{{ localize "DND5E.Bonds" }}</div>
+						{{editor content=data.details.bond target="data.details.bond" button=true owner=owner editable=editable}}
+					</article>
+					<article>
+						<div class="section-titles biopage">{{ localize "DND5E.Flaws" }}</div>
+						{{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
+					</article>
         </div>
 
         <div class="right-notes note-entries">
           <article class="biography-notes">
-            <div class="section-titles">{{ localize "TIDY5E.BioBackground" }}</div>
+            <div class="section-titles">{{ localize "DND5E.Background" }}/{{ localize "DND5E.Biography" }}</div>
             {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
           </article>
         </div>

@@ -12,7 +12,7 @@
 	font-style: normal;
 }
 
-@import 'sheet-partials/_variables.scss';
+@import 'partials/_variables.scss';
 
 .tidy5e.sheet.actor {
 
@@ -51,7 +51,7 @@
     }
 	}
 
-	@import 'sheet-partials/_general.scss';
+	@import 'partials/_general.scss';
 
 	// ### HEADER ###
 	.tidy5e-header {
@@ -61,9 +61,9 @@
 		background: var(--header-background);
 	}
 
-	@import 'sheet-partials/_portrait.scss';
-	@import 'sheet-partials/_character-details.scss';
-	@import 'sheet-partials/_navigation.scss';
+	@import 'partials/_portrait.scss';
+	@import 'partials/_character-details.scss';
+	@import 'partials/_navigation.scss';
 
 	// #### SHEET BODY ####
 
@@ -73,13 +73,13 @@
     overflow: hidden;
 	}
 
-	@import 'sheet-partials/_tabs.scss';
-	@import 'sheet-partials/_main-tab.scss';
-	@import 'sheet-partials/_favorites.scss';
+	@import 'partials/_tabs.scss';
+	@import 'partials/_main-tab.scss';
+	@import 'partials/_favorites.scss';
 
 	// Inventorys
-	@import 'sheet-partials/_inventory.scss';
-	@import 'sheet-partials/_inventory-grid.scss';
+	@import 'partials/_inventory.scss';
+	@import 'partials/_inventory-grid.scss';
 
 	// Notes in Biography and Journal
 

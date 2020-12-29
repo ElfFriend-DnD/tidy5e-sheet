@@ -115,7 +115,9 @@
       <!-- <a class="item" data-tab="features">{{localize 'DND5E.Features'}}</a> -->
       <a class="item" data-tab="cargo">{{localize 'DND5E.VehicleCargoCrew'}}</a>
       <a class="item" data-tab="biography">{{localize 'DND5E.Description'}}</a>
-      <div class="toggle-allow-edit"><span><i class="fas fa-lock" title="Enable Edit Mode"></i><i class="fas fa-lock-open" title="Disable Edit Mode"></i></span></div>
+      {{#if owner}}
+      <div class="toggle-allow-edit"><span><i class="fas fa-lock" title="{{localize 'TIDY5E.EnableEdit'}} - {{localize 'TIDY5E.EditHint'}}"></i><i class="fas fa-lock-open" title="{{localize 'TIDY5E.DisableEdit'}} - {{localize 'TIDY5E.EditHint'}}"></i></span></div>
+      {{/if}}
     </nav>
 
     <section class="sheet-body">

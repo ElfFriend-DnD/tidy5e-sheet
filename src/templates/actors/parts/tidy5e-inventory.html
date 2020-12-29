@@ -27,7 +27,7 @@
 
     <ul class="item-list">
       {{#each section.items as |item iid|}}
-      <li class="item {{section.css}} {{#if (or item.flags.magicitems.enabled item.data.properties.mgc)}}magic-item{{/if}} {{item.attunement.cls}} {{#if item.data.equipped}}equipped{{/if}}" data-item-id="{{#if section.editableName}}{{iid}}{{else}}{{item._id}}{{/if}}">
+      <li class="item {{section.css}} {{#if ../../owner}}context-enabled{{/if}} {{#if (or item.flags.magicitems.enabled item.data.properties.mgc)}}magic-item{{/if}} {{item.attunement.cls}} {{#if item.data.equipped}}equipped{{/if}}" data-item-id="{{#if section.editableName}}{{iid}}{{else}}{{item._id}}{{/if}}">
         <div class="item-name rollable" >
           {{#if section.editableName}}
             <input type="text" value="{{item.name}}">
@@ -51,7 +51,7 @@
         
         {{~#if item.flags.favtab}} 
         {{~#if item.flags.favtab.isFavorite}} 
-           <div class="item-attuned" title="Favorite"><i class="fas fa-bookmark icon-fav"></i></div>
+           <div class="item-attuned" title="{{localize 'TIDY5E.isFav'}}"><i class="fas fa-bookmark icon-fav"></i></div>
         {{/if}}
         {{/if}}
 

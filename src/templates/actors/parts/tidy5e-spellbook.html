@@ -36,7 +36,7 @@
 
     <ul class="item-list">
       {{#each section.spells as |item i|}}
-      <li class="item {{~#if data.preparation.prepared}} prepared{{/if}}{{#if (eq data.preparation.mode 'always')}} alwaysPrepared{{/if}}" data-item-id="{{item._id}}" {{#if (eq data.preparation.mode 'always')}} title="{{item.toggleTitle}}"{{/if}}>
+      <li class="item {{#if ../../owner}}context-enabled{{/if}} {{~#if data.preparation.prepared}} prepared{{/if}}{{#if (eq data.preparation.mode 'always')}} alwaysPrepared{{/if}}" data-item-id="{{item._id}}" {{#if (eq data.preparation.mode 'always')}} title="{{item.toggleTitle}}"{{/if}}>
         <div class="item-name rollable">
           <div class="item-image" style="background-image: url({{item.img}})">
             <i class="fa fa-dice-d20"></i>
@@ -49,7 +49,7 @@
         
         {{~#if item.flags.favtab}} 
         {{~#if item.flags.favtab.isFavorite}} 
-           <div class="item-attuned" title="Favorite"><i class="fas fa-bookmark icon-fav"></i></div>
+           <div class="item-attuned" title="{{localize 'TIDY5E.isFav'}}"><i class="fas fa-bookmark icon-fav"></i></div>
         {{/if}}
         {{/if}}
 
